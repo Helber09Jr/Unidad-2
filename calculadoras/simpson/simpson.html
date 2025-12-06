@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método de Simpson - Calculadora ESIS</title>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../../css/estilos.css">
+<link rel="stylesheet" href="../../css/responsive.css">
+<link rel="stylesheet" href="simpson.css">
+</head>
+<body>
+
+<header class="encabezado-principal">
+  <div class="barra-superior">
+    <div class="contenedor-logo">
+      <img src="../../imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
+      <div class="info-universidad">
+        <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
+<h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+      </div>
+    </div>
+    <div class="contenedor-titulo">
+<h2 class="titulo-proyecto">MÉTODO DE SIMPSON</h2>
+    </div>
+  </div>
+
+  <nav class="menu-navegacion" id="menuNavegacion">
+    <ul>
+      <li><a href="../../index.html">Inicio</a></li>
+      <li><a href="../../menu.html">Calculadoras</a></li>
+      <li><a href="../../index.html#sobre">Sobre el Proyecto</a></li>
+      <li><a href="../../index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+<button class="boton-menu" id="botonMenu" aria-label="Abrir menú">&#9776;</button>
+</header>
+
+<div class="aplicacion">
+  <aside class="panel" aria-label="Controles">
+    <div class="seccion-panel">
+<div class="titulo-seccion">Función a integrar</div>
+      <label class="etiqueta-pequena">Seleccionar función predefinida</label>
+      <select id="selectFuncion">
+        <option value="">Personalizada</option>
+        <option value="x^2">x&#178;</option>
+        <option value="x^3">x&#179;</option>
+        <option value="sin(x)">sen(x)</option>
+        <option value="cos(x)">cos(x)</option>
+        <option value="exp(x)">e&#739;</option>
+        <option value="1/x">1/x</option>
+        <option value="sqrt(x)">&#8730;x</option>
+        <option value="ln(x)">ln(x)</option>
+      </select>
+
+      <label class="etiqueta-pequena" style="margin-top: 10px;">f(x) =</label>
+      <input id="inputFuncion" type="text" placeholder="Ej: x^2 + 2*x + 1">
+
+      <div class="calculadora-botones">
+        <button class="boton-calc" data-valor="x">x</button>
+        <button class="boton-calc" data-valor="^2">x&#178;</button>
+        <button class="boton-calc" data-valor="^3">x&#179;</button>
+        <button class="boton-calc" data-valor="^">x&#8319;</button>
+        <button class="boton-calc" data-valor="sqrt(">&#8730;</button>
+        <button class="boton-calc" data-valor="sin(">sen</button>
+        <button class="boton-calc" data-valor="cos(">cos</button>
+        <button class="boton-calc" data-valor="tan(">tan</button>
+        <button class="boton-calc" data-valor="exp(">e&#739;</button>
+        <button class="boton-calc" data-valor="ln(">ln</button>
+        <button class="boton-calc" data-valor="pi">&#960;</button>
+        <button class="boton-calc" data-valor="e">e</button>
+        <button class="boton-calc" data-valor="(">(</button>
+        <button class="boton-calc" data-valor=")">)</button>
+        <button class="boton-calc" data-valor="+">+</button>
+        <button class="boton-calc" data-valor="-">&#8722;</button>
+        <button class="boton-calc" data-valor="*">&#215;</button>
+        <button class="boton-calc" data-valor="/">&#247;</button>
+      </div>
+    </div>
+
+<div class="seccion-panel">
+      <div class="titulo-seccion">Límites de integración</div>
+      <label class="etiqueta-pequena">Límite inferior (a)</label>
+      <input id="inputA" type="number" step="any" value="0">
+
+      <label class="etiqueta-pequena" style="margin-top: 10px;">Límite superior (b)</label>
+      <input id="inputB" type="number" step="any" value="2">
+    </div>
+
+<div class="seccion-panel">
+      <div class="titulo-seccion">Configuración</div>
+
+      <label class="etiqueta-pequena">Método de Simpson</label>
+      <select id="selectMetodo">
+        <option value="1/3">Simpson 1/3 (n debe ser par)</option>
+        <option value="3/8">Simpson 3/8 (n múltiplo de 3)</option>
+      </select>
+
+      <label class="etiqueta-pequena" style="margin-top: 10px;">Número de subintervalos (n)</label>
+      <input id="inputN" type="number" min="2" max="1000" value="4">
+
+      <div id="advertenciaN" class="advertencia oculto"></div>
+    </div>
+
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Acciones</div>
+      <div class="controles">
+        <button class="boton-esis primario" id="btnCalcular">Calcular</button>
+        <button class="boton-esis secundario" id="btnEjemplo">Cargar Ejemplo</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="principal">
+    <section class="tarjeta-esis">
+      <div class="encabezado-tarjeta">
+<div>
+          <div class="titulo-tarjeta">Gráfico Interactivo</div>
+          <div class="texto-pequeno-gris">Función (azul), Parábolas (verde), Nodos (rojos), Áreas sombreadas</div>
+        </div>
+      </div>
+      <div id="graficoSimpson"></div>
+    </section>
+
+    <section id="tarjetaResultado" class="tarjeta-esis">
+      <div class="encabezado-tarjeta">
+<div>
+          <div class="titulo-tarjeta">Resultado</div>
+          <div class="texto-pequeno-gris">Aproximación de la integral definida</div>
+        </div>
+        <div class="acciones-inferior">
+          <button id="btnTogglePasos" class="boton-toggle">Abrir desarrollo</button>
+        </div>
+      </div>
+      <div id="contenedorResultado"></div>
+    </section>
+
+<section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
+      <div class="encabezado-tarjeta">
+        <div class="titulo-tarjeta">Desarrollo Completo</div>
+        <div class="texto-pequeno-gris">Fórmulas y cálculos paso a paso</div>
+      </div>
+      <div id="contenedorDesarrollo"></div>
+    </section>
+  </main>
+</div>
+
+<footer class="pie-pagina">
+  <div class="contenedor-pie">
+    <div class="info-izquierda">
+<p class="item-footer">
+        <strong>Curso:</strong> Modelado Computacional para Ingeniería
+      </p>
+      <p class="item-footer">
+        <strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca
+      </p>
+    </div>
+    <div class="info-derecha">
+<p class="item-footer">
+        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque
+      </p>
+    </div>
+  </div>
+  <div class="creditos">
+    <p>&copy; ESIS 2025 Universidad Nacional Jorge Basadre Grohmann - Tacna</p>
+  </div>
+</footer>
+
+<script src="simpson.js"></script>
+
+</body>
+</html>
