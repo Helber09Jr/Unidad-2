@@ -1,0 +1,335 @@
+.portada-principal {
+  position: relative;
+  width: 100%;
+  height: 88vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.imagen-portada {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.95);
+}
+
+.filtro-portada {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 40, 85, 0.75),
+    rgba(0, 64, 128, 0.6),
+    rgba(0, 40, 85, 0.8)
+  );
+  z-index: 1;
+}
+
+.contenido-portada {
+  position: relative;
+  z-index: 2;
+  max-width: 950px;
+  padding: 3rem;
+  opacity: 1;
+}
+
+.titulo-portada {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  letter-spacing: 2px;
+}
+
+.descripcion-portada {
+  font-size: 1.35rem;
+  color: #f5f5f5;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.botones-portada {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.boton-portada {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 1.1rem 2.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.boton-portada-primario {
+  background-color: var(--dorado);
+  color: var(--azul-oscuro);
+  border: 3px solid var(--dorado);
+  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.4);
+}
+
+.boton-portada-primario:hover {
+  background-color: #e5a503;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(255, 183, 3, 0.6);
+}
+
+.boton-portada-secundario {
+  background-color: transparent;
+  color: white;
+  border: 3px solid white;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.boton-portada-secundario:hover {
+  background-color: white;
+  color: var(--azul-oscuro);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
+
+.contenedor-seccion {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 80px 30px;
+}
+
+.titulo-seccion-grande {
+  font-size: 3rem;
+  color: var(--azul-oscuro);
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 900;
+  position: relative;
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.titulo-seccion-grande::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--dorado), #e5a503);
+  border-radius: 3px;
+}
+
+.seccion-sobre {
+  background: white;
+}
+
+.grid-sobre {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.tarjeta-info {
+  background: linear-gradient(135deg, white 0%, var(--gris-claro) 100%);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 3px solid transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-info:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 40, 85, 0.2);
+  border-color: var(--dorado);
+}
+
+.icono-info {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+.tarjeta-info h3 {
+  color: var(--azul-oscuro);
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.tarjeta-info p {
+  color: #495057;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.seccion-metodos {
+  background: var(--gris-claro);
+}
+
+.grid-metodos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 45px;
+  margin-top: 50px;
+}
+
+.grupo-metodos {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--dorado);
+  transition: all 0.4s ease;
+}
+
+.grupo-metodos:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 40, 85, 0.2);
+}
+
+.titulo-grupo {
+  color: var(--azul-oscuro);
+  font-size: 1.6em;
+  margin-bottom: 25px;
+  font-weight: 800;
+  padding-bottom: 15px;
+  border-bottom: 3px solid var(--dorado);
+}
+
+.lista-metodos {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-metodos li {
+  padding: 15px 0 15px 30px;
+  border-bottom: 2px solid var(--gris-medio);
+  color: #495057;
+  font-size: 1.1em;
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.lista-metodos li:last-child {
+  border-bottom: none;
+}
+
+.lista-metodos li:before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--dorado);
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.lista-metodos li:hover {
+  color: var(--azul-oscuro);
+  padding-left: 40px;
+  font-weight: 700;
+}
+
+.seccion-contacto {
+  background: white;
+}
+
+.info-curso {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.item-curso {
+  background: linear-gradient(135deg, white 0%, var(--gris-claro) 100%);
+  padding: 25px 30px;
+  border-radius: 12px;
+  border-left: 5px solid var(--dorado);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.item-curso:hover {
+  transform: translateX(8px);
+  box-shadow: 0 6px 25px rgba(0, 40, 85, 0.15);
+}
+
+.item-curso strong {
+  color: var(--azul-oscuro);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.15em;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .portada-principal {
+    height: 75vh;
+  }
+
+  .titulo-portada {
+    font-size: 2.2em;
+  }
+
+  .descripcion-portada {
+    font-size: 1.15em;
+  }
+
+  .boton-portada {
+    padding: 1rem 2rem;
+    font-size: 1em;
+  }
+
+  .titulo-seccion-grande {
+    font-size: 2.2em;
+  }
+
+  .contenedor-seccion {
+    padding: 60px 20px;
+  }
+
+  .grid-sobre,
+  .grid-metodos,
+  .info-curso {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .portada-principal {
+    height: 65vh;
+  }
+
+  .titulo-portada {
+    font-size: 1.8em;
+  }
+
+  .descripcion-portada {
+    font-size: 1em;
+  }
+
+  .botones-portada {
+    flex-direction: column;
+  }
+
+  .boton-portada {
+    width: 100%;
+  }
+
+  .contenedor-seccion {
+    padding: 50px 15px;
+  }
+}

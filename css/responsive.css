@@ -1,0 +1,118 @@
+/* --- ESTILOS RESPONSIVE --- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .barra-superior {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contenedor-titulo {
+    text-align: center;
+  }
+
+  .titulo-proyecto {
+    font-size: 1.3em;
+  }
+
+  .info-universidad h1 {
+    font-size: 1.1em;
+  }
+
+  .info-universidad h2 {
+    font-size: 0.9em;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .boton-menu {
+    display: block;
+  }
+
+  .menu-navegacion {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .menu-navegacion.menu-activo {
+    max-height: 500px;
+  }
+
+  .menu-navegacion ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-navegacion li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-navegacion a {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .contenedor-logo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .titulo-proyecto {
+    font-size: 1.1em;
+  }
+
+  .info-universidad h1 {
+    font-size: 1em;
+  }
+
+  .info-universidad h2 {
+    font-size: 0.85em;
+  }
+
+  .contenedor-pie {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-izquierda,
+  .info-derecha {
+    min-width: auto;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .barra-superior {
+    padding: 10px 15px;
+  }
+
+  .titulo-proyecto {
+    font-size: 1em;
+    letter-spacing: 0.5px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .info-universidad h1 {
+    font-size: 0.9em;
+  }
+
+  .info-universidad h2 {
+    font-size: 0.75em;
+  }
+
+  .item-footer {
+    font-size: 0.85em;
+  }
+
+  .creditos {
+    font-size: 0.8em;
+  }
+}

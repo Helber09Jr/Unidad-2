@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interpolación de Newton - Calculadora ESIS</title>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../../css/estilos.css">
+<link rel="stylesheet" href="../../css/responsive.css">
+<link rel="stylesheet" href="newton.css">
+</head>
+<body>
+
+<header class="encabezado-principal">
+  <div class="barra-superior">
+    <div class="contenedor-logo">
+      <img src="../../imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
+      <div class="info-universidad">
+        <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
+        <h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+      </div>
+    </div>
+    <div class="contenedor-titulo">
+      <h2 class="titulo-proyecto">INTERPOLACIÓN DE NEWTON</h2>
+    </div>
+  </div>
+
+  <nav class="menu-navegacion" id="menuNavegacion">
+    <ul>
+      <li><a href="../../index.html">Inicio</a></li>
+      <li><a href="../../menu.html">Calculadoras</a></li>
+      <li><a href="../../index.html#sobre">Sobre el Proyecto</a></li>
+      <li><a href="../../index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir menú">☰</button>
+</header>
+
+<div class="aplicacion">
+  <aside class="panel" aria-label="Controles">
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Experimento</div>
+      <label class="etiqueta-pequena">Título del experimento</label>
+      <input id="tituloExperimento" type="text" placeholder="Ej: Función cuadrática">
+    </div>
+
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Puntos de Datos</div>
+      <div class="texto-pequeno-gris">Ingrese valores numéricos. Use + para añadir fila, X para borrar.</div>
+
+      <div class="encabezados-tabla">
+        <div class="grupo-encabezado">
+          <label class="etiqueta-pequena">Eje X</label>
+          <input type="text" id="nombreEjeX" value="x" placeholder="Nombre eje X">
+        </div>
+        <div class="grupo-encabezado">
+          <label class="etiqueta-pequena">Eje Y</label>
+          <input type="text" id="nombreEjeY" value="y" placeholder="Nombre eje Y">
+        </div>
+      </div>
+
+      <div class="contenedor-tabla-responsivo">
+        <div class="contenedor-tabla">
+          <table id="tablaPuntos">
+            <thead>
+              <tr>
+                <th style="width:40px">i</th>
+                <th class="encabezado-x">x</th>
+                <th class="encabezado-y">y</th>
+                <th style="width:60px"></th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoTablaPuntos"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="controles-tabla">
+        <button class="boton-esis primario" id="btnAgregarFila">Agregar fila</button>
+        <button class="boton-esis secundario" id="btnLimpiarTodo">Limpiar todo</button>
+      </div>
+    </div>
+
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Evaluación</div>
+      <label class="etiqueta-pequena">Evaluar en x =</label>
+      <input id="inputXEvaluar" type="number" step="any" value="2.5">
+      <div class="controles" style="margin-top:10px">
+        <button class="boton-esis primario" id="btnCalcular">Calcular</button>
+        <button class="boton-esis secundario" id="btnEjemplo">Cargar Ejemplo</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="principal">
+    <section class="tarjeta-esis">
+      <div class="encabezado-tarjeta">
+        <div>
+          <div class="titulo-tarjeta">Gráfico Interactivo</div>
+          <div class="texto-pequeno-gris">Usa el mouse para hacer zoom. Puntos (rojo), Polinomio (azul), Evaluación (verde)</div>
+        </div>
+      </div>
+      <div id="graficoNewton"></div>
+    </section>
+
+    <section id="tarjetaResultado" class="tarjeta-esis">
+      <div class="encabezado-tarjeta">
+        <div>
+          <div class="titulo-tarjeta">Resultado</div>
+          <div class="texto-pequeno-gris">Valor interpolado</div>
+        </div>
+        <div class="acciones-inferior">
+          <button id="btnTogglePasos" class="boton-toggle">Abrir desarrollo</button>
+        </div>
+      </div>
+      <div id="contenedorResultado"></div>
+    </section>
+
+    <section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
+      <div class="encabezado-tarjeta">
+        <div class="titulo-tarjeta">Desarrollo Completo</div>
+        <div class="texto-pequeno-gris">Fórmulas y cálculos paso a paso</div>
+      </div>
+      <div id="contenedorDesarrollo"></div>
+    </section>
+  </main>
+</div>
+
+<footer class="pie-pagina">
+  <div class="contenedor-pie">
+    <div class="info-izquierda">
+      <p class="item-footer">
+        <strong>Curso:</strong> Modelado Computacional para Ingeniería
+      </p>
+      <p class="item-footer">
+        <strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca
+      </p>
+    </div>
+    <div class="info-derecha">
+      <p class="item-footer">
+        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque
+      </p>
+    </div>
+  </div>
+  <div class="creditos">
+    <p>&copy; ESIS 2025 Universidad Nacional Jorge Basadre Grohmann - Tacna</p>
+  </div>
+</footer>
+
+<script src="newton.js"></script>
+
+</body>
+</html>

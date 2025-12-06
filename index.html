@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadoras Numéricas - ESIS</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/estilos-home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<header class="encabezado-principal">
+  <div class="barra-superior">
+    <div class="contenedor-logo">
+      <img src="imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
+      <div class="info-universidad">
+        <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
+        <h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+      </div>
+    </div>
+    <div class="contenedor-titulo">
+      <h2 class="titulo-proyecto">CALCULADORAS NUMÉRICAS</h2>
+    </div>
+  </div>
+  
+  <nav class="menu-navegacion" id="menuNavegacion">
+    <ul>
+      <li><a href="index.html" class="enlace-activo">Inicio</a></li>
+      <li><a href="menu.html">Calculadoras</a></li>
+      <li><a href="#sobre">Sobre el Proyecto</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir menú">≡</button>
+</header>
+
+<section class="portada-principal" id="inicio">
+  <img src="imagenes/campus.jpg" alt="Campus universitario ESIS" class="imagen-portada">
+  <div class="filtro-portada"></div>
+  <div class="contenido-portada">
+    <h1 class="titulo-portada">Portal de Calculadoras Numéricas</h1>
+    <p class="descripcion-portada">
+      Explora una colección de calculadoras de métodos numéricos diseñadas  
+      para fortalecer el aprendizaje práctico del modelado computacional.
+    </p>
+    <div class="botones-portada">
+      <a href="menu.html" class="boton-portada boton-portada-primario">Explorar Calculadoras</a>
+      <a href="#sobre" class="boton-portada boton-portada-secundario">Conocer Más</a>
+    </div>
+  </div>
+</section>
+
+<section class="seccion-sobre" id="sobre">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Sobre el Proyecto</h2>
+    <div class="grid-sobre">
+      <div class="tarjeta-info">
+        <div class="icono-info">📐</div>
+        <h3>Métodos Numéricos</h3>
+        <p>Implementación de algoritmos fundamentales para interpolación, integración y ecuaciones diferenciales.</p>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono-info">📊</div>
+        <h3>Visualización Interactiva</h3>
+        <p>Gráficos dinámicos con Plotly que permiten explorar visualmente el comportamiento de cada método.</p>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono-info">🎓</div>
+        <h3>Educación Práctica</h3>
+        <p>Desarrollado para estudiantes de Modelado Computacional con ejemplos académicos reales.</p>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono-info">🔬</div>
+        <h3>Desarrollo Paso a Paso</h3>
+        <p>Cada calculadora muestra el proceso matemático completo con notación LaTeX profesional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion-metodos">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Métodos Disponibles</h2>
+    <div class="grid-metodos">
+      <div class="grupo-metodos">
+        <h3 class="titulo-grupo">Unidad I: Interpolación y Aproximación</h3>
+        <ul class="lista-metodos">
+          <li>Interpolación de Lagrange</li>
+          <li>Interpolación de Newton</li>
+          <li>Mínimos Cuadrados</li>
+        </ul>
+      </div>
+      <div class="grupo-metodos">
+        <h3 class="titulo-grupo">Unidad II: Integración y EDO</h3>
+        <ul class="lista-metodos">
+          <li>Método del Trapecio</li>
+          <li>Método de Simpson</li>
+          <li>Método de Euler</li>
+          <li>Método de Taylor</li>
+          <li>Runge-Kutta Orden 2 (RK2)</li>
+          <li>Runge-Kutta Orden 4 (RK4)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion-contacto" id="contacto">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Información del Curso</h2>
+    <div class="info-curso">
+      <div class="item-curso">
+        <strong>Asignatura:</strong> Modelado Computacional para Ingeniería
+      </div>
+      <div class="item-curso">
+        <strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca
+      </div>
+      <div class="item-curso">
+        <strong>Ciclo:</strong> 4to Ciclo Tarde
+      </div>
+      <div class="item-curso">
+        <strong>Institución:</strong> Universidad Nacional Jorge Basadre Grohmann
+      </div>
+      <div class="item-curso">
+        <strong>Facultad:</strong> Facultad de Ingeniería (FAIN)
+      </div>
+      <div class="item-curso">
+        <strong>Escuela:</strong> Ingeniería en Sistemas e Informática (ESIS)
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pie-pagina">
+  <div class="contenedor-pie">
+    <div class="info-izquierda">
+      <p class="item-footer">🎓 <strong>Curso:</strong> Modelado Computacional para Ingeniería</p>
+      <p class="item-footer"><strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca</p>
+    </div>
+    <div class="info-derecha">
+      <p class="item-footer"><strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque</p>
+    </div>
+  </div>
+  <div class="creditos">
+    <p>&copy; ESIS 2025 Universidad Nacional Jorge Basadre Grohmann - Tacna</p>
+  </div>
+</footer>
+
+<script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú de Calculadoras Numéricas - ESIS</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/estilos-menu.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<header class="encabezado-principal">
+  <div class="barra-superior">
+    <div class="contenedor-logo">
+      <img src="imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
+      <div class="info-universidad">
+        <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
+        <h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+      </div>
+    </div>
+    <div class="contenedor-titulo">
+      <h2 class="titulo-proyecto">CALCULADORAS NUMÉRICAS</h2>
+    </div>
+  </div>
+
+  <nav class="menu-navegacion" id="menuNavegacion">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html" class="enlace-activo">Calculadoras</a></li>
+      <li><a href="index.html#sobre">Sobre el Proyecto</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir menú">≡</button>
+</header>
+
+<main class="contenedor-menu-principal">
+  <div id="contenedorCalculadoras" class="menu-dinamico">
+    <div class="cargando">
+      <div class="spinner"></div>
+      <p>Cargando calculadoras...</p>
+    </div>
+  </div>
+</main>
+
+<footer class="pie-pagina">
+  <div class="contenedor-pie">
+    <div class="info-izquierda">
+      <p class="item-footer">🎓 <strong>Curso:</strong> Modelado Computacional para Ingeniería</p>
+      <p class="item-footer"><strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca</p>
+    </div>
+    <div class="info-derecha">
+      <p class="item-footer"><strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque</p>
+    </div>
+  </div>
+  <div class="creditos">
+    <p>&copy; ESIS 2025 Universidad Nacional Jorge Basadre Grohmann - Tacna</p>
+  </div>
+</footer>
+
+<script src="menu.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "unidad1": {
+    "titulo": "Unidad I: Interpolación y Aproximación",
+    "items": [
+      {
+        "nombre": "Interpolación de Lagrange",
+        "descripcion": "Construye un polinomio que pasa exactamente por todos los puntos dados y evalúa en un punto específico.",
+        "link": "calculadoras/lagrange/lagrange.html",
+        "imagen": "imagenes/calculadoras/lagrange.png"
+      },
+      {
+        "nombre": "Interpolación de Newton",
+        "descripcion": "Método incremental usando diferencias divididas. Permite agregar puntos sin recalcular todo el polinomio.",
+        "link": "calculadoras/newton/newton.html",
+        "imagen": "imagenes/calculadoras/newton.png"
+      },
+      {
+        "nombre": "Mínimos Cuadrados",
+        "descripcion": "Ajuste de modelos polinomiales que minimizan el error cuadrático medio entre datos observados y predichos.",
+        "link": "calculadoras/minimos-cuadrados/minimos-cuadrados.html",
+        "imagen": "imagenes/calculadoras/minimos-cuadrados.png"
+      }
+    ]
+  },
+  "unidad2": {
+    "titulo": "Unidad II: Integración Numérica y Ecuaciones Diferenciales",
+    "items": [
+      {
+        "nombre": "Método del Trapecio",
+        "descripcion": "Aproximación de integrales definidas mediante la suma de áreas de trapecios.",
+        "link": "calculadoras/trapecio/trapecio.html",
+        "imagen": "imagenes/calculadoras/trapecio.png",
+        "estado": "desarrollo"
+      },
+      {
+        "nombre": "Método de Simpson",
+        "descripcion": "Integración numérica de mayor precisión usando aproximaciones parabólicas.",
+        "link": "calculadoras/simpson/simpson.html",
+        "imagen": "imagenes/calculadoras/simpson.png",
+        "estado": "desarrollo"
+      },
+      {
+        "nombre": "Método de Euler",
+        "descripcion": "Solución numérica de ecuaciones diferenciales ordinarias mediante aproximación lineal.",
+        "link": "calculadoras/euler/euler.html",
+        "imagen": "imagenes/calculadoras/euler.png",
+        "estado": "desarrollo"
+      },
+      {
+        "nombre": "Método de Taylor",
+        "descripcion": "Resolución de EDO usando expansión en serie de Taylor para mayor precisión.",
+        "link": "calculadoras/taylor/taylor.html",
+        "imagen": "imagenes/calculadoras/taylor.png",
+        "estado": "desarrollo"
+      },
+      {
+        "nombre": "Runge-Kutta Orden 2 (RK2)",
+        "descripcion": "Método de segundo orden para resolver EDO con mejor precisión que Euler.",
+        "link": "calculadoras/runge-kutta-2/rk2.html",
+        "imagen": "imagenes/calculadoras/rk2.png",
+        "estado": "desarrollo"
+      },
+      {
+        "nombre": "Runge-Kutta Orden 4 (RK4)",
+        "descripcion": "Método de cuarto orden ampliamente usado por su excelente balance entre precisión y eficiencia.",
+        "link": "calculadoras/runge-kutta-4/rk4.html",
+        "imagen": "imagenes/calculadoras/rk4.png",
+        "estado": "desarrollo"
+      }
+    ]
+  }
+}
