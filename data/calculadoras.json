@@ -29,8 +29,7 @@
         "nombre": "Método del Trapecio",
         "descripcion": "Aproximación de integrales definidas mediante la suma de áreas de trapecios.",
         "link": "calculadoras/trapecio/trapecio.html",
-        "imagen": "imagenes/calculadoras/trapecio.png",
-        "estado": "desarrollo"
+        "imagen": "imagenes/calculadoras/trapecio.png"
       },
       {
         "nombre": "Método de Simpson",
