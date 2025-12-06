@@ -65,7 +65,7 @@ const App = {
       const expresionConX = expresionParseada.replace(/x/g, `(${x})`);
       return eval(expresionConX);
     } catch (error) {
-      throw new Error('Error al evaluar la funcion');
+      throw new Error('Error al evaluar la función');
     }
   },
 
@@ -76,25 +76,25 @@ const App = {
     const n = parseInt(document.getElementById('inputN').value);
 
     if (!funcion) {
-      throw new Error('Ingrese una funcion');
+      throw new Error('Ingrese una función');
     }
 
     if (isNaN(a) || isNaN(b)) {
-      throw new Error('Los limites de integracion deben ser numeros validos');
+      throw new Error('Los límites de integración deben ser números válidos');
     }
 
     if (a >= b) {
-      throw new Error('El limite inferior debe ser menor que el limite superior');
+      throw new Error('El límite inferior debe ser menor que el límite superior');
     }
 
     if (isNaN(n) || n < 1) {
-      throw new Error('El numero de subintervalos debe ser al menos 1');
+      throw new Error('El número de subintervalos debe ser al menos 1');
     }
 
     try {
       this.evaluarFuncion(funcion, a);
     } catch (error) {
-      throw new Error('La funcion ingresada no es valida');
+      throw new Error('La función ingresada no es válida');
     }
 
     return { funcion, a, b, n };
@@ -141,7 +141,7 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      alert(`Integral calculada correctamente: I H ${this.formatear(T)}`);
+      alert(`Integral calculada correctamente: I ≈ ${this.formatear(T)}`);
 
     } catch (error) {
       alert('Error: ' + error.message);
@@ -276,7 +276,7 @@ const App = {
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>Paso 5: Formula del trapecio</h4>
+        <h4>Paso 5: Fórmula del trapecio</h4>
         <p>$$T = \\frac{\\Delta x}{2} \\times S = \\frac{${this.formatear(r.deltaX)}}{2} \\times ${this.formatear(r.S)} = ${this.formatear(r.T)}$$</p>
       </div>
     `;
@@ -377,7 +377,7 @@ const App = {
 
     const layout = {
       title: {
-        text: `Metodo del Trapecio: + ${this.estado.funcion} dx`,
+        text: `Método del Trapecio: ∫ ${this.estado.funcion} dx`,
         font: { size: 18, color: '#1e293b', family: 'Inter, system-ui, sans-serif' }
       },
       xaxis: {
