@@ -69,7 +69,7 @@ const App = {
       const expresionConX = expresionParseada.replace(/x/g, `(${x})`);
       return eval(expresionConX);
     } catch (error) {
-      throw new Error('Error al evaluar la funciÛn');
+      throw new Error('Error al evaluar la funci√≥n');
     }
   },
 
@@ -86,7 +86,7 @@ const App = {
     if (metodo === '1/3' && n % 2 !== 0) {
       advertencia.classList.remove('oculto');
       advertencia.innerHTML = `
-        <p>† Para Simpson 1/3, n debe ser par. Sugerencias:</p>
+        <p>‚ö†Ô∏è Para Simpson 1/3, n debe ser par. Sugerencias:</p>
         <div class="botones-sugerencia">
           <button class="boton-ajuste" onclick="App.ajustarN(${n - 1})">n = ${n - 1}</button>
           <button class="boton-ajuste" onclick="App.ajustarN(${n + 1})">n = ${n + 1}</button>
@@ -97,7 +97,7 @@ const App = {
       const nAnterior = Math.floor(n / 3) * 3;
       const nSiguiente = Math.ceil(n / 3) * 3;
       advertencia.innerHTML = `
-        <p>† Para Simpson 3/8, n debe ser m˙ltiplo de 3. Sugerencias:</p>
+        <p>‚ö†Ô∏è Para Simpson 3/8, n debe ser m√∫ltiplo de 3. Sugerencias:</p>
         <div class="botones-sugerencia">
           ${nAnterior >= 3 ? `<button class="boton-ajuste" onclick="App.ajustarN(${nAnterior})">n = ${nAnterior}</button>` : ''}
           <button class="boton-ajuste" onclick="App.ajustarN(${nSiguiente})">n = ${nSiguiente}</button>
@@ -121,19 +121,19 @@ const App = {
     const metodo = document.getElementById('selectMetodo').value;
 
     if (!funcion) {
-      throw new Error('Ingrese una funciÛn');
+      throw new Error('Ingrese una funci√≥n');
     }
 
     if (isNaN(a) || isNaN(b)) {
-      throw new Error('Los lÌmites de integraciÛn deben ser n˙meros v·lidos');
+      throw new Error('Los l√≠mites de integraci√≥n deben ser n√∫meros v√°lidos');
     }
 
     if (a >= b) {
-      throw new Error('El lÌmite inferior debe ser menor que el lÌmite superior');
+      throw new Error('El l√≠mite inferior debe ser menor que el l√≠mite superior');
     }
 
     if (isNaN(n) || n < 2) {
-      throw new Error('El n˙mero de subintervalos debe ser al menos 2');
+      throw new Error('El n√∫mero de subintervalos debe ser al menos 2');
     }
 
     if (metodo === '1/3' && n % 2 !== 0) {
@@ -141,13 +141,13 @@ const App = {
     }
 
     if (metodo === '3/8' && n % 3 !== 0) {
-      throw new Error('Para Simpson 3/8, n debe ser m˙ltiplo de 3');
+      throw new Error('Para Simpson 3/8, n debe ser m√∫ltiplo de 3');
     }
 
     try {
       this.evaluarFuncion(funcion, a);
     } catch (error) {
-      throw new Error('La funciÛn ingresada no es v·lida');
+      throw new Error('La funci√≥n ingresada no es v√°lida');
     }
 
     return { funcion, a, b, n, metodo };
@@ -190,7 +190,7 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      alert(`Integral calculada correctamente: I H ${this.formatear(resultado.I)}`);
+      alert(`Integral calculada correctamente: I ‚âà ${this.formatear(resultado.I)}`);
 
     } catch (error) {
       alert('Error: ' + error.message);
@@ -363,7 +363,7 @@ const App = {
       }
 
       latex += `
-        <p><strong>Õndices impares (coeficiente 4):</strong></p>
+        <p><strong>√çndices impares (coeficiente 4):</strong></p>
         <p>$$4\\left(${sumatoriaImpares}\\right) = 4 \\times ${this.formatear(r.sumaImpares)} = ${this.formatear(4 * r.sumaImpares)}$$</p>
       `;
     }
@@ -376,7 +376,7 @@ const App = {
       }
 
       latex += `
-        <p><strong>Õndices pares (coeficiente 2):</strong></p>
+        <p><strong>√çndices pares (coeficiente 2):</strong></p>
         <p>$$2\\left(${sumatoriaPares}\\right) = 2 \\times ${this.formatear(r.sumaPares)} = ${this.formatear(2 * r.sumaPares)}$$</p>
       `;
     }
@@ -389,7 +389,7 @@ const App = {
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>Paso 5: FÛrmula de Simpson 1/3</h4>
+        <h4>Paso 5: F√≥rmula de Simpson 1/3</h4>
         <p>$$I = \\frac{h}{3} \\times S = \\frac{${this.formatear(r.h)}}{3} \\times ${this.formatear(r.S)} = ${this.formatear(r.I)}$$</p>
       </div>
     `;
@@ -494,7 +494,7 @@ const App = {
     }
 
     latex += `
-      <p><strong>Õndices no m˙ltiplos de 3 (coeficiente 3):</strong></p>
+      <p><strong>√çndices no m√∫ltiplos de 3 (coeficiente 3):</strong></p>
       <p>$$3\\left(${sumatoria3}\\right) = 3 \\times ${this.formatear(r.suma3coef)} = ${this.formatear(3 * r.suma3coef)}$$</p>
     `;
 
@@ -506,7 +506,7 @@ const App = {
       }
 
       latex += `
-        <p><strong>Õndices m˙ltiplos de 3 (coeficiente 2):</strong></p>
+        <p><strong>√çndices m√∫ltiplos de 3 (coeficiente 2):</strong></p>
         <p>$$2\\left(${sumatoria2}\\right) = 2 \\times ${this.formatear(r.suma2coef)} = ${this.formatear(2 * r.suma2coef)}$$</p>
       `;
     }
@@ -519,7 +519,7 @@ const App = {
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>Paso 5: FÛrmula de Simpson 3/8</h4>
+        <h4>Paso 5: F√≥rmula de Simpson 3/8</h4>
         <p>$$I = \\frac{3h}{8} \\times S = \\frac{3 \\times ${this.formatear(r.h)}}{8} \\times ${this.formatear(r.S)} = ${this.formatear(r.I)}$$</p>
       </div>
     `;
@@ -601,7 +601,7 @@ const App = {
           x: parabola.map(p => p.x),
           y: parabola.map(p => p.y),
           mode: 'lines',
-          name: i === 0 ? 'Par·bolas' : '',
+          name: i === 0 ? 'Par√°bolas' : '',
           showlegend: i === 0,
           line: { color: '#10b981', width: 2 }
         });
@@ -635,7 +635,7 @@ const App = {
           x: cubica.map(p => p.x),
           y: cubica.map(p => p.y),
           mode: 'lines',
-          name: i === 0 ? 'Par·bolas c˙bicas' : '',
+          name: i === 0 ? 'Par√°bolas c√∫bicas' : '',
           showlegend: i === 0,
           line: { color: '#10b981', width: 2 }
         });
@@ -658,7 +658,7 @@ const App = {
 
     const layout = {
       title: {
-        text: `MÈtodo de Simpson ${this.estado.metodo}: + ${this.estado.funcion} dx`,
+        text: `M√©todo de Simpson ${this.estado.metodo}: ‚à´ ${this.estado.funcion} dx`,
         font: { size: 18, color: '#1e293b', family: 'Inter, system-ui, sans-serif' }
       },
       xaxis: {
