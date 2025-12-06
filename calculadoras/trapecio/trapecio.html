@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Método del Trapecio - Calculadora ESIS</title>
+<title>MÃ©todo del Trapecio - Calculadora ESIS</title>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,11 +20,11 @@
       <img src="../../imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
       <div class="info-universidad">
         <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
-        <h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+        <h2>Escuela Profesional de IngenierÃ­a en Sistemas e InformÃ¡tica</h2>
       </div>
     </div>
     <div class="contenedor-titulo">
-      <h2 class="titulo-proyecto">MÉTODO DEL TRAPECIO</h2>
+      <h2 class="titulo-proyecto">MÃ‰TODO DEL TRAPECIO</h2>
     </div>
   </div>
 
@@ -37,23 +37,23 @@
     </ul>
   </nav>
 
-  <button class="boton-menu" id="botonMenu" aria-label="Abrir menú">0</button>
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir menÃº">&#9776;</button>
 </header>
 
 <div class="aplicacion">
   <aside class="panel" aria-label="Controles">
     <div class="seccion-panel">
-      <div class="titulo-seccion">Función a integrar</div>
-      <label class="etiqueta-pequena">Seleccionar función predefinida</label>
+      <div class="titulo-seccion">FunciÃ³n a integrar</div>
+      <label class="etiqueta-pequena">Seleccionar funciÃ³n predefinida</label>
       <select id="selectFuncion">
         <option value="">Personalizada</option>
-        <option value="x^2">x²</option>
-        <option value="x^3">x³</option>
+        <option value="x^2">x&#178;</option>
+        <option value="x^3">x&#179;</option>
         <option value="sin(x)">sen(x)</option>
         <option value="cos(x)">cos(x)</option>
-        <option value="exp(x)">eã</option>
+        <option value="exp(x)">e&#739;</option>
         <option value="1/x">1/x</option>
-        <option value="sqrt(x)">x</option>
+        <option value="sqrt(x)">&#8730;x</option>
         <option value="ln(x)">ln(x)</option>
       </select>
 
@@ -62,38 +62,38 @@
 
       <div class="calculadora-botones">
         <button class="boton-calc" data-valor="x">x</button>
-        <button class="boton-calc" data-valor="^2">x²</button>
-        <button class="boton-calc" data-valor="^3">x³</button>
-        <button class="boton-calc" data-valor="^">x</button>
-        <button class="boton-calc" data-valor="sqrt("></button>
+        <button class="boton-calc" data-valor="^2">x&#178;</button>
+        <button class="boton-calc" data-valor="^3">x&#179;</button>
+        <button class="boton-calc" data-valor="^">x&#8319;</button>
+        <button class="boton-calc" data-valor="sqrt(">&#8730;</button>
         <button class="boton-calc" data-valor="sin(">sen</button>
         <button class="boton-calc" data-valor="cos(">cos</button>
         <button class="boton-calc" data-valor="tan(">tan</button>
-        <button class="boton-calc" data-valor="exp(">eã</button>
+        <button class="boton-calc" data-valor="exp(">e&#739;</button>
         <button class="boton-calc" data-valor="ln(">ln</button>
-        <button class="boton-calc" data-valor="pi">À</button>
+        <button class="boton-calc" data-valor="pi">&#960;</button>
         <button class="boton-calc" data-valor="e">e</button>
         <button class="boton-calc" data-valor="(">(</button>
         <button class="boton-calc" data-valor=")">)</button>
         <button class="boton-calc" data-valor="+">+</button>
-        <button class="boton-calc" data-valor="-"></button>
-        <button class="boton-calc" data-valor="*">×</button>
-        <button class="boton-calc" data-valor="/">÷</button>
+        <button class="boton-calc" data-valor="-">&#8722;</button>
+        <button class="boton-calc" data-valor="*">&#215;</button>
+        <button class="boton-calc" data-valor="/">&#247;</button>
       </div>
     </div>
 
     <div class="seccion-panel">
-      <div class="titulo-seccion">Límites de integración</div>
-      <label class="etiqueta-pequena">Límite inferior (a)</label>
+      <div class="titulo-seccion">LÃ­mites de integraciÃ³n</div>
+      <label class="etiqueta-pequena">LÃ­mite inferior (a)</label>
       <input id="inputA" type="number" step="any" value="0">
 
-      <label class="etiqueta-pequena" style="margin-top: 10px;">Límite superior (b)</label>
+      <label class="etiqueta-pequena" style="margin-top: 10px;">LÃ­mite superior (b)</label>
       <input id="inputB" type="number" step="any" value="2">
     </div>
 
     <div class="seccion-panel">
-      <div class="titulo-seccion">Configuración</div>
-      <label class="etiqueta-pequena">Número de subintervalos (n)</label>
+      <div class="titulo-seccion">ConfiguraciÃ³n</div>
+      <label class="etiqueta-pequena">NÃºmero de subintervalos (n)</label>
       <input id="inputN" type="number" min="1" max="1000" value="4">
     </div>
 
@@ -110,8 +110,8 @@
     <section class="tarjeta-esis">
       <div class="encabezado-tarjeta">
         <div>
-          <div class="titulo-tarjeta">Gráfico Interactivo</div>
-          <div class="texto-pequeno-gris">Función (azul), Trapecios (sombreado), Nodos (rojos)</div>
+          <div class="titulo-tarjeta">GrÃ¡fico Interactivo</div>
+          <div class="texto-pequeno-gris">FunciÃ³n (azul), Trapecios (sombreado), Nodos (rojos)</div>
         </div>
       </div>
       <div id="graficoTrapecio"></div>
@@ -121,7 +121,7 @@
       <div class="encabezado-tarjeta">
         <div>
           <div class="titulo-tarjeta">Resultado</div>
-          <div class="texto-pequeno-gris">Aproximación de la integral definida</div>
+          <div class="texto-pequeno-gris">AproximaciÃ³n de la integral definida</div>
         </div>
         <div class="acciones-inferior">
           <button id="btnTogglePasos" class="boton-toggle">Abrir desarrollo</button>
@@ -133,7 +133,7 @@
     <section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
       <div class="encabezado-tarjeta">
         <div class="titulo-tarjeta">Desarrollo Completo</div>
-        <div class="texto-pequeno-gris">Fórmulas y cálculos paso a paso</div>
+        <div class="texto-pequeno-gris">FÃ³rmulas y cÃ¡lculos paso a paso</div>
       </div>
       <div id="contenedorDesarrollo"></div>
     </section>
@@ -144,7 +144,7 @@
   <div class="contenedor-pie">
     <div class="info-izquierda">
       <p class="item-footer">
-        <strong>Curso:</strong> Modelado Computacional para Ingeniería
+        <strong>Curso:</strong> Modelado Computacional para IngenierÃ­a
       </p>
       <p class="item-footer">
         <strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca
@@ -152,7 +152,7 @@
     </div>
     <div class="info-derecha">
       <p class="item-footer">
-        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque
+        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar FabiÃ¡n Choque
       </p>
     </div>
   </div>
