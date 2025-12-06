@@ -31,12 +31,11 @@
         "link": "calculadoras/trapecio/trapecio.html",
         "imagen": "imagenes/calculadoras/trapecio.png"
       },
-      {
+{
         "nombre": "Método de Simpson",
         "descripcion": "Integración numérica de mayor precisión usando aproximaciones parabólicas.",
         "link": "calculadoras/simpson/simpson.html",
-        "imagen": "imagenes/calculadoras/simpson.png",
-        "estado": "desarrollo"
+        "imagen": "imagenes/calculadoras/simpson.png"
       },
       {
         "nombre": "Método de Euler",
