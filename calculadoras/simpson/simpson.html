@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Método de Simpson - Calculadora ESIS</title>
+<title>M&#233;todo de Simpson - Calculadora ESIS</title>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,11 +20,11 @@
       <img src="../../imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
       <div class="info-universidad">
         <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
-<h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+        <h2>Escuela Profesional de Ingenier&#237;a en Sistemas e Inform&#225;tica</h2>
       </div>
     </div>
     <div class="contenedor-titulo">
-<h2 class="titulo-proyecto">MÉTODO DE SIMPSON</h2>
+      <h2 class="titulo-proyecto">M&#201;TODO DE SIMPSON</h2>
     </div>
   </div>
 
@@ -37,14 +37,14 @@
     </ul>
   </nav>
 
-<button class="boton-menu" id="botonMenu" aria-label="Abrir menú">&#9776;</button>
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir men&#237;">&#9776;</button>
 </header>
 
 <div class="aplicacion">
   <aside class="panel" aria-label="Controles">
     <div class="seccion-panel">
-<div class="titulo-seccion">Función a integrar</div>
-      <label class="etiqueta-pequena">Seleccionar función predefinida</label>
+      <div class="titulo-seccion">Funci&#243;n a integrar</div>
+      <label class="etiqueta-pequena">Seleccionar funci&#243;n predefinida</label>
       <select id="selectFuncion">
         <option value="">Personalizada</option>
         <option value="x^2">x&#178;</option>
@@ -82,25 +82,25 @@
       </div>
     </div>
 
-<div class="seccion-panel">
-      <div class="titulo-seccion">Límites de integración</div>
-      <label class="etiqueta-pequena">Límite inferior (a)</label>
+    <div class="seccion-panel">
+      <div class="titulo-seccion">L&#237;mites de integraci&#243;n</div>
+      <label class="etiqueta-pequena">L&#237;mite inferior (a)</label>
       <input id="inputA" type="number" step="any" value="0">
 
-      <label class="etiqueta-pequena" style="margin-top: 10px;">Límite superior (b)</label>
+      <label class="etiqueta-pequena" style="margin-top: 10px;">L&#237;mite superior (b)</label>
       <input id="inputB" type="number" step="any" value="2">
     </div>
 
-<div class="seccion-panel">
-      <div class="titulo-seccion">Configuración</div>
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Configuraci&#243;n</div>
 
-      <label class="etiqueta-pequena">Método de Simpson</label>
+      <label class="etiqueta-pequena">M&#233;todo de Simpson</label>
       <select id="selectMetodo">
         <option value="1/3">Simpson 1/3 (n debe ser par)</option>
-        <option value="3/8">Simpson 3/8 (n múltiplo de 3)</option>
+        <option value="3/8">Simpson 3/8 (n m&#250;ltiplo de 3)</option>
       </select>
 
-      <label class="etiqueta-pequena" style="margin-top: 10px;">Número de subintervalos (n)</label>
+      <label class="etiqueta-pequena" style="margin-top: 10px;">N&#250;mero de subintervalos (n)</label>
       <input id="inputN" type="number" min="2" max="1000" value="4">
 
       <div id="advertenciaN" class="advertencia oculto"></div>
@@ -118,9 +118,9 @@
   <main class="principal">
     <section class="tarjeta-esis">
       <div class="encabezado-tarjeta">
-<div>
-          <div class="titulo-tarjeta">Gráfico Interactivo</div>
-          <div class="texto-pequeno-gris">Función (azul), Parábolas (verde), Nodos (rojos), Áreas sombreadas</div>
+        <div>
+          <div class="titulo-tarjeta">Gr&#225;fico Interactivo</div>
+          <div class="texto-pequeno-gris">Funci&#243;n (azul), Par&#225;bolas (verde), Nodos (rojos), &#193;reas sombreadas</div>
         </div>
       </div>
       <div id="graficoSimpson"></div>
@@ -128,9 +128,9 @@
 
     <section id="tarjetaResultado" class="tarjeta-esis">
       <div class="encabezado-tarjeta">
-<div>
+        <div>
           <div class="titulo-tarjeta">Resultado</div>
-          <div class="texto-pequeno-gris">Aproximación de la integral definida</div>
+          <div class="texto-pequeno-gris">Aproximaci&#243;n de la integral definida</div>
         </div>
         <div class="acciones-inferior">
           <button id="btnTogglePasos" class="boton-toggle">Abrir desarrollo</button>
@@ -139,10 +139,10 @@
       <div id="contenedorResultado"></div>
     </section>
 
-<section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
+    <section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
       <div class="encabezado-tarjeta">
         <div class="titulo-tarjeta">Desarrollo Completo</div>
-        <div class="texto-pequeno-gris">Fórmulas y cálculos paso a paso</div>
+        <div class="texto-pequeno-gris">F&#243;rmulas y c&#225;lculos paso a paso</div>
       </div>
       <div id="contenedorDesarrollo"></div>
     </section>
@@ -152,16 +152,16 @@
 <footer class="pie-pagina">
   <div class="contenedor-pie">
     <div class="info-izquierda">
-<p class="item-footer">
-        <strong>Curso:</strong> Modelado Computacional para Ingeniería
+      <p class="item-footer">
+        <strong>Curso:</strong> Modelado Computacional para Ingenier&#237;a
       </p>
       <p class="item-footer">
         <strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca
       </p>
     </div>
     <div class="info-derecha">
-<p class="item-footer">
-        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque
+      <p class="item-footer">
+        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabi&#225;n Choque
       </p>
     </div>
   </div>
