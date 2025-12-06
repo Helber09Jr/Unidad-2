@@ -280,7 +280,8 @@ td input.campo-invalido {
   gap: 8px;
 }
 
-#graficoLagrange {
+#graficoLagrange,
+#graficoMinimos {
   height: 500px;
   width: 100%;
   border-radius: 10px;
@@ -408,8 +409,8 @@ td input.campo-invalido {
 }
 
 .paso-desarrollo p {
-  margin: 5px 0;
-  line-height: 1.5;
+  margin: 3px 0;
+  line-height: 1.4;
 }
 
 .linea-calculo {
@@ -545,7 +546,8 @@ td input.campo-invalido {
     padding: 15px;
   }
 
-  #graficoLagrange {
+  #graficoLagrange,
+  #graficoMinimos {
     height: 400px;
   }
 

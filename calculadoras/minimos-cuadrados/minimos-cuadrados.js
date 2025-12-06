@@ -307,47 +307,47 @@ const App = {
     const r = this.estado.resultado;
     if (!r) return;
 
-    let polinomio = 'P(x) = ';
+    let polinomioLatex = '';
     for (let i = 0; i < r.coeficientes.length; i++) {
-      if (i > 0 && r.coeficientes[i] >= 0) polinomio += ' + ';
-      if (i > 0 && r.coeficientes[i] < 0) polinomio += ' ';
+      if (i > 0 && r.coeficientes[i] >= 0) polinomioLatex += ' + ';
+      if (i > 0 && r.coeficientes[i] < 0) polinomioLatex += ' ';
 
       if (i === 0) {
-        polinomio += this.formatear(r.coeficientes[i]);
+        polinomioLatex += this.formatear(r.coeficientes[i]);
       } else if (i === 1) {
-        polinomio += `${this.formatear(r.coeficientes[i])}x`;
+        polinomioLatex += `${this.formatear(r.coeficientes[i])}x`;
       } else {
-        polinomio += `${this.formatear(r.coeficientes[i])}x^${i}`;
+        polinomioLatex += `${this.formatear(r.coeficientes[i])}x^{${i}}`;
       }
     }
 
-    let html = `
-      <div class="resultado-principal">
-        <p class="etiqueta-resultado">Coeficientes del polinomio:</p>
-    `;
-
+    let coeficientesLatex = '';
     r.coeficientes.forEach((coef, i) => {
-      html += `<p class="coeficiente-item">a<sub>${i}</sub> = ${this.formatear(coef)}</p>`;
+      coeficientesLatex += `$$a_{${i}} = ${this.formatear(coef)}$$`;
     });
 
-    html += `
-        <p style="margin-top: 12px; padding-top: 12px; border-top: 2px solid #e5e7eb;">
-          <strong>${polinomio}</strong>
-        </p>
+    let html = `
+      <div class="resultado-principal">
+        ${coeficientesLatex}
+        <div style="margin-top: 10px; padding-top: 10px; border-top: 2px solid #e5e7eb;">
+          $$P(x) = ${polinomioLatex}$$
+        </div>
       </div>
-
       <div class="resultado-evaluacion">
         <p class="etiqueta-resultado">Evaluacion en x = ${this.formatear(r.xEval)}:</p>
-        <p class="valor-resultado">P(${this.formatear(r.xEval)}) = ${this.formatear(r.resultado)}</p>
+        <p class="valor-resultado">$$P(${this.formatear(r.xEval)}) = ${this.formatear(r.resultado)}$$</p>
       </div>
-
       <div class="resultado-error">
         <p class="etiqueta-resultado">Error cuadratico total:</p>
-        <p class="valor-error">E = ${this.formatear(r.errorCuadratico)}</p>
+        <p class="valor-error">$$E = ${this.formatear(r.errorCuadratico)}$$</p>
       </div>
     `;
 
     document.getElementById('contenedorResultado').innerHTML = html;
+
+    if (window.MathJax) {
+      MathJax.typesetPromise();
+    }
   },
 
   calcularSumas(puntos, grado) {
@@ -375,68 +375,43 @@ const App = {
 
     const nombreX = document.getElementById('nombreEjeX').value || 'x';
     const nombreY = document.getElementById('nombreEjeY').value || 'y';
-
     const sumas = this.calcularSumas(r.puntos, r.grado);
-
-    const numerosPalabra = ['cero', 'un', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho'];
-    const numeroPalabra = sumas.n < numerosPalabra.length ? numerosPalabra[sumas.n] : sumas.n;
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>Paso 1: Calcular las sumas necesarias</h4>
-        <p>n = ${sumas.n} (${numeroPalabra} punto${sumas.n !== 1 ? 's' : ''})</p>
+        <h4>Paso 1: Sumas necesarias</h4>
+        <p>$$n = ${sumas.n}$$</p>
     `;
 
     for (let k = 1; k <= r.grado * 2; k++) {
-      let calculo = '';
-      r.puntos.forEach((p, i) => {
-        if (i > 0) calculo += ' + ';
-        calculo += `${this.formatear(p.x)}`;
-        if (k > 1) calculo += `<sup>${k}</sup>`;
-      });
+      let sumandos = r.puntos.map(p => {
+        const val = Math.pow(p.x, k);
+        return k === 1 ? this.formatear(p.x) : `${this.formatear(p.x)}^{${k}}`;
+      }).join(' + ');
 
-      let valores = '';
-      r.puntos.forEach((p, i) => {
-        if (i > 0) valores += ' + ';
-        valores += this.formatear(Math.pow(p.x, k));
-      });
+      let resultado = r.puntos.reduce((sum, p) => sum + Math.pow(p.x, k), 0);
 
-      latex += `<p class="linea-calculo">∑ ${nombreX}<sub>i</sub>${k > 1 ? `<sup>${k}</sup>` : ''} = ${calculo} = ${valores} = ${this.formatear(sumas[`x${k}`])}</p>`;
+      latex += `<p>$$\\sum ${nombreX}_i${k > 1 ? `^{${k}}` : ''} = ${sumandos} = ${this.formatear(resultado)}$$</p>`;
     }
 
-    let calculoY = '';
-    r.puntos.forEach((p, i) => {
-      if (i > 0) calculoY += ' + ';
-      calculoY += this.formatear(p.y);
-    });
-    latex += `<p class="linea-calculo">∑ ${nombreY}<sub>i</sub> = ${calculoY} = ${this.formatear(sumas.y)}</p>`;
+    let sumandosY = r.puntos.map(p => this.formatear(p.y)).join(' + ');
+    latex += `<p>$$\\sum ${nombreY}_i = ${sumandosY} = ${this.formatear(sumas.y)}$$</p>`;
 
     for (let k = 1; k <= r.grado; k++) {
-      let calculo = '';
-      r.puntos.forEach((p, i) => {
-        if (i > 0) calculo += ' + ';
-        calculo += `${this.formatear(p.x)}${k > 1 ? `<sup>${k}</sup>` : ''}·${this.formatear(p.y)}`;
-      });
+      let sumandos = r.puntos.map(p => {
+        const xPart = k === 1 ? this.formatear(p.x) : `${this.formatear(p.x)}^{${k}}`;
+        return `${xPart} \\cdot ${this.formatear(p.y)}`;
+      }).join(' + ');
 
-      let valores = '';
-      r.puntos.forEach((p, i) => {
-        if (i > 0) valores += ' + ';
-        valores += this.formatear(Math.pow(p.x, k) * p.y);
-      });
-
-      latex += `<p class="linea-calculo">∑ ${nombreX}<sub>i</sub>${k > 1 ? `<sup>${k}</sup>` : ''}${nombreY}<sub>i</sub> = ${calculo} = ${valores} = ${this.formatear(sumas[`x${k}y`])}</p>`;
+      let resultado = r.puntos.reduce((sum, p) => sum + Math.pow(p.x, k) * p.y, 0);
+      latex += `<p>$$\\sum ${nombreX}_i${k > 1 ? `^{${k}}` : ''}${nombreY}_i = ${sumandos} = ${this.formatear(resultado)}$$</p>`;
     }
 
-    latex += `
-        <p style="margin-top: 8px; font-style: italic; color: #64748b;">(Guarda estos numeros — ahora los sustituimos en las ecuaciones normales.)</p>
-      </div>
-    `;
+    latex += `</div>`;
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>Paso 2: Escribir las ecuaciones normales (grado ${r.grado})</h4>
-        <p>Las ecuaciones normales son (recordatorio):</p>
-        <div style="margin: 12px 0; padding: 12px; background: #f8fafc; border-radius: 6px;">
+        <h4>Paso 2: Ecuaciones normales</h4>
     `;
 
     for (let i = 0; i <= r.grado; i++) {
@@ -447,19 +422,15 @@ const App = {
         if (suma_x === 0) {
           ecuacion += `na_{${j}}`;
         } else {
-          ecuacion += `(\\sum ${nombreX}_i${suma_x > 1 ? `^{${suma_x}}` : ''})a_{${j}}`;
+          ecuacion += `\\left(\\sum ${nombreX}_i${suma_x > 1 ? `^{${suma_x}}` : ''}\\right)a_{${j}}`;
         }
       }
 
       let lado_derecho = i === 0 ? `\\sum ${nombreY}_i` : `\\sum ${nombreX}_i${i > 1 ? `^{${i}}` : ''}${nombreY}_i`;
-      latex += `<p class="linea-calculo">$$${ecuacion} = ${lado_derecho}$$</p>`;
+      latex += `<p>$$${ecuacion} = ${lado_derecho}$$</p>`;
     }
 
-    latex += `
-        </div>
-        <p>Sustituimos las sumas calculadas:</p>
-        <div style="margin: 12px 0; padding: 12px; background: #fff; border: 2px solid #e5e7eb; border-radius: 6px;">
-    `;
+    latex += `<h4 style="margin-top: 16px;">Sistema con valores:</h4>`;
 
     for (let i = 0; i <= r.grado; i++) {
       let ecuacion = '';
@@ -468,18 +439,14 @@ const App = {
         else if (j > 0) ecuacion += ' ';
         ecuacion += `${this.formatear(r.M[i][j])}a_{${j}}`;
       }
-      latex += `<p class="linea-calculo">$$${ecuacion} = ${this.formatear(r.b[i][0])} \\quad (${i + 1})$$</p>`;
+      latex += `<p>$$${ecuacion} = ${this.formatear(r.b[i][0])}$$</p>`;
     }
 
-    latex += `
-        </div>
-      </div>
-    `;
+    latex += `</div>`;
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>Paso 3: Resolver el sistema (eliminacion Gaussiana, paso a paso)</h4>
-        <p>Sistema inicial:</p>
+        <h4>Paso 3: Matriz aumentada</h4>
         <div class="matriz-container">
           <table class="tabla-matriz">
     `;
@@ -498,24 +465,15 @@ const App = {
       latex += `</tr>`;
     }
 
-    latex += `
-          </table>
-        </div>
-        <p style="margin-top: 12px;">Solucion del sistema:</p>
-    `;
+    latex += `</table></div><h4 style="margin-top: 16px;">Solucion:</h4>`;
 
     r.coeficientes.forEach((coef, i) => {
-      latex += `<p class="linea-calculo">$$a_{${i}} = ${this.formatear(coef)}$$</p>`;
+      latex += `<p>$$a_{${i}} = ${this.formatear(coef)}$$</p>`;
     });
 
     latex += `</div>`;
 
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 4: Polinomio resultante</h4>
-    `;
-
-    let polinomio = 'P(x) = ';
+    let polinomio = '';
     for (let i = 0; i < r.coeficientes.length; i++) {
       if (i > 0 && r.coeficientes[i] >= 0) polinomio += ' + ';
       if (i > 0 && r.coeficientes[i] < 0) polinomio += ' ';
@@ -529,27 +487,26 @@ const App = {
       }
     }
 
-    latex += `<p>$$${polinomio}$$</p>`;
-    latex += `</div>`;
+    latex += `
+      <div class="paso-desarrollo">
+        <h4>Paso 4: Polinomio</h4>
+        <p>$$P(x) = ${polinomio}$$</p>
+      </div>
+    `;
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>Paso 5: Error Cuadratico</h4>
-        <p>$$E = \\sum_{i=0}^{${r.puntos.length-1}} [${nombreY}_i - P(${nombreX}_i)]^2$$</p>
+        <h4>Paso 5: Error cuadratico</h4>
+        <p>$$E = \\sum_{i=0}^{${r.puntos.length-1}} \\left[${nombreY}_i - P(${nombreX}_i)\\right]^2$$</p>
     `;
 
     r.puntos.forEach((p, i) => {
       const yCalc = this.evaluarPolinomio(r.coeficientes, p.x);
       const error = p.y - yCalc;
-      latex += `<p class="linea-calculo">e<sub>${i}</sub> = ${this.formatear(p.y)} - ${this.formatear(yCalc)} = ${this.formatear(error)}</p>`;
+      latex += `<p>$$e_{${i}} = ${this.formatear(p.y)} - ${this.formatear(yCalc)} = ${this.formatear(error)}$$</p>`;
     });
 
-    latex += `
-        <p style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e5e7eb;">
-          <strong>Error total: E = ${this.formatear(r.errorCuadratico)}</strong>
-        </p>
-      </div>
-    `;
+    latex += `<p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;"><strong>$$E = ${this.formatear(r.errorCuadratico)}$$</strong></p></div>`;
 
     latex += `
       <div class="resultado-final">
@@ -721,7 +678,7 @@ const App = {
 
   alternarMenu() {
     const menu = document.getElementById('menuNavegacion');
-    menu.classList.toggle('activo');
+    menu.classList.toggle('menu-activo');
   },
 
   cargarEjemplo() {
