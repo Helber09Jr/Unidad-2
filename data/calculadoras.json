@@ -41,8 +41,7 @@
         "nombre": "Método de Euler",
         "descripcion": "Solución numérica de ecuaciones diferenciales ordinarias mediante aproximación lineal.",
         "link": "calculadoras/euler/euler.html",
-        "imagen": "imagenes/calculadoras/euler.png",
-        "estado": "desarrollo"
+        "imagen": "imagenes/calculadoras/euler.png"
       },
       {
         "nombre": "Método de Taylor",
