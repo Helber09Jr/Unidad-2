@@ -74,7 +74,7 @@ const App = {
         .replace(/y/g, `(${y})`);
       return eval(expresionConXY);
     } catch (error) {
-      throw new Error('Error al evaluar la funciÛn');
+      throw new Error('Error al evaluar la funci√≥n');
     }
   },
 
@@ -91,13 +91,13 @@ const App = {
 
     if (h <= 0) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = '<p>† El paso h debe ser positivo.</p>';
+      advertencia.innerHTML = '<p>‚ö†Ô∏è El paso h debe ser positivo.</p>';
       return;
     }
 
     if (xf <= x0) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = '<p>† El valor final debe ser mayor que el inicial.</p>';
+      advertencia.innerHTML = '<p>‚ö†Ô∏è El valor final debe ser mayor que el inicial.</p>';
       return;
     }
 
@@ -106,7 +106,7 @@ const App = {
 
     if (Math.abs(hCalculado - h) > 1e-10) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = `<p>9 Se ajustar· h a ${this.formatear(hCalculado)} para que (xf - x0) sea m˙ltiplo exacto de h.</p>`;
+      advertencia.innerHTML = `<p>‚ÑπÔ∏è Se ajustar√° h a ${this.formatear(hCalculado)} para que (xf - x0) sea m√∫ltiplo exacto de h.</p>`;
     } else {
       advertencia.classList.add('oculto');
     }
@@ -121,15 +121,15 @@ const App = {
     const variante = document.getElementById('selectVariante').value;
 
     if (!funcion) {
-      throw new Error('Ingrese una funciÛn');
+      throw new Error('Ingrese una funci√≥n');
     }
 
     if (isNaN(x0) || isNaN(y0)) {
-      throw new Error('Las condiciones iniciales deben ser n˙meros v·lidos');
+      throw new Error('Las condiciones iniciales deben ser n√∫meros v√°lidos');
     }
 
     if (isNaN(xf)) {
-      throw new Error('El valor final xf debe ser un n˙mero v·lido');
+      throw new Error('El valor final xf debe ser un n√∫mero v√°lido');
     }
 
     if (xf <= x0) {
@@ -137,13 +137,13 @@ const App = {
     }
 
     if (isNaN(h) || h <= 0) {
-      throw new Error('El paso h debe ser un n˙mero positivo');
+      throw new Error('El paso h debe ser un n√∫mero positivo');
     }
 
     try {
       this.evaluarFuncion(funcion, x0, y0);
     } catch (error) {
-      throw new Error('La funciÛn ingresada no es v·lida');
+      throw new Error('La funci√≥n ingresada no es v√°lida');
     }
 
     return { funcion, x0, y0, xf, h, variante };
@@ -223,7 +223,7 @@ const App = {
       seccionResultado.classList.remove('oculto');
       seccionTabla.classList.remove('oculto');
 
-      alert(`C·lculo completado: y(${this.formatear(xf)}) H ${this.formatear(yActual)}`);
+      alert(`C√°lculo completado: y(${this.formatear(xf)}) ‚âà ${this.formatear(yActual)}`);
 
     } catch (error) {
       alert('Error: ' + error.message);
@@ -255,7 +255,7 @@ const App = {
 
     let html = `
       <div class="resultado-principal">
-        <p class="etiqueta-resultado">SoluciÛn numÈrica en x = ${this.formatear(this.estado.xf)} (${nombreVariante}):</p>
+        <p class="etiqueta-resultado">Soluci√≥n num√©rica en x = ${this.formatear(this.estado.xf)} (${nombreVariante}):</p>
         <p class="valor-resultado">$$y(${this.formatear(this.estado.xf)}) \\approx ${this.formatear(ultimoPunto.y)}$$</p>
       </div>
       <div class="resultado-detalles">
@@ -327,7 +327,7 @@ const App = {
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>FÛrmula del MÈtodo RK2 - ${nombreVariante}</h4>
+        <h4>F√≥rmula del M√©todo RK2 - ${nombreVariante}</h4>
     `;
 
     if (this.estado.variante === 'heun') {
@@ -363,7 +363,7 @@ const App = {
 
       latex += `
         <div class="paso-desarrollo">
-          <h4>IteraciÛn ${i + 1}</h4>
+          <h4>Iteraci√≥n ${i + 1}</h4>
           <p>$$k_1 = f(x_{${i}}, y_{${i}}) = f(${this.formatear(actual.x)}, ${this.formatear(actual.y)}) = ${this.formatear(actual.k1)}$$</p>
       `;
 
@@ -465,7 +465,7 @@ const App = {
       x: r.puntos.map(p => p.x),
       y: r.puntos.map(p => p.y),
       mode: 'lines+markers',
-      name: `SoluciÛn RK2 (${nombreVariante})`,
+      name: `Soluci√≥n RK2 (${nombreVariante})`,
       line: { color: '#1e40af', width: 3 },
       marker: {
         color: '#dc2626',
@@ -506,7 +506,7 @@ const App = {
 
     const layout = {
       title: {
-        text: `MÈtodo RK2 (${nombreVariante}): y' = ${this.estado.funcion}`,
+        text: `M√©todo RK2 (${nombreVariante}): y' = ${this.estado.funcion}`,
         font: { size: 18, color: '#1e293b', family: 'Inter, system-ui, sans-serif' }
       },
       xaxis: {
@@ -554,7 +554,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la soluciÛn');
+      alert('Primero calcula la soluci√≥n');
       return;
     }
 
