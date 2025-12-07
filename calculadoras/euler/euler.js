@@ -528,7 +528,7 @@ const App = {
     document.getElementById('selectFuncion').value = '-2*y + x';
     document.getElementById('inputFuncion').value = '-2*y + x';
     document.getElementById('inputX0').value = '0';
-    document.getElementById('inputY0').value = '1';
+    document.getElementById('inputY0').value = '0';
     document.getElementById('inputXf').value = '0.3';
     document.getElementById('inputH').value = '0.1';
 
