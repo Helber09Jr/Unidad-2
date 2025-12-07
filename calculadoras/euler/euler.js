@@ -303,17 +303,10 @@ const App = {
     let latex = `
       <div class="paso-desarrollo">
         <h4>Fórmula del Método de Euler</h4>
-        <p>$$y_{i+1} = y_i + h \\cdot f(x_i, y_i)$$</p>
-        <p>$$x_{i+1} = x_i + h$$</p>
-        <p><strong>Donde:</strong> $$f(x, y) = ${this.estado.funcion}$$</p>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Condición inicial</h4>
+        <p>$$y_{n+1} = y_n + h \\cdot f(x_n, y_n)$$</p>
+        <p>$$x_{n+1} = x_n + h$$</p>
+        <p>$$f(x, y) = ${this.estado.funcion}, \\quad h = ${this.formatear(this.estado.h)}$$</p>
         <p>$$x_0 = ${this.formatear(this.estado.x0)}, \\quad y_0 = ${this.formatear(this.estado.y0)}$$</p>
-        <p>$$h = ${this.formatear(this.estado.h)}$$</p>
       </div>
     `;
 
@@ -323,16 +316,14 @@ const App = {
 
       if (!siguiente) break;
 
+      const funcionEvaluada = `${this.estado.funcion}`.replace(/x/g, this.formatear(actual.x)).replace(/y/g, this.formatear(actual.y));
+
       latex += `
         <div class="paso-desarrollo">
           <h4>Iteración ${i + 1}</h4>
-          <p><strong>Punto actual:</strong> $$(x_{${i}}, y_{${i}}) = (${this.formatear(actual.x)}, ${this.formatear(actual.y)})$$</p>
-          <p><strong>Evaluar función:</strong></p>
-          <p>$$f(${this.formatear(actual.x)}, ${this.formatear(actual.y)}) = ${this.formatear(actual.pendiente)}$$</p>
-          <p><strong>Calcular siguiente y:</strong></p>
-          <p>$$y_{${i + 1}} = ${this.formatear(actual.y)} + ${this.formatear(this.estado.h)} \\times ${this.formatear(actual.pendiente)} = ${this.formatear(siguiente.y)}$$</p>
-          <p><strong>Calcular siguiente x:</strong></p>
-          <p>$$x_{${i + 1}} = ${this.formatear(actual.x)} + ${this.formatear(this.estado.h)} = ${this.formatear(siguiente.x)}$$</p>
+          <p>$$y_{${i + 1}} = y_{${i}} + h \\cdot f(x_{${i}}, y_{${i}}) = ${this.formatear(actual.y)} + ${this.formatear(this.estado.h)} \\cdot f(${this.formatear(actual.x)}, ${this.formatear(actual.y)})$$</p>
+          <p>$$y_{${i + 1}} = ${this.formatear(actual.y)} + ${this.formatear(this.estado.h)} \\cdot (${this.formatear(actual.pendiente)}) = ${this.formatear(siguiente.y)}$$</p>
+          <p>$$x_{${i + 1}} = x_{${i}} + h = ${this.formatear(actual.x)} + ${this.formatear(this.estado.h)} = ${this.formatear(siguiente.x)}$$</p>
         </div>
       `;
     }
@@ -340,8 +331,7 @@ const App = {
     if (r.n > numMostrar) {
       latex += `
         <div class="paso-desarrollo">
-          <p><em>Mostrando primeras ${numMostrar} iteraciones de ${r.n} totales.</em></p>
-          <p><em>Ver tabla completa para todos los valores.</em></p>
+          <p><em>Mostrando primeras ${numMostrar} iteraciones de ${r.n} totales. Ver tabla completa para todos los valores.</em></p>
         </div>
       `;
     }
