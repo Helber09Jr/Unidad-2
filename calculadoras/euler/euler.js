@@ -79,7 +79,7 @@ const App = {
         .replace(/y/g, `(${y})`);
       return eval(expresionConXY);
     } catch (error) {
-      throw new Error('Error al evaluar la funciÛn');
+      throw new Error('Error al evaluar la funci√≥n');
     }
   },
 
@@ -108,7 +108,7 @@ const App = {
 
       advertencia.classList.remove('oculto');
       advertencia.innerHTML = `
-        <p>† El paso h no divide exactamente el intervalo. Se ajustar· autom·ticamente.</p>
+        <p>‚ö†Ô∏è El paso h no divide exactamente el intervalo. Se ajustar√° autom√°ticamente.</p>
         <p><strong>Paso ajustado:</strong> h = ${this.formatear(hAjustado)} (${nAjustado} pasos)</p>
       `;
     } else {
@@ -124,23 +124,23 @@ const App = {
     let h = parseFloat(document.getElementById('inputH').value);
 
     if (!funcion) {
-      throw new Error('Ingrese una funciÛn f(x, y)');
+      throw new Error('Ingrese una funci√≥n f(x, y)');
     }
 
     if (isNaN(x0) || isNaN(y0)) {
-      throw new Error('La condiciÛn inicial debe tener valores numÈricos v·lidos');
+      throw new Error('La condici√≥n inicial debe tener valores num√©ricos v√°lidos');
     }
 
     if (isNaN(xf)) {
-      throw new Error('El valor final xf debe ser un n˙mero v·lido');
+      throw new Error('El valor final xf debe ser un n√∫mero v√°lido');
     }
 
     if (xf <= x0) {
-      throw new Error('El valor final xf debe ser mayor que xÄ');
+      throw new Error('El valor final xf debe ser mayor que x‚ÇÄ');
     }
 
     if (isNaN(h) || h <= 0) {
-      throw new Error('El tamaÒo del paso h debe ser un n˙mero positivo');
+      throw new Error('El tama√±o del paso h debe ser un n√∫mero positivo');
     }
 
     const intervalo = xf - x0;
@@ -156,7 +156,7 @@ const App = {
     try {
       this.evaluarFuncion(funcion, x0, y0);
     } catch (error) {
-      throw new Error('La funciÛn ingresada no es v·lida');
+      throw new Error('La funci√≥n ingresada no es v√°lida');
     }
 
     return { funcion, x0, y0, xf, h, n };
@@ -211,7 +211,7 @@ const App = {
       this.mostrarTablaCompleta();
       this.graficar();
 
-      alert(`C·lculo completado: ${n + 1} puntos generados. SoluciÛn en x = ${this.formatear(xf)}: y H ${this.formatear(yi)}`);
+      alert(`C√°lculo completado: ${n + 1} puntos generados. Soluci√≥n en x = ${this.formatear(xf)}: y ‚âà ${this.formatear(yi)}`);
 
     } catch (error) {
       alert('Error: ' + error.message);
@@ -233,7 +233,7 @@ const App = {
 
     let html = `
       <div class="resultado-principal">
-        <p class="etiqueta-resultado">SoluciÛn numÈrica en x = ${this.formatear(this.estado.xf)}:</p>
+        <p class="etiqueta-resultado">Soluci√≥n num√©rica en x = ${this.formatear(this.estado.xf)}:</p>
         <p class="valor-resultado">$$y(${this.formatear(this.estado.xf)}) \\approx ${this.formatear(ultimoPunto.y)}$$</p>
       </div>
       <div class="resultado-detalles">
@@ -302,7 +302,7 @@ const App = {
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>FÛrmula del MÈtodo de Euler</h4>
+        <h4>F√≥rmula del M√©todo de Euler</h4>
         <p>$$y_{i+1} = y_i + h \\cdot f(x_i, y_i)$$</p>
         <p>$$x_{i+1} = x_i + h$$</p>
         <p><strong>Donde:</strong> $$f(x, y) = ${this.estado.funcion}$$</p>
@@ -311,7 +311,7 @@ const App = {
 
     latex += `
       <div class="paso-desarrollo">
-        <h4>CondiciÛn inicial</h4>
+        <h4>Condici√≥n inicial</h4>
         <p>$$x_0 = ${this.formatear(this.estado.x0)}, \\quad y_0 = ${this.formatear(this.estado.y0)}$$</p>
         <p>$$h = ${this.formatear(this.estado.h)}$$</p>
       </div>
@@ -325,9 +325,9 @@ const App = {
 
       latex += `
         <div class="paso-desarrollo">
-          <h4>IteraciÛn ${i + 1}</h4>
+          <h4>Iteraci√≥n ${i + 1}</h4>
           <p><strong>Punto actual:</strong> $$(x_{${i}}, y_{${i}}) = (${this.formatear(actual.x)}, ${this.formatear(actual.y)})$$</p>
-          <p><strong>Evaluar funciÛn:</strong></p>
+          <p><strong>Evaluar funci√≥n:</strong></p>
           <p>$$f(${this.formatear(actual.x)}, ${this.formatear(actual.y)}) = ${this.formatear(actual.pendiente)}$$</p>
           <p><strong>Calcular siguiente y:</strong></p>
           <p>$$y_{${i + 1}} = ${this.formatear(actual.y)} + ${this.formatear(this.estado.h)} \\times ${this.formatear(actual.pendiente)} = ${this.formatear(siguiente.y)}$$</p>
@@ -414,7 +414,7 @@ const App = {
       x: xValues,
       y: yValues,
       mode: 'lines',
-      name: 'SoluciÛn numÈrica',
+      name: 'Soluci√≥n num√©rica',
       line: { color: '#1e40af', width: 3 }
     };
 
@@ -454,7 +454,7 @@ const App = {
 
     const layout = {
       title: {
-        text: `MÈtodo de Euler: y' = ${this.estado.funcion}`,
+        text: `M√©todo de Euler: y' = ${this.estado.funcion}`,
         font: { size: 18, color: '#1e293b', family: 'Inter, system-ui, sans-serif' }
       },
       xaxis: {
@@ -501,7 +501,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la soluciÛn');
+      alert('Primero calcula la soluci√≥n');
       return;
     }
 
