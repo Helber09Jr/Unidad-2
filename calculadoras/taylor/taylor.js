@@ -102,13 +102,13 @@ const App = {
 
     if (h <= 0) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = '<p>� El paso h debe ser positivo.</p>';
+      advertencia.innerHTML = '<p>⚠️ El paso h debe ser positivo.</p>';
       return;
     }
 
     if (xf <= x0) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = '<p>� El valor final debe ser mayor que el inicial.</p>';
+      advertencia.innerHTML = '<p>⚠️ El valor final debe ser mayor que el inicial.</p>';
       return;
     }
 
@@ -117,7 +117,7 @@ const App = {
 
     if (Math.abs(hCalculado - h) > 1e-10) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = `<p>9 Se ajustar� h a ${this.formatear(hCalculado)} para que (xf - x0) sea m�ltiplo exacto de h.</p>`;
+      advertencia.innerHTML = `<p>ℹ️ Se ajustará h a ${this.formatear(hCalculado)} para que (xf - x0) sea múltiplo exacto de h.</p>`;
     } else {
       advertencia.classList.add('oculto');
     }
@@ -205,7 +205,6 @@ const App = {
 
       this.mostrarResultado();
       this.mostrarDesarrollo();
-      this.mostrarTablaCompleta();
       this.graficar();
 
       const seccionResultado = document.getElementById('tarjetaResultado');
@@ -213,7 +212,7 @@ const App = {
       seccionResultado.classList.remove('oculto');
       seccionTabla.classList.remove('oculto');
 
-      alert(`C�lculo completado: y(${this.formatear(xf)}) H ${this.formatear(yActual)}`);
+      alert(`Cálculo completado: y(${this.formatear(xf)}) ≈ ${this.formatear(yActual)}`);
 
     } catch (error) {
       alert('Error: ' + error.message);
@@ -231,16 +230,65 @@ const App = {
     const r = this.estado.resultado;
     if (!r) return;
 
-    const html = `
+    const ultimoPunto = r.puntos[r.n];
+
+    let html = `
       <div class="resultado-principal">
-        <p class="etiqueta-resultado">Soluci�n aproximada:</p>
-        <p class="valor-resultado">$$y(${this.formatear(this.estado.xf)}) \\approx ${this.formatear(r.puntos[r.n].y)}$$</p>
+        <p class="etiqueta-resultado">Solución numérica en x = ${this.formatear(this.estado.xf)}:</p>
+        <p class="valor-resultado">$$y(${this.formatear(this.estado.xf)}) \\approx ${this.formatear(ultimoPunto.y)}$$</p>
       </div>
       <div class="resultado-detalles">
         <p>$$n = ${r.n}$$ iteraciones</p>
         <p>$$h = ${this.formatear(this.estado.h)}$$</p>
       </div>
     `;
+
+    const numMostrar = Math.min(10, r.puntos.length);
+
+    html += `
+      <div class="tabla-resumen">
+        <h4>Primeros ${numMostrar} puntos</h4>
+        <table class="tabla-desarrollo">
+          <thead>
+            <tr>
+              <th>i</th>
+              <th>x<sub>i</sub></th>
+              <th>y<sub>i</sub></th>
+              <th>f(x<sub>i</sub>, y<sub>i</sub>)</th>
+              <th>f'(x<sub>i</sub>, y<sub>i</sub>)</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+
+    for (let i = 0; i < numMostrar; i++) {
+      const p = r.puntos[i];
+      html += `
+        <tr>
+          <td>${i}</td>
+          <td>${this.formatear(p.x)}</td>
+          <td>${this.formatear(p.y)}</td>
+          <td>${this.formatear(p.f)}</td>
+          <td>${this.formatear(p.fprime)}</td>
+        </tr>
+      `;
+    }
+
+    html += `
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    if (r.puntos.length > numMostrar) {
+      html += `
+        <div class="enlace-tabla">
+          <button class="boton-esis secundario" onclick="App.mostrarTablaExpandida()">
+            Ver tabla completa (${r.puntos.length} puntos)
+          </button>
+        </div>
+      `;
+    }
 
     document.getElementById('contenedorResultado').innerHTML = html;
 
@@ -257,7 +305,7 @@ const App = {
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>F�rmula del M�todo de Taylor (Orden 2)</h4>
+        <h4>Fórmula del Método de Taylor (Orden 2)</h4>
         <p>$$y_{n+1} = y_n + h \\cdot f(x_n, y_n) + \\frac{h^2}{2} \\cdot f'(x_n, y_n)$$</p>
         <p>$$x_{n+1} = x_n + h$$</p>
         <p>$$f(x, y) = ${this.estado.funcion}, \\quad h = ${this.formatear(this.estado.h)}$$</p>
@@ -272,7 +320,7 @@ const App = {
 
       latex += `
         <div class="paso-desarrollo">
-          <h4>Iteraci�n ${i + 1}</h4>
+          <h4>Iteración ${i + 1}</h4>
           <p>$$f(x_{${i}}, y_{${i}}) = f(${this.formatear(actual.x)}, ${this.formatear(actual.y)}) = ${this.formatear(actual.f)}$$</p>
           <p>$$f'(x_{${i}}, y_{${i}}) = ${this.formatear(actual.fprime)}$$</p>
           <p>$$y_{${i + 1}} = y_{${i}} + h \\cdot f + \\frac{h^2}{2} \\cdot f'$$</p>
@@ -296,6 +344,16 @@ const App = {
     if (window.MathJax) {
       MathJax.typesetPromise();
     }
+  },
+
+  mostrarTablaExpandida() {
+    const seccion = document.getElementById('seccionTablaCompleta');
+    seccion.classList.remove('oculto');
+    seccion.setAttribute('aria-hidden', 'false');
+
+    this.mostrarTablaCompleta();
+
+    seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
   },
 
   mostrarTablaCompleta() {
@@ -349,7 +407,7 @@ const App = {
       x: r.puntos.map(p => p.x),
       y: r.puntos.map(p => p.y),
       mode: 'lines+markers',
-      name: 'Soluci�n Taylor',
+      name: 'Solución Taylor',
       line: { color: '#1e40af', width: 3 },
       marker: {
         color: '#dc2626',
@@ -390,7 +448,7 @@ const App = {
 
     const layout = {
       title: {
-        text: `M�todo de Taylor (Orden 2): y' = ${this.estado.funcion}`,
+        text: `Método de Taylor (Orden 2): y' = ${this.estado.funcion}`,
         font: { size: 18, color: '#1e293b', family: 'Inter, system-ui, sans-serif' }
       },
       xaxis: {
@@ -438,7 +496,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la soluci�n');
+      alert('Primero calcula la solución');
       return;
     }
 
