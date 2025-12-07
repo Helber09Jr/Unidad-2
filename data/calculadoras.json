@@ -53,8 +53,7 @@
         "nombre": "Runge-Kutta Orden 2 (RK2)",
         "descripcion": "Método de segundo orden para resolver EDO con mejor precisión que Euler.",
         "link": "calculadoras/runge-kutta-2/rk2.html",
-        "imagen": "imagenes/calculadoras/rk2.png",
-        "estado": "desarrollo"
+        "imagen": "imagenes/calculadoras/rk2.png"
       },
       {
         "nombre": "Runge-Kutta Orden 4 (RK4)",
