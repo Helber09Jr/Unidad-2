@@ -283,114 +283,45 @@ const App = {
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>Paso 1: Ancho del subintervalo</h4>
+        <h4>Fórmula del Método de Simpson 1/3</h4>
+        <p>$$I = \\frac{h}{3}\\left[f(x_0) + 4\\sum_{\\text{impares}}f(x_i) + 2\\sum_{\\text{pares}}f(x_i) + f(x_n)\\right]$$</p>
+        <p>$$f(x) = ${this.estado.funcion}, \\quad a = ${this.formatear(this.estado.a)}, \\quad b = ${this.formatear(this.estado.b)}, \\quad n = ${this.estado.n}$$</p>
+      </div>
+    `;
+
+    latex += `
+      <div class="paso-desarrollo">
+        <h4>Cálculo</h4>
         <p>$$h = \\frac{b - a}{n} = \\frac{${this.formatear(this.estado.b)} - ${this.formatear(this.estado.a)}}{${this.estado.n}} = ${this.formatear(r.h)}$$</p>
-      </div>
     `;
 
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 2: Nodos</h4>
-        <p>$$x_i = a + i h, \\quad i = 0, 1, 2, \\ldots, ${this.estado.n}$$</p>
-        <table class="tabla-desarrollo">
-          <thead>
-            <tr>
-              <th>i</th>
-              <th>x<sub>i</sub></th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-
-    r.nodos.forEach((nodo, i) => {
-      latex += `
-        <tr>
-          <td>${i}</td>
-          <td>${this.formatear(nodo)}</td>
-        </tr>
-      `;
-    });
-
-    latex += `
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 3: Evaluaciones</h4>
-        <p>$$f(x) = ${this.estado.funcion}$$</p>
-        <table class="tabla-desarrollo">
-          <thead>
-            <tr>
-              <th>i</th>
-              <th>x<sub>i</sub></th>
-              <th>f(x<sub>i</sub>)</th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-
-    r.nodos.forEach((nodo, i) => {
-      latex += `
-        <tr>
-          <td>${i}</td>
-          <td>${this.formatear(nodo)}</td>
-          <td>${this.formatear(r.evaluaciones[i])}</td>
-        </tr>
-      `;
-    });
-
-    latex += `
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 4: Suma con coeficientes</h4>
-        <p><strong>Extremos:</strong></p>
-        <p>$$f(x_0) = ${this.formatear(r.f0)}, \\quad f(x_n) = ${this.formatear(r.fn)}$$</p>
-    `;
-
-    if (this.estado.n >= 2) {
-      let sumatoriaImpares = '';
-      for (let i = 1; i < this.estado.n; i += 2) {
-        if (sumatoriaImpares.length > 0) sumatoriaImpares += ' + ';
-        sumatoriaImpares += this.formatear(r.evaluaciones[i]);
-      }
-
-      latex += `
-        <p><strong>Índices impares (coeficiente 4):</strong></p>
-        <p>$$4\\left(${sumatoriaImpares}\\right) = 4 \\times ${this.formatear(r.sumaImpares)} = ${this.formatear(4 * r.sumaImpares)}$$</p>
-      `;
+    let sumatoriaImpares = '';
+    for (let i = 1; i < this.estado.n; i += 2) {
+      if (sumatoriaImpares.length > 0) sumatoriaImpares += ' + ';
+      sumatoriaImpares += this.formatear(r.evaluaciones[i]);
     }
 
+    let sumatoriaPares = '';
     if (this.estado.n >= 4) {
-      let sumatoriaPares = '';
       for (let i = 2; i < this.estado.n; i += 2) {
         if (sumatoriaPares.length > 0) sumatoriaPares += ' + ';
         sumatoriaPares += this.formatear(r.evaluaciones[i]);
       }
+    }
 
+    latex += `
+      <p>$$\\sum_{\\text{impares}}f(x_i) = ${sumatoriaImpares} = ${this.formatear(r.sumaImpares)}$$</p>
+    `;
+
+    if (this.estado.n >= 4) {
       latex += `
-        <p><strong>Índices pares (coeficiente 2):</strong></p>
-        <p>$$2\\left(${sumatoriaPares}\\right) = 2 \\times ${this.formatear(r.sumaPares)} = ${this.formatear(2 * r.sumaPares)}$$</p>
+        <p>$$\\sum_{\\text{pares}}f(x_i) = ${sumatoriaPares} = ${this.formatear(r.sumaPares)}$$</p>
       `;
     }
 
     latex += `
-      <p><strong>Suma total:</strong></p>
-      <p>$$S = ${this.formatear(r.f0)} + ${this.formatear(4 * r.sumaImpares)} + ${this.formatear(2 * r.sumaPares)} + ${this.formatear(r.fn)} = ${this.formatear(r.S)}$$</p>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 5: Fórmula de Simpson 1/3</h4>
-        <p>$$I = \\frac{h}{3} \\times S = \\frac{${this.formatear(r.h)}}{3} \\times ${this.formatear(r.S)} = ${this.formatear(r.I)}$$</p>
+      <p>$$S = ${this.formatear(r.f0)} + 4(${this.formatear(r.sumaImpares)}) + 2(${this.formatear(r.sumaPares)}) + ${this.formatear(r.fn)} = ${this.formatear(r.S)}$$</p>
+      <p>$$I = \\frac{${this.formatear(r.h)}}{3} \\times ${this.formatear(r.S)} = ${this.formatear(r.I)}$$</p>
       </div>
     `;
 
@@ -414,76 +345,16 @@ const App = {
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>Paso 1: Ancho del subintervalo</h4>
+        <h4>Fórmula del Método de Simpson 3/8</h4>
+        <p>$$I = \\frac{3h}{8}\\left[f(x_0) + 3\\sum_{i \\nmid 3}f(x_i) + 2\\sum_{i \\mid 3}f(x_i) + f(x_n)\\right]$$</p>
+        <p>$$f(x) = ${this.estado.funcion}, \\quad a = ${this.formatear(this.estado.a)}, \\quad b = ${this.formatear(this.estado.b)}, \\quad n = ${this.estado.n}$$</p>
+      </div>
+    `;
+
+    latex += `
+      <div class="paso-desarrollo">
+        <h4>Cálculo</h4>
         <p>$$h = \\frac{b - a}{n} = \\frac{${this.formatear(this.estado.b)} - ${this.formatear(this.estado.a)}}{${this.estado.n}} = ${this.formatear(r.h)}$$</p>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 2: Nodos</h4>
-        <p>$$x_i = a + i h, \\quad i = 0, 1, 2, \\ldots, ${this.estado.n}$$</p>
-        <table class="tabla-desarrollo">
-          <thead>
-            <tr>
-              <th>i</th>
-              <th>x<sub>i</sub></th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-
-    r.nodos.forEach((nodo, i) => {
-      latex += `
-        <tr>
-          <td>${i}</td>
-          <td>${this.formatear(nodo)}</td>
-        </tr>
-      `;
-    });
-
-    latex += `
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 3: Evaluaciones</h4>
-        <p>$$f(x) = ${this.estado.funcion}$$</p>
-        <table class="tabla-desarrollo">
-          <thead>
-            <tr>
-              <th>i</th>
-              <th>x<sub>i</sub></th>
-              <th>f(x<sub>i</sub>)</th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-
-    r.nodos.forEach((nodo, i) => {
-      latex += `
-        <tr>
-          <td>${i}</td>
-          <td>${this.formatear(nodo)}</td>
-          <td>${this.formatear(r.evaluaciones[i])}</td>
-        </tr>
-      `;
-    });
-
-    latex += `
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 4: Suma con coeficientes</h4>
-        <p><strong>Extremos:</strong></p>
-        <p>$$f(x_0) = ${this.formatear(r.f0)}, \\quad f(x_n) = ${this.formatear(r.fn)}$$</p>
     `;
 
     let sumatoria3 = '';
@@ -494,8 +365,7 @@ const App = {
     }
 
     latex += `
-      <p><strong>Índices no múltiplos de 3 (coeficiente 3):</strong></p>
-      <p>$$3\\left(${sumatoria3}\\right) = 3 \\times ${this.formatear(r.suma3coef)} = ${this.formatear(3 * r.suma3coef)}$$</p>
+      <p>$$\\sum_{i \\nmid 3}f(x_i) = ${sumatoria3} = ${this.formatear(r.suma3coef)}$$</p>
     `;
 
     if (this.estado.n >= 6) {
@@ -506,21 +376,13 @@ const App = {
       }
 
       latex += `
-        <p><strong>Índices múltiplos de 3 (coeficiente 2):</strong></p>
-        <p>$$2\\left(${sumatoria2}\\right) = 2 \\times ${this.formatear(r.suma2coef)} = ${this.formatear(2 * r.suma2coef)}$$</p>
+        <p>$$\\sum_{i \\mid 3}f(x_i) = ${sumatoria2} = ${this.formatear(r.suma2coef)}$$</p>
       `;
     }
 
     latex += `
-      <p><strong>Suma total:</strong></p>
-      <p>$$S = ${this.formatear(r.f0)} + ${this.formatear(3 * r.suma3coef)} + ${this.formatear(2 * r.suma2coef)} + ${this.formatear(r.fn)} = ${this.formatear(r.S)}$$</p>
-      </div>
-    `;
-
-    latex += `
-      <div class="paso-desarrollo">
-        <h4>Paso 5: Fórmula de Simpson 3/8</h4>
-        <p>$$I = \\frac{3h}{8} \\times S = \\frac{3 \\times ${this.formatear(r.h)}}{8} \\times ${this.formatear(r.S)} = ${this.formatear(r.I)}$$</p>
+      <p>$$S = ${this.formatear(r.f0)} + 3(${this.formatear(r.suma3coef)}) + 2(${this.formatear(r.suma2coef)}) + ${this.formatear(r.fn)} = ${this.formatear(r.S)}$$</p>
+      <p>$$I = \\frac{3 \\times ${this.formatear(r.h)}}{8} \\times ${this.formatear(r.S)} = ${this.formatear(r.I)}$$</p>
       </div>
     `;
 
