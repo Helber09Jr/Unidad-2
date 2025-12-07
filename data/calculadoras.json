@@ -59,8 +59,7 @@
         "nombre": "Runge-Kutta Orden 4 (RK4)",
         "descripcion": "Método de cuarto orden ampliamente usado por su excelente balance entre precisión y eficiencia.",
         "link": "calculadoras/runge-kutta-4/rk4.html",
-        "imagen": "imagenes/calculadoras/rk4.png",
-        "estado": "desarrollo"
+        "imagen": "imagenes/calculadoras/rk4.png"
       }
     ]
   }
