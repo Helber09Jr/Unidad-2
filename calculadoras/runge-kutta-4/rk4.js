@@ -73,7 +73,7 @@ const App = {
         .replace(/y/g, `(${y})`);
       return eval(expresionConXY);
     } catch (error) {
-      throw new Error('Error al evaluar la funciÛn');
+      throw new Error('Error al evaluar la funci√≥n');
     }
   },
 
@@ -90,13 +90,13 @@ const App = {
 
     if (h <= 0) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = '<p>† El paso h debe ser positivo.</p>';
+      advertencia.innerHTML = '<p>‚ö†Ô∏è El paso h debe ser positivo.</p>';
       return;
     }
 
     if (xf <= x0) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = '<p>† El valor final debe ser mayor que el inicial.</p>';
+      advertencia.innerHTML = '<p>‚ö†Ô∏è El valor final debe ser mayor que el inicial.</p>';
       return;
     }
 
@@ -105,7 +105,7 @@ const App = {
 
     if (Math.abs(hCalculado - h) > 1e-10) {
       advertencia.classList.remove('oculto');
-      advertencia.innerHTML = `<p>9 Se ajustar· h a ${this.formatear(hCalculado)} para que (xf - x0) sea m˙ltiplo exacto de h.</p>`;
+      advertencia.innerHTML = `<p>‚ÑπÔ∏è Se ajustar√° h a ${this.formatear(hCalculado)} para que (xf - x0) sea m√∫ltiplo exacto de h.</p>`;
     } else {
       advertencia.classList.add('oculto');
     }
@@ -119,15 +119,15 @@ const App = {
     const h = parseFloat(document.getElementById('inputH').value);
 
     if (!funcion) {
-      throw new Error('Ingrese una funciÛn');
+      throw new Error('Ingrese una funci√≥n');
     }
 
     if (isNaN(x0) || isNaN(y0)) {
-      throw new Error('Las condiciones iniciales deben ser n˙meros v·lidos');
+      throw new Error('Las condiciones iniciales deben ser n√∫meros v√°lidos');
     }
 
     if (isNaN(xf)) {
-      throw new Error('El valor final xf debe ser un n˙mero v·lido');
+      throw new Error('El valor final xf debe ser un n√∫mero v√°lido');
     }
 
     if (xf <= x0) {
@@ -135,13 +135,13 @@ const App = {
     }
 
     if (isNaN(h) || h <= 0) {
-      throw new Error('El paso h debe ser un n˙mero positivo');
+      throw new Error('El paso h debe ser un n√∫mero positivo');
     }
 
     try {
       this.evaluarFuncion(funcion, x0, y0);
     } catch (error) {
-      throw new Error('La funciÛn ingresada no es v·lida');
+      throw new Error('La funci√≥n ingresada no es v√°lida');
     }
 
     return { funcion, x0, y0, xf, h };
@@ -161,7 +161,7 @@ const App = {
       puntos.push({ x: xActual, y: yActual, k1: 0, k2: 0, k3: 0, k4: 0 });
 
       for (let i = 0; i < n; i++) {
-        // MÈtodo RK4 Cl·sico
+        // M√©todo RK4 Cl√°sico
         const k1 = this.evaluarFuncion(funcion, xActual, yActual);
         const k2 = this.evaluarFuncion(funcion, xActual + hAjustado / 2, yActual + (hAjustado / 2) * k1);
         const k3 = this.evaluarFuncion(funcion, xActual + hAjustado / 2, yActual + (hAjustado / 2) * k2);
@@ -181,7 +181,7 @@ const App = {
         puntos.push({ x: xActual, y: yActual, k1: 0, k2: 0, k3: 0, k4: 0 });
       }
 
-      // Calcular k's para el ˙ltimo punto
+      // Calcular k's para el √∫ltimo punto
       const k1Final = this.evaluarFuncion(funcion, puntos[n].x, puntos[n].y);
       const k2Final = this.evaluarFuncion(funcion, puntos[n].x + hAjustado / 2, puntos[n].y + (hAjustado / 2) * k1Final);
       const k3Final = this.evaluarFuncion(funcion, puntos[n].x + hAjustado / 2, puntos[n].y + (hAjustado / 2) * k2Final);
@@ -211,7 +211,7 @@ const App = {
       seccionResultado.classList.remove('oculto');
       seccionTabla.classList.remove('oculto');
 
-      alert(`C·lculo completado: y(${this.formatear(xf)}) H ${this.formatear(yActual)}`);
+      alert(`C√°lculo completado: y(${this.formatear(xf)}) ‚âà ${this.formatear(yActual)}`);
 
     } catch (error) {
       alert('Error: ' + error.message);
@@ -233,7 +233,7 @@ const App = {
 
     let html = `
       <div class="resultado-principal">
-        <p class="etiqueta-resultado">SoluciÛn numÈrica en x = ${this.formatear(this.estado.xf)}:</p>
+        <p class="etiqueta-resultado">Soluci√≥n num√©rica en x = ${this.formatear(this.estado.xf)}:</p>
         <p class="valor-resultado">$$y(${this.formatear(this.estado.xf)}) \\approx ${this.formatear(ultimoPunto.y)}$$</p>
       </div>
       <div class="resultado-detalles">
@@ -308,7 +308,7 @@ const App = {
 
     let latex = `
       <div class="paso-desarrollo">
-        <h4>FÛrmula del MÈtodo RK4</h4>
+        <h4>F√≥rmula del M√©todo RK4</h4>
         <p>$$k_1 = f(x_n, y_n)$$</p>
         <p>$$k_2 = f\\left(x_n + \\frac{h}{2}, y_n + \\frac{h}{2} \\cdot k_1\\right)$$</p>
         <p>$$k_3 = f\\left(x_n + \\frac{h}{2}, y_n + \\frac{h}{2} \\cdot k_2\\right)$$</p>
@@ -326,7 +326,7 @@ const App = {
 
       latex += `
         <div class="paso-desarrollo">
-          <h4>IteraciÛn ${i + 1}</h4>
+          <h4>Iteraci√≥n ${i + 1}</h4>
           <p>$$k_1 = f(${this.formatear(actual.x)}, ${this.formatear(actual.y)}) = ${this.formatear(actual.k1)}$$</p>
           <p>$$k_2 = f\\left(${this.formatear(actual.x)} + ${this.formatear(this.estado.h / 2)}, ${this.formatear(actual.y)} + ${this.formatear(this.estado.h / 2)} \\cdot ${this.formatear(actual.k1)}\\right) = ${this.formatear(actual.k2)}$$</p>
           <p>$$k_3 = f\\left(${this.formatear(actual.x)} + ${this.formatear(this.estado.h / 2)}, ${this.formatear(actual.y)} + ${this.formatear(this.estado.h / 2)} \\cdot ${this.formatear(actual.k2)}\\right) = ${this.formatear(actual.k3)}$$</p>
@@ -414,7 +414,7 @@ const App = {
       x: r.puntos.map(p => p.x),
       y: r.puntos.map(p => p.y),
       mode: 'lines+markers',
-      name: 'SoluciÛn RK4',
+      name: 'Soluci√≥n RK4',
       line: { color: '#1e40af', width: 3 },
       marker: {
         color: '#dc2626',
@@ -455,7 +455,7 @@ const App = {
 
     const layout = {
       title: {
-        text: `MÈtodo RK4: y' = ${this.estado.funcion}`,
+        text: `M√©todo RK4: y' = ${this.estado.funcion}`,
         font: { size: 18, color: '#1e293b', family: 'Inter, system-ui, sans-serif' }
       },
       xaxis: {
@@ -503,7 +503,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la soluciÛn');
+      alert('Primero calcula la soluci√≥n');
       return;
     }
 
