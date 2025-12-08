@@ -34,16 +34,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 40px;
+  padding: 12px 30px;
   background: transparent;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
 }
 
 .contenedor-logo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .logo {
@@ -142,7 +142,7 @@ body {
 .pie-pagina {
   background: linear-gradient(90deg, var(--azul-oscuro), var(--azul-medio));
   color: white;
-  padding: 30px 50px 20px;
+  padding: 20px 30px 15px;
   font-size: 14px;
   border-top: 4px solid var(--dorado);
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
@@ -153,7 +153,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 25px;
+  gap: 15px;
   margin-bottom: 15px;
   max-width: 1400px;
   margin-left: auto;

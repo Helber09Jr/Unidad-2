@@ -20,21 +20,21 @@ body {
 
 .aplicacion {
   display: flex;
-  gap: 20px;
-  padding: 25px;
-  min-height: calc(100vh - 300px);
+  gap: 12px;
+  padding: 12px;
+  min-height: calc(100vh - 220px);
 }
 
 .panel {
-  width: 380px;
+  width: 350px;
   background: var(--blanco);
   border-radius: var(--radio-card);
   box-shadow: 0 2px 8px rgba(0, 40, 85, 0.1), 0 8px 24px rgba(0, 40, 85, 0.06);
   border: 2px solid var(--gris-borde);
-  padding: 24px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   transition: box-shadow 0.3s ease;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 .seccion-panel {
-  padding-bottom: 16px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--gris-borde);
 }
 
@@ -54,17 +54,17 @@ body {
 .titulo-seccion {
   font-weight: 800;
   color: var(--azul-primario);
-  margin-bottom: 10px;
-  font-size: 15px;
+  margin-bottom: 8px;
+  font-size: 14px;
   border-left: 4px solid var(--amarillo-esis);
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 .etiqueta-pequena {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--gris-texto);
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-weight: 600;
 }
 
@@ -80,11 +80,11 @@ input[type="number"],
 select {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
   border: 2px solid var(--gris-borde);
   background: white;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s;
 }
 
@@ -175,8 +175,8 @@ td input.campo-invalido {
   background: var(--azul-secundario);
   color: white;
   border: none;
-  padding: 11px 18px;
-  border-radius: 8px;
+  padding: 9px 16px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 13px;
@@ -240,7 +240,7 @@ td input.campo-invalido {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
   min-width: 0;
 }
 
@@ -249,7 +249,7 @@ td input.campo-invalido {
   border-radius: var(--radio-card);
   box-shadow: 0 2px 8px rgba(0, 40, 85, 0.1), 0 8px 24px rgba(0, 40, 85, 0.06);
   border: 2px solid var(--gris-borde);
-  padding: 24px;
+  padding: 16px;
   transition: all 0.3s ease;
 }
 
@@ -263,16 +263,16 @@ td input.campo-invalido {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 10px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .titulo-tarjeta {
   font-weight: 800;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--azul-primario);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .acciones-grafico {
@@ -281,7 +281,7 @@ td input.campo-invalido {
 }
 
 #graficoLagrange {
-  height: 500px;
+  height: 420px;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
@@ -313,10 +313,10 @@ td input.campo-invalido {
 
 .resultado-principal {
   background: white;
-  border-left: 5px solid var(--amarillo-esis);
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  border-left: 4px solid var(--amarillo-esis);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
   box-shadow: 0 2px 6px rgba(0, 40, 85, 0.08);
   transition: all 0.3s ease;
 }
@@ -391,25 +391,25 @@ td input.campo-invalido {
 }
 
 .paso-desarrollo {
-  margin-bottom: 16px;
-  padding: 14px 16px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
   background: white;
-  border-left: 4px solid var(--amarillo-esis);
+  border-left: 3px solid var(--amarillo-esis);
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 40, 85, 0.08);
 }
 
 .paso-desarrollo h4 {
   color: var(--azul-primario);
-  margin: 0 0 10px 0;
-  font-size: 1.02em;
+  margin: 0 0 6px 0;
+  font-size: 0.95em;
   font-weight: 700;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }
 
 .paso-desarrollo p {
-  margin: 5px 0;
-  line-height: 1.5;
+  margin: 3px 0;
+  line-height: 1.4;
 }
 
 .linea-calculo {
@@ -542,19 +542,37 @@ td input.campo-invalido {
 
 @media (max-width: 768px) {
   .aplicacion {
-    padding: 15px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .tarjeta-esis {
+    padding: 12px;
   }
 
   #graficoLagrange {
-    height: 400px;
+    height: 350px;
   }
 
   .encabezado-tarjeta {
     flex-direction: column;
+    margin-bottom: 10px;
   }
 
   .acciones-grafico {
     width: 100%;
     justify-content: space-around;
+  }
+
+  .titulo-tarjeta {
+    font-size: 15px;
+  }
+
+  .paso-desarrollo {
+    padding: 8px 10px;
   }
 }
