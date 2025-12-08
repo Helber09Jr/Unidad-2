@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Fijo - Métodos Numéricos</title>
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="punto-fijo.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header class="barra-superior">
+        <div class="contenedor-logo">
+            <img src="../../imagenes/logo.png" alt="Logo" class="logo">
+            <h1 class="titulo-proyecto">Método de Punto Fijo</h1>
+        </div>
+        <nav class="menu-navegacion" id="menuNavegacion">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+            </ul>
+        </nav>
+        <button class="boton-menu" id="botonMenu">☰</button>
+    </header>
+
+    <main class="contenedor-aplicacion">
+        <aside class="panel-lateral">
+            <h2 class="titulo-experimento">Parámetros</h2>
+            <div class="grupo-entrada">
+                <label>Función x = g(x):</label>
+                <input type="text" id="funcion" placeholder="Ej: (x^2 + 2) / 3" value="(x^2 + 2) / 3">
+            </div>
+            <div class="grupo-entrada">
+                <label>x₀:</label>
+                <input type="number" id="x0" value="1" step="0.1">
+            </div>
+            <div class="grupo-entrada">
+                <label>Tolerancia:</label>
+                <input type="number" id="tol" value="0.0001">
+            </div>
+            <div class="grupo-entrada">
+                <label>Máx Iter:</label>
+                <input type="number" id="maxIter" value="100">
+            </div>
+            <div class="grupo-botones">
+                <button id="btnCalc" class="btn-primario">Calcular</button>
+                <button id="btnEj" class="btn-secundario">Ejemplo</button>
+                <button id="btnLim" class="btn-secundario">Limpiar</button>
+            </div>
+        </aside>
+
+        <section class="contenedor-principal">
+            <div id="res" class="panel-resultado oculto">
+                <h3>Resultado</h3>
+                <div id="resDiv"></div>
+            </div>
+            <div id="err" class="mensaje-error oculto"></div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <div class="contenedor-pie">
+            <p class="item-footer">© 2024 - Métodos Numéricos</p>
+        </div>
+    </footer>
+
+    <div id="noti"></div>
+    <script src="../../js/notificaciones.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="punto-fijo.js"></script>
+</body>
+</html>

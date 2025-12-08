@@ -143,35 +143,35 @@
         "descripcion": "Búsqueda de raíces dividiendo intervalos sucesivamente.",
         "link": "calculadoras/biseccion/biseccion.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método de la Secante",
         "descripcion": "Aproximación de raíces usando líneas secantes sin necesidad de derivada.",
         "link": "calculadoras/secante/secante.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método de Punto Fijo",
         "descripcion": "Iteración directa reordenando la ecuación para encontrar puntos de convergencia.",
         "link": "calculadoras/punto-fijo/punto-fijo.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Newton-Raphson Modificado",
         "descripcion": "Variante del método de Newton con jacobiano congelado para mayor estabilidad.",
         "link": "calculadoras/newton-raphson/newton-raphson.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Función fsolve",
         "descripcion": "Solver numérico avanzado para sistemas de ecuaciones no lineales.",
         "link": "calculadoras/fsolve/fsolve.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       }
     ]
   }
