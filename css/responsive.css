@@ -88,7 +88,7 @@
 /* Móviles pequeños */
 @media (max-width: 480px) {
   .barra-superior {
-    padding: 10px 15px;
+    padding: 8px 12px;
   }
 
   .titulo-proyecto {
