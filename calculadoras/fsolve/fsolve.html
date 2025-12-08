@@ -1,96 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solver fsolve - Métodos Numéricos</title>
-    <link rel="stylesheet" href="../../css/estilos.css">
-    <link rel="stylesheet" href="../../css/responsive.css">
-    <link rel="stylesheet" href="fsolve.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bisección - Calculadora ESIS</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../js/notificaciones.js"></script>
+<link rel="stylesheet" href="../../css/estilos.css">
+<link rel="stylesheet" href="../../css/responsive.css">
+<link rel="stylesheet" href="fsolve.css">
 </head>
 <body>
-    <header class="barra-superior">
-        <div class="contenedor-logo">
-            <img src="../../imagenes/logo.png" alt="Logo" class="logo">
-            <h1 class="titulo-proyecto">Solver fsolve</h1>
+<header class="encabezado-principal">
+  <div class="barra-superior">
+    <div class="contenedor-logo">
+      <img src="../../imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
+      <div class="info-universidad">
+        <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
+        <h2>Escuela Profesional de Ingeniería en Sistemas e Informática</h2>
+      </div>
+    </div>
+    <div class="contenedor-titulo">
+      <h2 class="titulo-proyecto">SOLVER FSOLVE</h2>
+    </div>
+  </div>
+  <nav class="menu-navegacion" id="menuNavegacion">
+    <ul>
+      <li><a href="../../index.html">Inicio</a></li>
+      <li><a href="../../menu.html">Calculadoras</a></li>
+      <li><a href="../../index.html#sobre">Sobre el Proyecto</a></li>
+      <li><a href="../../index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir menú">☰</button>
+</header>
+<div class="aplicacion">
+  <aside class="panel" aria-label="Controles">
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Función y Parámetros</div>
+      <label class="etiqueta-pequena">Función f(x):</label>
+      <input type="text" id="funcion" placeholder="Ej: x^2 - 4" value="x^2 - 4" class="input-funcion">
+      
+      <label class="etiqueta-pequena" style="margin-top: 12px;">Intervalo [a, b]</label>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <input type="number" id="limiteA" value="1" placeholder="a" step="0.1">
+        <input type="number" id="limiteB" value="3" placeholder="b" step="0.1">
+      </div>
+
+      <label class="etiqueta-pequena" style="margin-top: 12px;">Tolerancia:</label>
+      <input type="number" id="tolerancia" value="0.0001" min="0.000001" step="0.000001" style="width: 100%;">
+
+      <label class="etiqueta-pequena" style="margin-top: 12px;">Máx. Iteraciones:</label>
+      <input type="number" id="maxIteraciones" value="100" min="10" max="1000" style="width: 100%;">
+    </div>
+    <div class="seccion-panel">
+      <div class="titulo-seccion">Acciones</div>
+      <div class="controles" style="gap: 8px;">
+        <button class="boton-esis primario" id="btnCalcular">Calcular</button>
+        <button class="boton-esis secundario" id="btnEjemplo">Ejemplo</button>
+        <button class="boton-esis secundario" id="btnLimpiar">Limpiar</button>
+      </div>
+    </div>
+  </aside>
+  <main class="principal">
+    <section id="tarjetaResultado" class="tarjeta-esis oculto">
+      <div class="encabezado-tarjeta">
+        <div>
+          <div class="titulo-tarjeta">Raíz Encontrada</div>
+          <div class="texto-pequeno-gris">Solución de la ecuación f(x) = 0 por bisección</div>
         </div>
-        <nav class="menu-navegacion" id="menuNavegacion">
-            <ul>
-                <li><a href="../../index.html">Inicio</a></li>
-            </ul>
-        </nav>
-        <button class="boton-menu" id="botonMenu">☰</button>
-    </header>
-
-    <main class="contenedor-aplicacion">
-        <aside class="panel-lateral">
-            <h2 class="titulo-experimento">Parámetros de Entrada</h2>
-            
-            <div class="grupo-entrada">
-                <label for="funcion">Función f(x):</label>
-                <input type="text" id="funcion" placeholder="Ej: x^3 - 2" value="x^3 - 2">
-            </div>
-
-            <div class="grupo-entrada">
-                <label for="x0">x₀:</label>
-                <input type="number" id="x0" value="1" step="0.1">
-            </div>
-
-            <div class="grupo-entrada">
-                <label for="x1">x₁:</label>
-                <input type="number" id="x1" value="2" step="0.1">
-            </div>
-
-            <div class="grupo-entrada">
-                <label for="tolerancia">Tolerancia:</label>
-                <input type="number" id="tolerancia" value="0.0001" min="0.000001" step="0.000001">
-            </div>
-
-            <div class="grupo-entrada">
-                <label for="maxIteraciones">Máx. Iteraciones:</label>
-                <input type="number" id="maxIteraciones" value="100" min="10" max="1000" step="10">
-            </div>
-
-            <div class="grupo-botones">
-                <button id="btnCalcular" class="btn-primario">Calcular Raíz</button>
-                <button id="btnEjemplo" class="btn-secundario">Ejemplo</button>
-                <button id="btnLimpiar" class="btn-secundario">Limpiar</button>
-            </div>
-        </aside>
-
-        <section class="contenedor-principal">
-            <div id="contenedorResultado" class="panel-resultado oculto">
-                <h3>Resultado</h3>
-                <div id="resultadoRaiz" class="resultado-raiz"></div>
-                <button id="btnAlternarTabla" class="btn-secundario">Ver Tabla</button>
-            </div>
-
-            <div id="contenedorTabla" class="panel-desarrollo oculto">
-                <h3>Tabla de Iteraciones</h3>
-                <div id="tablaIteraciones" class="tabla-iteraciones"></div>
-            </div>
-
-            <div id="mensajeError" class="mensaje-error oculto"></div>
-        </section>
-    </main>
-
-    <footer class="pie-pagina">
-        <div class="contenedor-pie">
-            <div class="info-izquierda">
-                <h3 class="item-footer">Universidad Nacional Jorge Basadre Grohmann</h3>
-            </div>
-            <div class="info-derecha">
-                <p class="item-footer">Modelado Computacional para Ingeniería</p>
-            </div>
+        <div class="acciones-inferior">
+          <button id="btnTogglePasos" class="boton-toggle">Ver iteraciones</button>
         </div>
-    </footer>
-
-    <div id="contenedorNotificaciones"></div>
-    <script src="../../js/notificaciones.js"></script>
-    <script src="../../js/menu.js"></script>
-    <script src="fsolve.js"></script>
+      </div>
+      <div id="contenedorResultado"></div>
+    </section>
+    <section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
+      <div class="encabezado-tarjeta">
+        <div class="titulo-tarjeta">Tabla de Iteraciones</div>
+        <div class="texto-pequeno-gris">Proceso de convergencia hacia la raíz</div>
+      </div>
+      <div id="contenedorDesarrollo"></div>
+    </section>
+  </main>
+</div>
+<footer class="pie-pagina">
+  <div class="contenedor-pie">
+    <div class="info-izquierda">
+      <p class="item-footer"><strong>Curso:</strong> Modelado Computacional para Ingeniería</p>
+      <p class="item-footer"><strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca</p>
+    </div>
+    <div class="info-derecha">
+      <p class="item-footer"><strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque</p>
+    </div>
+  </div>
+  <div class="creditos">
+    <p>&copy; ESIS 2025 Universidad Nacional Jorge Basadre Grohmann - Tacna</p>
+  </div>
+</footer>
+<script src="../../js/menu.js"></script>
+<script src="fsolve.js"></script>
 </body>
 </html>

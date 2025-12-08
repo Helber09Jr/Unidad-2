@@ -1,131 +1,88 @@
-/* --- ESTILOS MÉTODO DE BISECCIÓN --- */
-
-input[type="text"],
-input[type="number"] {
+.input-funcion {
+  width: 100%;
   padding: 10px;
   border: 1px solid rgba(0, 40, 85, 0.2);
   border-radius: 4px;
   font-size: 13px;
-  width: 100%;
-  margin: 5px 0;
-  box-sizing: border-box;
+  margin-top: 6px;
+  font-family: 'Courier New', monospace;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
+.input-funcion:focus {
   border-color: #ffb703;
   outline: none;
   box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
 }
 
-/* Resultado */
-.resultado-principal {
+input[type="number"] {
+  padding: 8px;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+  border-radius: 4px;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+input[type="number"]:focus {
+  border-color: #ffb703;
+  outline: none;
+}
+
+.resultado-raiz-grande {
+  padding: 25px;
   background: linear-gradient(135deg, rgba(0, 40, 85, 0.1) 0%, rgba(255, 183, 3, 0.1) 100%);
-  padding: 30px;
   border-radius: 8px;
   border: 2px solid rgba(255, 183, 3, 0.3);
   text-align: center;
   margin: 20px 0;
 }
 
-.numero-raiz {
+.numero-raiz-grande {
   display: block;
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 700;
   color: #002855;
-  margin: 15px 0;
+  margin: 12px 0;
   font-family: 'Courier New', monospace;
 }
 
-.resultado-principal p {
-  margin: 10px 0;
-  color: #333;
-}
-
-.resultado-principal strong {
-  color: #002855;
-}
-
-/* Tabla de iteraciones */
-.tabla-iteraciones {
-  overflow-x: auto;
-  margin: 15px 0;
-}
-
-.tabla-metodo {
+.tabla-iteraciones-raices {
   width: 100%;
   border-collapse: collapse;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   overflow: hidden;
+  margin: 15px 0;
 }
 
-.tabla-metodo th {
+.tabla-iteraciones-raices th {
   background: linear-gradient(90deg, #002855 0%, #004080 100%);
   color: white;
-  padding: 10px;
+  padding: 12px;
   text-align: center;
+  font-size: 12px;
   font-weight: 600;
-  font-size: 11px;
 }
 
-.tabla-metodo td {
-  padding: 8px 10px;
-  border: 1px solid rgba(0, 40, 85, 0.1);
+.tabla-iteraciones-raices td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 40, 85, 0.1);
   text-align: center;
-  font-size: 11px;
-  color: #333;
+  font-size: 12px;
 }
 
-.tabla-metodo tr:nth-child(even) {
-  background: rgba(0, 40, 85, 0.05);
+.tabla-iteraciones-raices tr:hover {
+  background: rgba(255, 183, 3, 0.08);
 }
 
-.tabla-metodo tr:hover {
-  background: rgba(255, 183, 3, 0.1);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  input[type="text"],
-  input[type="number"] {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  .numero-raiz {
+  .numero-raiz-grande {
     font-size: 32px;
   }
 
-  .tabla-metodo {
-    font-size: 10px;
-  }
-
-  .tabla-metodo th,
-  .tabla-metodo td {
-    padding: 6px 4px;
-  }
-}
-
-@media (max-width: 480px) {
-  .resultado-principal {
-    padding: 20px;
-  }
-
-  .numero-raiz {
-    font-size: 24px;
-  }
-
-  .tabla-metodo {
-    font-size: 9px;
-  }
-
-  .tabla-metodo th {
-    padding: 4px 2px;
-  }
-
-  .tabla-metodo td {
-    padding: 4px 2px;
+  .tabla-iteraciones-raices th,
+  .tabla-iteraciones-raices td {
+    padding: 8px;
+    font-size: 11px;
   }
 }

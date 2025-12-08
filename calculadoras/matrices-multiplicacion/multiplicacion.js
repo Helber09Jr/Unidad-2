@@ -1,54 +1,44 @@
-/* --- MULTIPLICACIÓN DE MATRICES --- */
-
 const App = {
   estado: {
     matrizA: [],
     matrizB: [],
     resultado: null,
-    filasA: 2,
-    columnasA: 2,
-    columnasB: 2
+    m: 2, n: 2, p: 2,
+    pasos: []
   },
 
-  async iniciar() {
+  iniciar() {
+    this.actualizarDimensiones();
     this.vincularEventos();
-    this.generarInputs();
   },
 
   vincularEventos() {
     document.getElementById('filasA').addEventListener('change', () => this.actualizarDimensiones());
     document.getElementById('columnasA').addEventListener('change', () => this.actualizarDimensiones());
     document.getElementById('columnasB').addEventListener('change', () => this.actualizarDimensiones());
-
     document.getElementById('btnCalcular').addEventListener('click', () => this.calcular());
     document.getElementById('btnEjemplo').addEventListener('click', () => this.cargarEjemplo());
     document.getElementById('btnLimpiar').addEventListener('click', () => this.limpiar());
-    document.getElementById('btnAlternarPasos').addEventListener('click', () => this.alternarPasos());
+    document.getElementById('btnTogglePasos').addEventListener('click', () => this.alternarPasos());
+    document.getElementById('botonMenu').addEventListener('click', () => this.alternarMenu());
   },
 
   actualizarDimensiones() {
-    this.estado.filasA = parseInt(document.getElementById('filasA').value);
-    this.estado.columnasA = parseInt(document.getElementById('columnasA').value);
-    this.estado.columnasB = parseInt(document.getElementById('columnasB').value);
-    this.generarInputs();
+    this.estado.m = parseInt(document.getElementById('filasA').value);
+    this.estado.n = parseInt(document.getElementById('columnasA').value);
+    this.estado.p = parseInt(document.getElementById('columnasB').value);
+    
+    this.crearGridMatriz('inputsMatrizA', this.estado.m, this.estado.n, 'A');
+    this.crearGridMatriz('inputsMatrizB', this.estado.n, this.estado.p, 'B');
+
+    this.estado.matrizA = Array(this.estado.m).fill(null).map(() => Array(this.estado.n).fill(0));
+    this.estado.matrizB = Array(this.estado.n).fill(null).map(() => Array(this.estado.p).fill(0));
+
+    document.getElementById('tarjetaResultado').classList.add('oculto');
+    document.getElementById('seccionDesarrollo').classList.add('oculto');
   },
 
-  generarInputs() {
-    const m = this.estado.filasA;
-    const n = this.estado.columnasA;
-    const p = this.estado.columnasB;
-
-    this.crearInputsMatriz('inputsMatrizA', 'A', m, n);
-    this.crearInputsMatriz('inputsMatrizB', 'B', n, p);
-
-    this.estado.matrizA = Array(m).fill(null).map(() => Array(n).fill(0));
-    this.estado.matrizB = Array(n).fill(null).map(() => Array(p).fill(0));
-
-    document.getElementById('contenedorResultado').classList.add('oculto');
-    document.getElementById('contenedorDesarrollo').classList.add('oculto');
-  },
-
-  crearInputsMatriz(contenedorId, nombreMatriz, filas, columnas) {
+  crearGridMatriz(contenedorId, filas, columnas, nombre) {
     const contenedor = document.getElementById(contenedorId);
     contenedor.innerHTML = '';
     contenedor.style.gridTemplateColumns = 'repeat(' + columnas + ', 1fr)';
@@ -58,50 +48,52 @@ const App = {
         const input = document.createElement('input');
         input.type = 'number';
         input.step = '0.01';
-        input.placeholder = nombreMatriz + '[' + i + '][' + j + ']';
+        input.className = 'input-matriz';
+        input.placeholder = nombre + '[' + i + '][' + j + ']';
         input.dataset.fila = i;
         input.dataset.columna = j;
-        input.dataset.matriz = nombreMatriz.toLowerCase();
+        input.dataset.matriz = nombre;
+        input.addEventListener('change', () => this.leerMatrices());
         contenedor.appendChild(input);
       }
     }
   },
 
-  validar() {
-    const inputs = document.querySelectorAll('#inputsMatrizA input, #inputsMatrizB input');
-    for (let input of inputs) {
-      if (input.value === '' || isNaN(parseFloat(input.value))) {
-        return false;
-      }
-    }
-    return true;
-  },
-
   leerMatrices() {
-    const m = this.estado.filasA;
-    const n = this.estado.columnasA;
-    const p = this.estado.columnasB;
+    this.estado.matrizA = Array(this.estado.m).fill(null).map(() => Array(this.estado.n).fill(0));
+    this.estado.matrizB = Array(this.estado.n).fill(null).map(() => Array(this.estado.p).fill(0));
 
-    this.estado.matrizA = Array(m).fill(null).map(() => Array(n).fill(0));
-    this.estado.matrizB = Array(n).fill(null).map(() => Array(p).fill(0));
-
-    const inputs = document.querySelectorAll('#inputsMatrizA input');
-    inputs.forEach(input => {
+    document.querySelectorAll('#inputsMatrizA input').forEach(input => {
       const i = parseInt(input.dataset.fila);
       const j = parseInt(input.dataset.columna);
       this.estado.matrizA[i][j] = parseFloat(input.value) || 0;
     });
 
-    const inputsB = document.querySelectorAll('#inputsMatrizB input');
-    inputsB.forEach(input => {
+    document.querySelectorAll('#inputsMatrizB input').forEach(input => {
       const i = parseInt(input.dataset.fila);
       const j = parseInt(input.dataset.columna);
       this.estado.matrizB[i][j] = parseFloat(input.value) || 0;
     });
   },
 
+  validar() {
+    for (let i = 0; i < this.estado.m; i++) {
+      for (let j = 0; j < this.estado.n; j++) {
+        if (isNaN(this.estado.matrizA[i][j])) return false;
+      }
+    }
+    for (let i = 0; i < this.estado.n; i++) {
+      for (let j = 0; j < this.estado.p; j++) {
+        if (isNaN(this.estado.matrizB[i][j])) return false;
+      }
+    }
+    return true;
+  },
+
   calcular() {
     try {
+      this.leerMatrices();
+
       if (!this.validar()) {
         Notificaciones.error('Por favor completa todas las matrices con valores numéricos');
         return;
@@ -109,58 +101,64 @@ const App = {
 
       Notificaciones.calcular('Calculando multiplicación de matrices...');
 
-      this.leerMatrices();
-      
-      const m = this.estado.filasA;
-      const n = this.estado.columnasA;
-      const p = this.estado.columnasB;
-      
-      this.estado.resultado = Array(m).fill(null).map(() => Array(p).fill(0));
+      this.estado.resultado = Array(this.estado.m).fill(null).map(() => Array(this.estado.p).fill(0));
+      this.estado.pasos = [];
 
-      for (let i = 0; i < m; i++) {
-        for (let j = 0; j < p; j++) {
+      for (let i = 0; i < this.estado.m; i++) {
+        for (let j = 0; j < this.estado.p; j++) {
           let suma = 0;
-          for (let k = 0; k < n; k++) {
+          let operacion = [];
+          for (let k = 0; k < this.estado.n; k++) {
             suma += this.estado.matrizA[i][k] * this.estado.matrizB[k][j];
+            operacion.push(this.estado.matrizA[i][k] + '×' + this.estado.matrizB[k][j]);
           }
           this.estado.resultado[i][j] = suma;
+          this.estado.pasos.push({
+            posicion: '[' + i + '][' + j + ']',
+            operacion: operacion.join(' + '),
+            resultado: suma
+          });
         }
       }
 
       this.mostrarResultado();
       Notificaciones.exito('Multiplicación calculada correctamente');
     } catch (error) {
-      Notificaciones.error('Error al calcular la multiplicación: ' + error.message);
-      console.error(error);
+      Notificaciones.error('Error: ' + error.message);
     }
   },
 
   mostrarResultado() {
     const contenedor = document.getElementById('contenedorResultado');
-    const resultadoDiv = document.getElementById('resultadoMultiplicacion');
+    
+    let html = '<div class="contenedor-matrices-resultado">';
+    html += this.generarTablaMatrizFormato(this.estado.matrizA, 'A');
+    html += '<div class="operador">×</div>';
+    html += this.generarTablaMatrizFormato(this.estado.matrizB, 'B');
+    html += '<div class="operador">=</div>';
+    html += this.generarTablaMatrizFormato(this.estado.resultado, 'C');
+    html += '</div>';
 
-    resultadoDiv.innerHTML = this.generarTablaMatriz(this.estado.resultado, 'C');
-    contenedor.classList.remove('oculto');
-    document.getElementById('contenedorDesarrollo').classList.add('oculto');
+    contenedor.innerHTML = html;
+    document.getElementById('tarjetaResultado').classList.remove('oculto');
+    document.getElementById('seccionDesarrollo').classList.add('oculto');
   },
 
-  generarTablaMatriz(matriz, nombre) {
-    let html = '<div class="matriz-contenedor"><h4>Matriz ' + nombre + ':</h4><table class="tabla-matriz"><tbody>';
-
+  generarTablaMatrizFormato(matriz, nombre) {
+    let html = '<div class="matriz-contenedor"><h4>Matriz ' + nombre + '</h4><table class="tabla-matriz-resultado"><tbody>';
     matriz.forEach(fila => {
       html += '<tr>';
       fila.forEach(valor => {
-        html += '<td>' + valor.toFixed(4).replace(/\.?0+$/, '') + '</td>';
+        html += '<td>' + valor.toFixed(2).replace(/\.?0+$/, '') + '</td>';
       });
       html += '</tr>';
     });
-
     html += '</tbody></table></div>';
     return html;
   },
 
   alternarPasos() {
-    const desarrollo = document.getElementById('contenedorDesarrollo');
+    const desarrollo = document.getElementById('seccionDesarrollo');
     if (desarrollo.classList.contains('oculto')) {
       this.mostrarDesarrollo();
       desarrollo.classList.remove('oculto');
@@ -170,103 +168,78 @@ const App = {
   },
 
   mostrarDesarrollo() {
-    const contenedor = document.getElementById('pasosPasos');
-    const m = this.estado.filasA;
-    const n = this.estado.columnasA;
-    const p = this.estado.columnasB;
+    const contenedor = document.getElementById('contenedorDesarrollo');
     
-    let html = '<div class="desarrollo-math"><p><strong>Operación: C = A × B</strong></p>';
-    html += '<p>Dimensiones: A es (' + m + '×' + n + '), B es (' + n + '×' + p + '), Resultado C es (' + m + '×' + p + ')</p>';
-    html += '<p><strong>Fórmula:</strong> C[i][j] = Σ(A[i][k] × B[k][j]) para k=0 a ' + (n-1) + '</p><br>';
-    
-    html += '<p><strong>Matrices de entrada:</strong></p>';
-    html += '<div class="matrices-fila">';
-    html += this.generarTablaMatriz(this.estado.matrizA, 'A');
-    html += this.generarTablaMatriz(this.estado.matrizB, 'B');
-    html += '</div>';
+    let html = '<div class="desarrollo-completo">';
+    html += '<p><strong>Operación:</strong> C = A × B</p>';
+    html += '<p><strong>Dimensiones:</strong> A es (' + this.estado.m + '×' + this.estado.n + '), B es (' + this.estado.n + '×' + this.estado.p + '), Resultado C es (' + this.estado.m + '×' + this.estado.p + ')</p>';
+    html += '<p><strong>Fórmula:</strong> C[i][j] = Σ A[i][k] × B[k][j]</p><br>';
+    html += '<table class="tabla-desarrollo"><thead><tr><th>Posición</th><th>Producto Punto</th><th>Resultado</th></tr></thead><tbody>';
 
-    html += '<p><strong>Cálculos por elemento (seleccionados):</strong></p>';
-    html += '<table class="tabla-pasos"><tr><th>Posición</th><th>Operación</th><th>Resultado</th></tr>';
+    this.estado.pasos.forEach(paso => {
+      html += '<tr><td>' + paso.posicion + '</td>';
+      html += '<td style="font-size: 12px;">' + paso.operacion + '</td>';
+      html += '<td class="resultado-paso">' + paso.resultado.toFixed(2).replace(/\.?0+$/, '') + '</td></tr>';
+    });
 
-    for (let i = 0; i < m; i++) {
-      for (let j = 0; j < p; j++) {
-        let operacion = '';
-        for (let k = 0; k < n; k++) {
-          if (k > 0) operacion += ' + ';
-          operacion += '(' + this.estado.matrizA[i][k] + '×' + this.estado.matrizB[k][j] + ')';
-        }
-        const resultado = this.estado.resultado[i][j];
-        html += '<tr><td>[' + i + '][' + j + ']</td><td style="text-align:left;">' + operacion + '</td><td>' + resultado.toFixed(4).replace(/\.?0+$/, '') + '</td></tr>';
-      }
-    }
-
-    html += '</table><br><p><strong>Matriz Resultado C (' + m + '×' + p + '):</strong></p>';
-    html += this.generarTablaMatriz(this.estado.resultado, 'C');
-    html += '</div>';
+    html += '</tbody></table></div>';
 
     contenedor.innerHTML = html;
     MathJax.typesetPromise().catch(err => console.log(err));
   },
 
   cargarEjemplo() {
-    try {
-      const ejemplos = {
-        '2x2x2': {
-          A: [[2, 3], [4, 5]],
-          B: [[1, 2], [3, 4]]
-        },
-        '2x3x2': {
-          A: [[1, 2, 3], [4, 5, 6]],
-          B: [[1, 2], [3, 4], [5, 6]]
-        },
-        '3x2x3': {
-          A: [[1, 2], [3, 4], [5, 6]],
-          B: [[1, 2, 3], [4, 5, 6]]
-        }
-      };
+    const ejemplos = {
+      '2222': { A: [[2, 3], [4, 5]], B: [[1, 2], [3, 4]] },
+      '2322': { A: [[1, 2, 3], [4, 5, 6]], B: [[1, 2], [3, 4], [5, 6]] },
+      '3223': { A: [[1, 2], [3, 4], [5, 6]], B: [[1, 2, 3], [4, 5, 6]] }
+    };
 
-      const key = this.estado.filasA + 'x' + this.estado.columnasA + 'x' + this.estado.columnasB;
-      
+    try {
+      const key = '' + this.estado.m + this.estado.n + this.estado.p + this.estado.m;
       let ejemplo = ejemplos[key];
+      
       if (!ejemplo) {
         ejemplo = {
-          A: Array(this.estado.filasA).fill(null).map((_, i) => 
-            Array(this.estado.columnasA).fill(null).map((_, j) => (i + j + 1))
-          ),
-          B: Array(this.estado.columnasA).fill(null).map((_, i) => 
-            Array(this.estado.columnasB).fill(null).map((_, j) => (i * this.estado.columnasB + j + 1))
-          )
+          A: Array(this.estado.m).fill(null).map((_, i) => Array(this.estado.n).fill(null).map((_, j) => i + j + 1)),
+          B: Array(this.estado.n).fill(null).map((_, i) => Array(this.estado.p).fill(null).map((_, j) => i * this.estado.p + j + 1))
         };
       }
       
       document.querySelectorAll('#inputsMatrizA input').forEach((input) => {
-        const fila = parseInt(input.dataset.fila);
-        const columna = parseInt(input.dataset.columna);
-        input.value = ejemplo.A[fila][columna];
+        const i = parseInt(input.dataset.fila);
+        const j = parseInt(input.dataset.columna);
+        input.value = ejemplo.A[i][j];
       });
 
       document.querySelectorAll('#inputsMatrizB input').forEach((input) => {
-        const fila = parseInt(input.dataset.fila);
-        const columna = parseInt(input.dataset.columna);
-        input.value = ejemplo.B[fila][columna];
+        const i = parseInt(input.dataset.fila);
+        const j = parseInt(input.dataset.columna);
+        input.value = ejemplo.B[i][j];
       });
 
       Notificaciones.exito('Ejemplo cargado correctamente');
+      this.leerMatrices();
     } catch (error) {
-      Notificaciones.error('Error al cargar el ejemplo: ' + error.message);
+      Notificaciones.error('Error al cargar el ejemplo');
     }
   },
 
   limpiar() {
-    document.querySelectorAll('#inputsMatrizA input, #inputsMatrizB input').forEach(input => {
-      input.value = '';
-    });
-    document.getElementById('contenedorResultado').classList.add('oculto');
-    document.getElementById('contenedorDesarrollo').classList.add('oculto');
-    Notificaciones.info('Campos limpiados');
+    if (confirm('¿Estás seguro de limpiar todos los datos?')) {
+      document.querySelectorAll('.input-matriz').forEach(input => input.value = '');
+      this.estado.matrizA = [];
+      this.estado.matrizB = [];
+      this.estado.resultado = null;
+      document.getElementById('tarjetaResultado').classList.add('oculto');
+      document.getElementById('seccionDesarrollo').classList.add('oculto');
+      Notificaciones.info('Datos limpiados');
+    }
+  },
+
+  alternarMenu() {
+    document.getElementById('menuNavegacion').classList.toggle('activo');
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  App.iniciar();
-});
+document.addEventListener('DOMContentLoaded', () => App.iniciar());
