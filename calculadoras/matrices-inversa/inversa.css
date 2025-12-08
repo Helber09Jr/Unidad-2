@@ -1,188 +1,200 @@
-/* --- ESTILOS MATRIZ INVERSA --- */
+/* --- SUMA DE MATRICES - ESTILOS MEJORADOS --- */
 
-.contenedor-matriz {
+.contenedor-matriz-grid {
   display: grid;
   gap: 8px;
   padding: 12px;
-  background: rgba(0, 40, 85, 0.1);
+  background: rgba(0, 40, 85, 0.08);
   border-radius: 8px;
-  margin: 10px 0;
   border: 1px solid rgba(0, 40, 85, 0.2);
 }
 
-.contenedor-matriz input {
+.input-matriz {
   padding: 10px;
-  border: 1px solid rgba(0, 40, 85, 0.3);
+  border: 1.5px solid rgba(0, 40, 85, 0.3);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   background: white;
   transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-.contenedor-matriz input:focus {
+.input-matriz:hover {
+  border-color: rgba(0, 40, 85, 0.5);
+  background: rgba(0, 40, 85, 0.02);
+}
+
+.input-matriz:focus {
   border-color: #ffb703;
-  box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
+  box-shadow: 0 0 12px rgba(255, 183, 3, 0.3);
   outline: none;
 }
 
-/* Resultado */
-.resultado-matriz {
-  margin: 20px 0;
-  padding: 20px;
-  background: rgba(0, 40, 85, 0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(0, 40, 85, 0.2);
-}
-
-/* Panel de verificación */
-.panel-verificacion {
-  margin: 20px 0;
-  padding: 20px;
-  background: rgba(16, 185, 129, 0.1);
-  border-radius: 8px;
-  border-left: 4px solid #10b981;
-}
-
-.panel-verificacion h4 {
-  color: #002855;
-  margin-bottom: 15px;
-}
-
-.error-celda {
-  background: rgba(239, 68, 68, 0.2) !important;
-}
-
-/* Tablas de matriz */
-.matrices-contenedor {
+/* Contenedor de matrices resultado */
+.contenedor-matrices-resultado {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
   margin: 20px 0;
 }
 
-.tabla-resultado {
-  margin: 20px 0;
-  overflow-x: auto;
-}
-
-.tabla-matriz {
-  border-collapse: collapse;
-  margin: 15px auto;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.tabla-matriz td {
-  padding: 12px 18px;
-  border: 1px solid rgba(0, 40, 85, 0.2);
-  text-align: center;
-  font-weight: 500;
-  color: #002855;
-  min-width: 60px;
-}
-
-.tabla-matriz tr:nth-child(even) {
-  background: rgba(0, 40, 85, 0.05);
-}
-
-.tabla-matriz tr:hover {
-  background: rgba(255, 183, 3, 0.1);
-}
-
-/* Contenedor de matrices */
 .matriz-contenedor {
   text-align: center;
 }
 
 .matriz-contenedor h4 {
   color: #002855;
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.matriz-contenedor p {
-  margin: 10px 0 0 0;
-  font-size: 13px;
-  color: #666;
-}
-
-/* Estilos para desarrollo */
-.desarrollo-math {
-  padding: 20px;
-  background: rgba(0, 40, 85, 0.05);
-  border-left: 4px solid #ffb703;
+.tabla-matriz-resultado {
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
-  line-height: 1.8;
-  max-height: 600px;
-  overflow-y: auto;
+  overflow: hidden;
+  margin: auto;
 }
 
-.desarrollo-math p {
-  margin: 8px 0;
+.tabla-matriz-resultado td {
+  padding: 12px 18px;
+  border: 1px solid rgba(0, 40, 85, 0.15);
+  text-align: center;
+  font-weight: 500;
+  color: #002855;
+  min-width: 60px;
+  background: white;
+}
+
+.tabla-matriz-resultado tr:nth-child(even) {
+  background: rgba(0, 40, 85, 0.03);
+}
+
+.tabla-matriz-resultado tr:hover {
+  background: rgba(255, 183, 3, 0.08);
+}
+
+.operador {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffb703;
+}
+
+/* Tabla de desarrollo */
+.tabla-desarrollo {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.tabla-desarrollo thead {
+  background: linear-gradient(90deg, #002855 0%, #004080 100%);
+}
+
+.tabla-desarrollo th {
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.tabla-desarrollo td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 40, 85, 0.1);
+  font-size: 13px;
   color: #333;
 }
 
-.desarrollo-math strong {
+.tabla-desarrollo tr:hover {
+  background: rgba(255, 183, 3, 0.08);
+}
+
+.resultado-paso {
+  font-weight: 600;
+  color: #002855;
+  background: rgba(255, 183, 3, 0.15);
+}
+
+.desarrollo-completo {
+  padding: 20px;
+  background: rgba(0, 40, 85, 0.03);
+  border-left: 4px solid #ffb703;
+  border-radius: 4px;
+}
+
+.desarrollo-completo p {
+  margin: 12px 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.desarrollo-completo strong {
   color: #002855;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .contenedor-matriz {
-    padding: 8px;
-    gap: 6px;
+  .contenedor-matrices-resultado {
+    gap: 12px;
   }
 
-  .contenedor-matriz input {
+  .tabla-matriz-resultado td {
+    padding: 8px 10px;
+    min-width: 50px;
+    font-size: 12px;
+  }
+
+  .tabla-desarrollo th,
+  .tabla-desarrollo td {
     padding: 8px;
     font-size: 12px;
   }
 
-  .tabla-matriz td {
-    padding: 8px 12px;
-    min-width: 50px;
-    font-size: 13px;
-  }
-
-  .matrices-contenedor {
-    gap: 15px;
-  }
-
-  .desarrollo-math {
-    max-height: 500px;
+  .operador {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .contenedor-matriz {
-    padding: 6px;
-    gap: 4px;
+  .contenedor-matriz-grid {
+    gap: 6px;
+    padding: 8px;
   }
 
-  .tabla-matriz {
+  .input-matriz {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .tabla-matriz-resultado td {
+    padding: 6px 8px;
+    min-width: 40px;
     font-size: 11px;
   }
 
-  .tabla-matriz td {
-    padding: 6px 8px;
-    min-width: 45px;
+  .tabla-desarrollo {
+    font-size: 11px;
   }
 
-  .matrices-contenedor {
-    flex-direction: column;
+  .tabla-desarrollo th {
+    padding: 8px;
   }
 
-  .desarrollo-math {
-    padding: 12px;
-    font-size: 13px;
-    max-height: 400px;
+  .tabla-desarrollo td {
+    padding: 6px;
   }
 
-  .panel-verificacion {
-    padding: 12px;
+  .operador {
+    font-size: 16px;
   }
 }

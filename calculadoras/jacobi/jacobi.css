@@ -1,196 +1,86 @@
-/* --- ESTILOS MÉTODO JACOBI --- */
-
-.contenedor-matriz {
-  display: grid;
-  gap: 8px;
+.contenedor-tabla-editable {
   padding: 12px;
-  background: rgba(0, 40, 85, 0.1);
+  background: rgba(0, 40, 85, 0.08);
   border-radius: 8px;
-  margin: 10px 0;
   border: 1px solid rgba(0, 40, 85, 0.2);
+  margin: 10px 0;
 }
 
-.contenedor-matriz input {
-  padding: 10px;
-  border: 1px solid rgba(0, 40, 85, 0.3);
-  border-radius: 4px;
-  font-size: 13px;
-  text-align: center;
+.tabla-editable {
+  width: 100%;
+  border-collapse: collapse;
   background: white;
-  transition: all 0.2s ease;
 }
 
-.contenedor-matriz input:focus {
-  border-color: #ffb703;
-  box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
-  outline: none;
-}
-
-input[type="number"] {
+.tabla-editable input {
+  width: 100%;
   padding: 8px;
   border: 1px solid rgba(0, 40, 85, 0.2);
-  border-radius: 4px;
+  text-align: center;
   font-size: 13px;
 }
 
-input[type="number"]:focus {
+.tabla-editable input:focus {
   border-color: #ffb703;
   outline: none;
+  box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
 }
 
-/* Tablas */
-.tabla-resultado {
-  margin: 20px 0;
-  overflow-x: auto;
+.tabla-editable td {
+  padding: 6px;
+  border: 1px solid rgba(0, 40, 85, 0.15);
 }
 
-.tabla-solucion {
+.tabla-editable td:last-child {
+  border-left: 3px solid #ffb703;
+}
+
+.tabla-desarrollo {
+  width: 100%;
   border-collapse: collapse;
-  margin: 15px auto;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
-  overflow: hidden;
+  margin: 15px 0;
 }
 
-.tabla-solucion tr {
-  display: flex;
-  gap: 0;
-}
-
-.tabla-solucion td {
-  flex: 1;
+.tabla-desarrollo th {
+  background: linear-gradient(90deg, #002855 0%, #004080 100%);
+  color: white;
   padding: 12px;
-  border: 1px solid rgba(0, 40, 85, 0.2);
   text-align: center;
-  font-weight: 500;
-  color: #002855;
+  font-size: 13px;
 }
 
-.tabla-solucion tr:nth-child(even) {
-  background: rgba(0, 40, 85, 0.05);
+.tabla-desarrollo td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 40, 85, 0.1);
+  font-size: 12px;
 }
 
-/* Convergencia info */
-.convergencia-info {
-  margin: 20px 0;
+.tabla-desarrollo tr:hover {
+  background: rgba(255, 183, 3, 0.08);
+}
+
+.solucion-vector {
   padding: 15px;
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.15);
   border-left: 4px solid #10b981;
   border-radius: 4px;
+  margin: 15px 0;
 }
 
-.convergencia-info p {
+.solucion-vector p {
   margin: 8px 0;
   color: #333;
   font-size: 13px;
 }
 
-.convergencia-info strong {
-  color: #002855;
-}
-
-/* Tabla de iteraciones */
-.tabla-iteraciones {
-  overflow-x: auto;
-  margin: 15px 0;
-}
-
-.tabla-metodo {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.tabla-metodo th {
-  background: linear-gradient(90deg, #002855 0%, #004080 100%);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 12px;
-}
-
-.tabla-metodo td {
-  padding: 8px 10px;
-  border: 1px solid rgba(0, 40, 85, 0.1);
-  text-align: center;
-  font-size: 11px;
-  color: #333;
-}
-
-.tabla-metodo tr:nth-child(even) {
-  background: rgba(0, 40, 85, 0.05);
-}
-
-.tabla-metodo tr:hover {
-  background: rgba(255, 183, 3, 0.1);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .contenedor-matriz {
-    padding: 8px;
-    gap: 6px;
-  }
-
-  .contenedor-matriz input {
+  .tabla-desarrollo th,
+  .tabla-desarrollo td {
     padding: 8px;
     font-size: 11px;
-  }
-
-  .tabla-solucion td {
-    padding: 10px;
-    font-size: 12px;
-  }
-
-  .tabla-metodo {
-    font-size: 10px;
-  }
-
-  .tabla-metodo th,
-  .tabla-metodo td {
-    padding: 6px 4px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contenedor-matriz {
-    padding: 6px;
-    gap: 4px;
-  }
-
-  .contenedor-matriz input {
-    padding: 6px;
-    font-size: 10px;
-  }
-
-  .tabla-solucion td {
-    padding: 8px;
-    font-size: 11px;
-  }
-
-  .tabla-metodo {
-    font-size: 9px;
-  }
-
-  .tabla-metodo th {
-    padding: 4px 2px;
-  }
-
-  .tabla-metodo td {
-    padding: 4px 2px;
-  }
-
-  .convergencia-info {
-    padding: 10px;
-  }
-
-  .convergencia-info p {
-    font-size: 12px;
-    margin: 4px 0;
   }
 }
