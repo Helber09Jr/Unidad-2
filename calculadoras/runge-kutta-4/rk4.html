@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MÈtodo Runge-Kutta Orden 4 - Calculadora ESIS</title>
+<title>M√©todo Runge-Kutta Orden 4 - Calculadora ESIS</title>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,11 +20,11 @@
       <img src="../../imagenes/logo-esis.png" alt="Logo ESIS" class="logo">
       <div class="info-universidad">
         <h1>UNIVERSIDAD NACIONAL JORGE BASADRE GROHMANN</h1>
-        <h2>Escuela Profesional de IngenierÌa en Sistemas e Inform·tica</h2>
+        <h2>Escuela Profesional de Ingenier√≠a en Sistemas e Inform√°tica</h2>
       </div>
     </div>
     <div class="contenedor-titulo">
-      <h2 class="titulo-proyecto">M…TODO RUNGE-KUTTA ORDEN 4 (RK4)</h2>
+      <h2 class="titulo-proyecto">M√âTODO RUNGE-KUTTA ORDEN 4 (RK4)</h2>
     </div>
   </div>
 
@@ -37,23 +37,23 @@
     </ul>
   </nav>
 
-  <button class="boton-menu" id="botonMenu" aria-label="Abrir men˙">&#9776;</button>
+  <button class="boton-menu" id="botonMenu" aria-label="Abrir men√∫">&#9776;</button>
 </header>
 
 <div class="aplicacion">
   <aside class="panel" aria-label="Controles">
     <div class="seccion-panel">
-      <div class="titulo-seccion">EcuaciÛn diferencial</div>
+      <div class="titulo-seccion">Ecuaci√≥n diferencial</div>
       <p class="texto-pequeno-gris">EDO de primer orden: y' = f(x, y)</p>
 
-      <label class="etiqueta-pequena">Seleccionar funciÛn predefinida</label>
+      <label class="etiqueta-pequena">Seleccionar funci√≥n predefinida</label>
       <select id="selectFuncion">
         <option value="">Personalizada</option>
         <option value="-2*y">-2y</option>
-        <option value="y - x^2 + 1">y - x≤ + 1</option>
+        <option value="y - x^2 + 1">y - x¬≤ + 1</option>
         <option value="-2*y + x">-2y + x</option>
-        <option value="x^2 + y">x≤ + y</option>
-        <option value="exp(x) + y">e„ + y</option>
+        <option value="x^2 + y">x¬≤ + y</option>
+        <option value="exp(x) + y">eÀ£ + y</option>
         <option value="sin(x + y)">sen(x + y)</option>
       </select>
 
@@ -63,15 +63,15 @@
       <div class="calculadora-botones">
         <button class="boton-calc" data-valor="x">x</button>
         <button class="boton-calc" data-valor="y">y</button>
-        <button class="boton-calc" data-valor="^2">x≤</button>
-        <button class="boton-calc" data-valor="^">x</button>
-        <button class="boton-calc" data-valor="sqrt("></button>
+        <button class="boton-calc" data-valor="^2">x¬≤</button>
+        <button class="boton-calc" data-valor="^">x‚Åø</button>
+        <button class="boton-calc" data-valor="sqrt(">‚àö</button>
         <button class="boton-calc" data-valor="sin(">sen</button>
         <button class="boton-calc" data-valor="cos(">cos</button>
         <button class="boton-calc" data-valor="tan(">tan</button>
-        <button class="boton-calc" data-valor="exp(">e„</button>
+        <button class="boton-calc" data-valor="exp(">eÀ£</button>
         <button class="boton-calc" data-valor="ln(">ln</button>
-        <button class="boton-calc" data-valor="pi">¿</button>
+        <button class="boton-calc" data-valor="pi">œÄ</button>
         <button class="boton-calc" data-valor="e">e</button>
         <button class="boton-calc" data-valor="(">(</button>
         <button class="boton-calc" data-valor=")">)</button>
@@ -83,21 +83,21 @@
     </div>
 
     <div class="seccion-panel">
-      <div class="titulo-seccion">CondiciÛn inicial</div>
-      <label class="etiqueta-pequena">xÄ (punto inicial)</label>
+      <div class="titulo-seccion">Condici√≥n inicial</div>
+      <label class="etiqueta-pequena">x‚ÇÄ (punto inicial)</label>
       <input id="inputX0" type="number" step="any" value="0">
 
-      <label class="etiqueta-pequena" style="margin-top: 10px;">yÄ (valor inicial)</label>
+      <label class="etiqueta-pequena" style="margin-top: 10px;">y‚ÇÄ (valor inicial)</label>
       <input id="inputY0" type="number" step="any" value="1">
     </div>
 
     <div class="seccion-panel">
-      <div class="titulo-seccion">ConfiguraciÛn</div>
+      <div class="titulo-seccion">Configuraci√≥n</div>
 
       <label class="etiqueta-pequena">xf (valor final)</label>
       <input id="inputXf" type="number" step="any" value="0.1">
 
-      <label class="etiqueta-pequena" style="margin-top: 10px;">TamaÒo del paso (h)</label>
+      <label class="etiqueta-pequena" style="margin-top: 10px;">Tama√±o del paso (h)</label>
       <input id="inputH" type="number" step="any" value="0.1">
 
       <div id="advertenciaH" class="advertencia oculto"></div>
@@ -116,8 +116,8 @@
     <section class="tarjeta-esis">
       <div class="encabezado-tarjeta">
         <div>
-          <div class="titulo-tarjeta">Gr·fico Interactivo</div>
-          <div class="texto-pequeno-gris">SoluciÛn numÈrica (azul), Puntos (rojos)</div>
+          <div class="titulo-tarjeta">Gr√°fico Interactivo</div>
+          <div class="texto-pequeno-gris">Soluci√≥n num√©rica (azul), Puntos (rojos)</div>
         </div>
         <div class="acciones-superior">
           <label class="toggle-container">
@@ -145,7 +145,7 @@
     <section id="seccionDesarrollo" class="tarjeta-esis oculto" aria-hidden="true">
       <div class="encabezado-tarjeta">
         <div class="titulo-tarjeta">Desarrollo Paso a Paso</div>
-        <div class="texto-pequeno-gris">FÛrmula de RK4 aplicada en cada iteraciÛn</div>
+        <div class="texto-pequeno-gris">F√≥rmula de RK4 aplicada en cada iteraci√≥n</div>
       </div>
       <div id="contenedorDesarrollo"></div>
     </section>
@@ -164,7 +164,7 @@
   <div class="contenedor-pie">
     <div class="info-izquierda">
       <p class="item-footer">
-        <strong>Curso:</strong> Modelado Computacional para IngenierÌa
+        <strong>Curso:</strong> Modelado Computacional para Ingenier√≠a
       </p>
       <p class="item-footer">
         <strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca
@@ -172,7 +172,7 @@
     </div>
     <div class="info-derecha">
       <p class="item-footer">
-        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabi·n Choque
+        <strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabi√°n Choque
       </p>
     </div>
   </div>
