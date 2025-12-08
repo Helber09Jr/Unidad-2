@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicación de Matrices - Métodos Numéricos</title>
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="multiplicacion.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="barra-superior">
+        <div class="contenedor-logo">
+            <img src="../../imagenes/logo.png" alt="Logo" class="logo">
+            <h1 class="titulo-proyecto">Multiplicación de Matrices</h1>
+        </div>
+        <nav class="menu-navegacion" id="menuNavegacion">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#manual">Manual</a></li>
+            </ul>
+        </nav>
+        <button class="boton-menu" id="botonMenu">☰</button>
+    </header>
+
+    <main class="contenedor-aplicacion">
+        <!-- SIDEBAR INPUTS -->
+        <aside class="panel-lateral">
+            <h2 class="titulo-experimento">Parámetros de Entrada</h2>
+            
+            <div class="grupo-entrada">
+                <label for="filasA">Filas de A (m):</label>
+                <input type="number" id="filasA" value="2" min="2" max="5" step="1">
+            </div>
+
+            <div class="grupo-entrada">
+                <label for="columnasA">Columnas de A = Filas de B (n):</label>
+                <input type="number" id="columnasA" value="2" min="2" max="5" step="1">
+            </div>
+
+            <div class="grupo-entrada">
+                <label for="columnasB">Columnas de B (p):</label>
+                <input type="number" id="columnasB" value="2" min="2" max="5" step="1">
+            </div>
+
+            <p class="info-dimension"><strong>Dimensión Resultado:</strong> (m × p)</p>
+
+            <div class="grupo-entrada">
+                <h3>Matriz A (m × n):</h3>
+                <div id="inputsMatrizA" class="contenedor-matriz"></div>
+            </div>
+
+            <div class="grupo-entrada">
+                <h3>Matriz B (n × p):</h3>
+                <div id="inputsMatrizB" class="contenedor-matriz"></div>
+            </div>
+
+            <div class="grupo-botones">
+                <button id="btnCalcular" class="btn-primario">Calcular</button>
+                <button id="btnEjemplo" class="btn-secundario">Cargar Ejemplo</button>
+                <button id="btnLimpiar" class="btn-secundario">Limpiar</button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <section class="contenedor-principal">
+            <div id="contenedorResultado" class="panel-resultado oculto">
+                <h3>Resultado: C = A × B</h3>
+                <div id="resultadoMultiplicacion" class="tabla-resultado"></div>
+                <button id="btnAlternarPasos" class="btn-secundario">Ver Pasos</button>
+            </div>
+
+            <div id="contenedorDesarrollo" class="panel-desarrollo oculto">
+                <h3>Desarrollo Paso a Paso</h3>
+                <div id="pasosPasos" class="pasos-desarrollo"></div>
+            </div>
+
+            <div id="mensajeError" class="mensaje-error oculto"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="pie-pagina">
+        <div class="contenedor-pie">
+            <div class="info-izquierda">
+                <h3 class="item-footer">Universidad Nacional Jorge Basadre Grohmann</h3>
+                <p class="item-footer">Carrera: Ingeniería Civil</p>
+            </div>
+            <div class="info-derecha">
+                <p class="item-footer">Curso: Modelado Computacional para Ingeniería</p>
+                <p class="creditos">© 2024 - Desarrollo de Calculadoras Numéricas</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contenedorNotificaciones"></div>
+    <script src="../../js/notificaciones.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="multiplicacion.js"></script>
+</body>
+</html>

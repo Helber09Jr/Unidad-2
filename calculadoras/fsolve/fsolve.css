@@ -1,0 +1,131 @@
+/* --- ESTILOS MÉTODO DE BISECCIÓN --- */
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+  border-radius: 4px;
+  font-size: 13px;
+  width: 100%;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #ffb703;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
+}
+
+/* Resultado */
+.resultado-principal {
+  background: linear-gradient(135deg, rgba(0, 40, 85, 0.1) 0%, rgba(255, 183, 3, 0.1) 100%);
+  padding: 30px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 183, 3, 0.3);
+  text-align: center;
+  margin: 20px 0;
+}
+
+.numero-raiz {
+  display: block;
+  font-size: 44px;
+  font-weight: 700;
+  color: #002855;
+  margin: 15px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.resultado-principal p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.resultado-principal strong {
+  color: #002855;
+}
+
+/* Tabla de iteraciones */
+.tabla-iteraciones {
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.tabla-metodo {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tabla-metodo th {
+  background: linear-gradient(90deg, #002855 0%, #004080 100%);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.tabla-metodo td {
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 40, 85, 0.1);
+  text-align: center;
+  font-size: 11px;
+  color: #333;
+}
+
+.tabla-metodo tr:nth-child(even) {
+  background: rgba(0, 40, 85, 0.05);
+}
+
+.tabla-metodo tr:hover {
+  background: rgba(255, 183, 3, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="number"] {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .numero-raiz {
+    font-size: 32px;
+  }
+
+  .tabla-metodo {
+    font-size: 10px;
+  }
+
+  .tabla-metodo th,
+  .tabla-metodo td {
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resultado-principal {
+    padding: 20px;
+  }
+
+  .numero-raiz {
+    font-size: 24px;
+  }
+
+  .tabla-metodo {
+    font-size: 9px;
+  }
+
+  .tabla-metodo th {
+    padding: 4px 2px;
+  }
+
+  .tabla-metodo td {
+    padding: 4px 2px;
+  }
+}

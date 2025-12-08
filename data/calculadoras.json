@@ -77,28 +77,28 @@
         "descripcion": "Operación básica de suma entre dos matrices de dimensiones compatibles.",
         "link": "calculadoras/matrices-suma/suma.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Multiplicación de Matrices",
         "descripcion": "Producto matricial con visualización paso a paso del proceso de cálculo.",
         "link": "calculadoras/matrices-multiplicacion/multiplicacion.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Matriz Inversa",
         "descripcion": "Cálculo de la matriz inversa usando métodos de Gauss-Jordan.",
         "link": "calculadoras/matrices-inversa/inversa.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Determinantes",
         "descripcion": "Cálculo de determinantes con método de cofactores y regla de Sarrus.",
         "link": "calculadoras/matrices-determinantes/determinantes.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       }
     ]
   },
@@ -110,28 +110,28 @@
         "descripcion": "Método de eliminación gaussiana para convertir matrices a forma triangular superior.",
         "link": "calculadoras/gauss/gauss.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Gauss-Jordan",
         "descripcion": "Eliminación completa para obtener matriz identidad y resolver sistemas simultáneamente.",
         "link": "calculadoras/gauss-jordan/gauss-jordan.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método Iterativo Jacobi",
         "descripcion": "Método iterativo para resolver sistemas usando aproximaciones sucesivas.",
         "link": "calculadoras/jacobi/jacobi.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método Gauss-Seidel",
         "descripcion": "Variante mejorada de Jacobi que converge más rápido usando valores actualizados.",
         "link": "calculadoras/gauss-seidel/gauss-seidel.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       }
     ]
   },
@@ -143,35 +143,35 @@
         "descripcion": "Búsqueda de raíces dividiendo intervalos sucesivamente.",
         "link": "calculadoras/biseccion/biseccion.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método de la Secante",
         "descripcion": "Aproximación de raíces usando líneas secantes sin necesidad de derivada.",
         "link": "calculadoras/secante/secante.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método de Punto Fijo",
         "descripcion": "Iteración directa reordenando la ecuación para encontrar puntos de convergencia.",
         "link": "calculadoras/punto-fijo/punto-fijo.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Newton-Raphson Modificado",
         "descripcion": "Variante del método de Newton con jacobiano congelado para mayor estabilidad.",
         "link": "calculadoras/newton-raphson/newton-raphson.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Función fsolve",
         "descripcion": "Solver numérico avanzado para sistemas de ecuaciones no lineales.",
         "link": "calculadoras/fsolve/fsolve.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       }
     ]
   }

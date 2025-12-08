@@ -1,0 +1,188 @@
+/* --- ESTILOS MATRIZ INVERSA --- */
+
+.contenedor-matriz {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0, 40, 85, 0.1);
+  border-radius: 8px;
+  margin: 10px 0;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+}
+
+.contenedor-matriz input {
+  padding: 10px;
+  border: 1px solid rgba(0, 40, 85, 0.3);
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.contenedor-matriz input:focus {
+  border-color: #ffb703;
+  box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
+  outline: none;
+}
+
+/* Resultado */
+.resultado-matriz {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(0, 40, 85, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+}
+
+/* Panel de verificación */
+.panel-verificacion {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.panel-verificacion h4 {
+  color: #002855;
+  margin-bottom: 15px;
+}
+
+.error-celda {
+  background: rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Tablas de matriz */
+.matrices-contenedor {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.tabla-resultado {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+.tabla-matriz {
+  border-collapse: collapse;
+  margin: 15px auto;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tabla-matriz td {
+  padding: 12px 18px;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+  text-align: center;
+  font-weight: 500;
+  color: #002855;
+  min-width: 60px;
+}
+
+.tabla-matriz tr:nth-child(even) {
+  background: rgba(0, 40, 85, 0.05);
+}
+
+.tabla-matriz tr:hover {
+  background: rgba(255, 183, 3, 0.1);
+}
+
+/* Contenedor de matrices */
+.matriz-contenedor {
+  text-align: center;
+}
+
+.matriz-contenedor h4 {
+  color: #002855;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.matriz-contenedor p {
+  margin: 10px 0 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Estilos para desarrollo */
+.desarrollo-math {
+  padding: 20px;
+  background: rgba(0, 40, 85, 0.05);
+  border-left: 4px solid #ffb703;
+  border-radius: 4px;
+  line-height: 1.8;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.desarrollo-math p {
+  margin: 8px 0;
+  color: #333;
+}
+
+.desarrollo-math strong {
+  color: #002855;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor-matriz {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .contenedor-matriz input {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .tabla-matriz td {
+    padding: 8px 12px;
+    min-width: 50px;
+    font-size: 13px;
+  }
+
+  .matrices-contenedor {
+    gap: 15px;
+  }
+
+  .desarrollo-math {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-matriz {
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .tabla-matriz {
+    font-size: 11px;
+  }
+
+  .tabla-matriz td {
+    padding: 6px 8px;
+    min-width: 45px;
+  }
+
+  .matrices-contenedor {
+    flex-direction: column;
+  }
+
+  .desarrollo-math {
+    padding: 12px;
+    font-size: 13px;
+    max-height: 400px;
+  }
+
+  .panel-verificacion {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,199 @@
+/* --- ESTILOS MULTIPLICACIÓN DE MATRICES --- */
+
+.contenedor-matriz {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0, 40, 85, 0.1);
+  border-radius: 8px;
+  margin: 10px 0;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+}
+
+.contenedor-matriz input {
+  padding: 10px;
+  border: 1px solid rgba(0, 40, 85, 0.3);
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.contenedor-matriz input:focus {
+  border-color: #ffb703;
+  box-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
+  outline: none;
+}
+
+.info-dimension {
+  background: rgba(255, 183, 3, 0.15);
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 13px;
+  color: #333;
+  border-left: 3px solid #ffb703;
+}
+
+/* Tablas de resultados */
+.tabla-resultado {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+.tabla-matriz {
+  border-collapse: collapse;
+  margin: 15px auto;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tabla-matriz td {
+  padding: 12px 18px;
+  border: 1px solid rgba(0, 40, 85, 0.2);
+  text-align: center;
+  font-weight: 500;
+  color: #002855;
+  min-width: 60px;
+}
+
+.tabla-matriz tr:nth-child(even) {
+  background: rgba(0, 40, 85, 0.05);
+}
+
+.tabla-matriz tr:hover {
+  background: rgba(255, 183, 3, 0.1);
+}
+
+/* Tabla de pasos */
+.tabla-pasos {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tabla-pasos th {
+  background: linear-gradient(90deg, #002855 0%, #004080 100%);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tabla-pasos td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 40, 85, 0.1);
+  text-align: center;
+}
+
+.tabla-pasos tr:hover {
+  background: rgba(255, 183, 3, 0.1);
+}
+
+/* Contenedor de matrices */
+.matrices-fila {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.matriz-contenedor {
+  text-align: center;
+}
+
+.matriz-contenedor h4 {
+  color: #002855;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Estilos para desarrollo */
+.desarrollo-math {
+  padding: 20px;
+  background: rgba(0, 40, 85, 0.05);
+  border-left: 4px solid #ffb703;
+  border-radius: 4px;
+  line-height: 1.8;
+}
+
+.desarrollo-math p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.desarrollo-math strong {
+  color: #002855;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor-matriz {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .contenedor-matriz input {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .tabla-matriz td {
+    padding: 8px 12px;
+    min-width: 50px;
+    font-size: 13px;
+  }
+
+  .tabla-pasos {
+    font-size: 12px;
+  }
+
+  .tabla-pasos th {
+    padding: 8px;
+  }
+
+  .tabla-pasos td {
+    padding: 6px 8px;
+  }
+
+  .matrices-fila {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-matriz {
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .tabla-matriz {
+    font-size: 11px;
+  }
+
+  .tabla-matriz td {
+    padding: 6px 8px;
+    min-width: 45px;
+  }
+
+  .matrices-fila {
+    flex-direction: column;
+  }
+
+  .desarrollo-math {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .info-dimension {
+    font-size: 12px;
+  }
+}
