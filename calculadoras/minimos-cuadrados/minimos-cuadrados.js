@@ -88,7 +88,7 @@ const App = {
         document.getElementById('btnTogglePasos').textContent = 'Abrir desarrollo';
       }
 
-      alert('Todos los datos han sido limpiados correctamente');
+      // alert('Todos los datos han sido limpiados correctamente');
     }
   },
 
@@ -119,7 +119,7 @@ const App = {
     const puntosValidos = this.estado.puntos.filter(p => p.x !== null && p.y !== null);
 
     if (puntosValidos.length < 2) {
-      alert('Se necesitan al menos 2 puntos validos');
+      // alert('Se necesitan al menos 2 puntos validos');
       return false;
     }
 
@@ -152,12 +152,12 @@ const App = {
     const xEval = parseFloat(document.getElementById('inputXEvaluar').value);
 
     if (isNaN(xEval)) {
-      alert('Ingrese un valor valido para x');
+      // alert('Ingrese un valor valido para x');
       return;
     }
 
     if (grado >= puntos.length) {
-      alert(`Para grado ${grado} se necesitan al menos ${grado + 1} puntos`);
+      // alert(`Para grado ${grado} se necesitan al menos ${grado + 1} puntos`);
       return;
     }
 
@@ -188,10 +188,10 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      alert(`Ajuste calculado correctamente: P(${xEval}) = ${this.formatear(resultado)}`);
+      // alert(`Ajuste calculado correctamente: P(${xEval}) = ${this.formatear(resultado)}`);
 
     } catch (error) {
-      alert('Error: ' + error.message);
+      // alert('Error: ' + error.message);
     }
   },
 
@@ -658,7 +658,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula el ajuste');
+      // alert('Primero calcula el ajuste');
       return;
     }
 
@@ -704,7 +704,7 @@ const App = {
       this.agregarFila(p.x, p.y);
     });
 
-    alert('Ejemplo cargado correctamente');
+    // alert('Ejemplo cargado correctamente');
   }
 };
 

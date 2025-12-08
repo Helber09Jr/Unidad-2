@@ -190,10 +190,10 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      alert(`Integral calculada correctamente: I ≈ ${this.formatear(resultado.I)}`);
+      // alert(`Integral calculada correctamente: I ≈ ${this.formatear(resultado.I)}`);
 
     } catch (error) {
-      alert('Error: ' + error.message);
+      // alert('Error: ' + error.message);
     }
   },
 
@@ -747,7 +747,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la integral');
+      // alert('Primero calcula la integral');
       return;
     }
 
@@ -780,7 +780,7 @@ const App = {
 
     this.verificarN();
 
-    alert('Ejemplo cargado correctamente');
+    // alert('Ejemplo cargado correctamente');
   }
 };
 

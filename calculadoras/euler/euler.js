@@ -211,10 +211,10 @@ const App = {
       this.mostrarTablaCompleta();
       this.graficar();
 
-      alert(`Cálculo completado: ${n + 1} puntos generados. Solución en x = ${this.formatear(xf)}: y ≈ ${this.formatear(yi)}`);
+      // alert(`Cálculo completado: ${n + 1} puntos generados. Solución en x = ${this.formatear(xf)}: y ≈ ${this.formatear(yi)}`);
 
     } catch (error) {
-      alert('Error: ' + error.message);
+      // alert('Error: ' + error.message);
     }
   },
 
@@ -491,7 +491,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la solución');
+      // alert('Primero calcula la solución');
       return;
     }
 
@@ -524,7 +524,7 @@ const App = {
 
     this.verificarH();
 
-    alert('Ejemplo cargado correctamente');
+    // alert('Ejemplo cargado correctamente');
   }
 };
 
