@@ -34,6 +34,9 @@ const App = {
       <td><button class="boton-eliminar">X</button></td>
     `;
 
+    fila.querySelector('.input-x').oninput = () => this.leerPuntos();
+    fila.querySelector('.input-y').oninput = () => this.leerPuntos();
+
     fila.querySelector('.boton-eliminar').onclick = () => {
       fila.remove();
       this.actualizarIndices();
@@ -88,7 +91,7 @@ const App = {
         document.getElementById('btnTogglePasos').textContent = 'Abrir desarrollo';
       }
 
-      // alert('Todos los datos han sido limpiados correctamente');
+      Notificaciones.exito('Todos los datos han sido limpiados correctamente');
     }
   },
 
@@ -119,7 +122,7 @@ const App = {
     const puntosValidos = this.estado.puntos.filter(p => p.x !== null && p.y !== null);
 
     if (puntosValidos.length < 2) {
-      // alert('Se necesitan al menos 2 puntos validos');
+      Notificaciones.error('Se necesitan al menos 2 puntos validos');
       return false;
     }
 
@@ -152,12 +155,12 @@ const App = {
     const xEval = parseFloat(document.getElementById('inputXEvaluar').value);
 
     if (isNaN(xEval)) {
-      // alert('Ingrese un valor valido para x');
+      Notificaciones.error('Ingrese un valor valido para x');
       return;
     }
 
     if (grado >= puntos.length) {
-      // alert(`Para grado ${grado} se necesitan al menos ${grado + 1} puntos`);
+      Notificaciones.error(`Para grado ${grado} se necesitan al menos ${grado + 1} puntos`);
       return;
     }
 
@@ -188,10 +191,10 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      // alert(`Ajuste calculado correctamente: P(${xEval}) = ${this.formatear(resultado)}`);
+      Notificaciones.exito(`Ajuste calculado correctamente: P(${xEval}) = ${this.formatear(resultado)}`);
 
     } catch (error) {
-      // alert('Error: ' + error.message);
+      Notificaciones.error('Error: ' + error.message);
     }
   },
 
@@ -658,7 +661,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      // alert('Primero calcula el ajuste');
+      Notificaciones.error('Primero calcula el ajuste');
       return;
     }
 
@@ -704,7 +707,7 @@ const App = {
       this.agregarFila(p.x, p.y);
     });
 
-    // alert('Ejemplo cargado correctamente');
+    Notificaciones.exito('Ejemplo cargado correctamente');
   }
 };
 

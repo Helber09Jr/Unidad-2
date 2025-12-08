@@ -109,7 +109,6 @@ function crearTarjetaCalculadora(item) {
     enlace.style.cursor = 'not-allowed';
     enlace.addEventListener('click', (e) => {
       e.preventDefault();
-      alert('⚠️ Esta calculadora está en desarrollo. Estará disponible próximamente.');
     });
   } else {
     enlace.href = item.link;
