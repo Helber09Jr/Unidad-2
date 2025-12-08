@@ -190,10 +190,10 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      // alert(`Integral calculada correctamente: I ≈ ${this.formatear(resultado.I)}`);
+      Notificaciones.exito(`I ≈ ${this.formatear(resultado.I)}`);
 
     } catch (error) {
-      // alert('Error: ' + error.message);
+      Notificaciones.error('Error: ' + error.message);
     }
   },
 
@@ -780,7 +780,7 @@ const App = {
 
     this.verificarN();
 
-    // alert('Ejemplo cargado correctamente');
+    Notificaciones.exito('Ejemplo cargado correctamente');
   }
 };
 

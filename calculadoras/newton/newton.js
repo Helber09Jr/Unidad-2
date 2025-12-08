@@ -87,7 +87,7 @@ const App = {
         document.getElementById('btnTogglePasos').textContent = 'Abrir desarrollo';
       }
 
-      // alert('Todos los datos han sido limpiados correctamente');
+      Notificaciones.exito('Todos los datos han sido limpiados correctamente');
     }
   },
 
@@ -118,14 +118,14 @@ const App = {
     const puntosValidos = this.estado.puntos.filter(p => p.x !== null && p.y !== null);
 
     if (puntosValidos.length < 2) {
-      // alert('Se necesitan al menos 2 puntos válidos');
+      Notificaciones.error('Se necesitan al menos 2 puntos válidos');
       return false;
     }
 
     const xs = puntosValidos.map(p => p.x);
     const xsUnicos = new Set(xs);
     if (xs.length !== xsUnicos.size) {
-      // alert('No puede haber valores de x repetidos');
+      Notificaciones.error('No puede haber valores de x repetidos');
       return false;
     }
 
@@ -157,7 +157,7 @@ const App = {
     const xEval = parseFloat(document.getElementById('inputXEvaluar').value);
 
     if (isNaN(xEval)) {
-      // alert('Ingrese un valor válido para x');
+      Notificaciones.error('Ingrese un valor válido para x');
       return;
     }
 
@@ -178,10 +178,10 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      // alert(`Interpolación calculada correctamente: P(${xEval}) = ${this.formatear(resultado)}`);
+      Notificaciones.exito(`Interpolación calculada correctamente: P(${xEval}) = ${this.formatear(resultado)}`);
 
     } catch (error) {
-      // alert('Error: ' + error.message);
+      Notificaciones.error('Error: ' + error.message);
     }
   },
 
@@ -509,7 +509,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      // alert('Primero calcula la interpolación');
+      Notificaciones.error('Primero calcula la interpolación');
       return;
     }
 
@@ -554,7 +554,7 @@ const App = {
       this.agregarFila(p.x, p.y);
     });
 
-    // alert('Ejemplo cargado correctamente');
+    Notificaciones.exito('Ejemplo cargado correctamente');
   }
 };
 

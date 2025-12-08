@@ -141,10 +141,10 @@ const App = {
       this.mostrarDesarrollo();
       this.graficar();
 
-      // alert(`Integral calculada correctamente: I ≈ ${this.formatear(T)}`);
+      Notificaciones.exito(`Integral calculada correctamente: I ≈ ${this.formatear(T)}`);
 
     } catch (error) {
-      // alert('Error: ' + error.message);
+      Notificaciones.error('Error: ' + error.message);
     }
   },
 
@@ -426,7 +426,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      // alert('Primero calcula la integral');
+      Notificaciones.error('Primero calcula la integral');
       return;
     }
 
@@ -456,7 +456,7 @@ const App = {
     document.getElementById('inputB').value = '2';
     document.getElementById('inputN').value = '4';
 
-    // alert('Ejemplo cargado correctamente');
+    Notificaciones.exito('Ejemplo cargado correctamente');
   }
 };
 
