@@ -110,28 +110,28 @@
         "descripcion": "Método de eliminación gaussiana para convertir matrices a forma triangular superior.",
         "link": "calculadoras/gauss/gauss.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Gauss-Jordan",
         "descripcion": "Eliminación completa para obtener matriz identidad y resolver sistemas simultáneamente.",
         "link": "calculadoras/gauss-jordan/gauss-jordan.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método Iterativo Jacobi",
         "descripcion": "Método iterativo para resolver sistemas usando aproximaciones sucesivas.",
         "link": "calculadoras/jacobi/jacobi.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Método Gauss-Seidel",
         "descripcion": "Variante mejorada de Jacobi que converge más rápido usando valores actualizados.",
         "link": "calculadoras/gauss-seidel/gauss-seidel.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       }
     ]
   },

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss-Jordan - Métodos Numéricos</title>
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="gauss-jordan.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="barra-superior">
+        <div class="contenedor-logo">
+            <img src="../../imagenes/logo.png" alt="Logo" class="logo">
+            <h1 class="titulo-proyecto">Método de Gauss-Jordan</h1>
+        </div>
+        <nav class="menu-navegacion" id="menuNavegacion">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#manual">Manual</a></li>
+            </ul>
+        </nav>
+        <button class="boton-menu" id="botonMenu">☰</button>
+    </header>
+
+    <main class="contenedor-aplicacion">
+        <!-- SIDEBAR INPUTS -->
+        <aside class="panel-lateral">
+            <h2 class="titulo-experimento">Parámetros de Entrada</h2>
+            
+            <div class="grupo-entrada">
+                <label for="numEcuaciones">Número de ecuaciones (n):</label>
+                <select id="numEcuaciones">
+                    <option value="2">2×2</option>
+                    <option value="3">3×3</option>
+                    <option value="4">4×4</option>
+                </select>
+            </div>
+
+            <div class="grupo-entrada">
+                <h3>Sistema Ax = b (matriz aumentada [A|b]):</h3>
+                <div id="inputsMatrizAumentada" class="contenedor-matriz"></div>
+            </div>
+
+            <div class="grupo-botones">
+                <button id="btnCalcular" class="btn-primario">Resolver Sistema</button>
+                <button id="btnEjemplo" class="btn-secundario">Cargar Ejemplo</button>
+                <button id="btnLimpiar" class="btn-secundario">Limpiar</button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <section class="contenedor-principal">
+            <div id="contenedorResultado" class="panel-resultado oculto">
+                <h3>Solución del Sistema</h3>
+                <div id="resultadoSolucion" class="tabla-resultado"></div>
+                <div id="matrizReducida" class="matriz-reducida"></div>
+                <button id="btnAlternarPasos" class="btn-secundario">Ver Desarrollo</button>
+            </div>
+
+            <div id="contenedorDesarrollo" class="panel-desarrollo oculto">
+                <h3>Desarrollo Paso a Paso</h3>
+                <div id="pasosPasos" class="pasos-desarrollo"></div>
+            </div>
+
+            <div id="mensajeError" class="mensaje-error oculto"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="pie-pagina">
+        <div class="contenedor-pie">
+            <div class="info-izquierda">
+                <h3 class="item-footer">Universidad Nacional Jorge Basadre Grohmann</h3>
+                <p class="item-footer">Carrera: Ingeniería Civil</p>
+            </div>
+            <div class="info-derecha">
+                <p class="item-footer">Curso: Modelado Computacional para Ingeniería</p>
+                <p class="creditos">© 2024 - Desarrollo de Calculadoras Numéricas</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contenedorNotificaciones"></div>
+    <script src="../../js/notificaciones.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="gauss-jordan.js"></script>
+</body>
+</html>
