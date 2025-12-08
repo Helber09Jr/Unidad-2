@@ -77,28 +77,28 @@
         "descripcion": "Operación básica de suma entre dos matrices de dimensiones compatibles.",
         "link": "calculadoras/matrices-suma/suma.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Multiplicación de Matrices",
         "descripcion": "Producto matricial con visualización paso a paso del proceso de cálculo.",
         "link": "calculadoras/matrices-multiplicacion/multiplicacion.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Matriz Inversa",
         "descripcion": "Cálculo de la matriz inversa usando métodos de Gauss-Jordan.",
         "link": "calculadoras/matrices-inversa/inversa.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       },
       {
         "nombre": "Determinantes",
         "descripcion": "Cálculo de determinantes con método de cofactores y regla de Sarrus.",
         "link": "calculadoras/matrices-determinantes/determinantes.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "desarrollo"
+        "estado": "activo"
       }
     ]
   },
