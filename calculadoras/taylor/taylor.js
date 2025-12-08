@@ -212,10 +212,10 @@ const App = {
       seccionResultado.classList.remove('oculto');
       seccionTabla.classList.remove('oculto');
 
-      alert(`Cálculo completado: y(${this.formatear(xf)}) ≈ ${this.formatear(yActual)}`);
+      // alert(`Cálculo completado: y(${this.formatear(xf)}) ≈ ${this.formatear(yActual)}`);
 
     } catch (error) {
-      alert('Error: ' + error.message);
+      // alert('Error: ' + error.message);
     }
   },
 
@@ -496,7 +496,7 @@ const App = {
 
   alternarPasos() {
     if (!this.estado.resultado) {
-      alert('Primero calcula la solución');
+      // alert('Primero calcula la solución');
       return;
     }
 
@@ -529,7 +529,7 @@ const App = {
 
     this.verificarH();
 
-    alert('Ejemplo cargado correctamente');
+    // alert('Ejemplo cargado correctamente');
   }
 };
 
