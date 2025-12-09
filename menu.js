@@ -1,12 +1,13 @@
 /* --- FUNCIONALIDAD MENU CALCULADORAS --- */
 
-// Variable global para filtrado
-let calculadorasActuales = [];
-let filtroActual = 'todas';
+// Variables globales para tabs y filtrados
+let tabActual = 'todas';
+let filtroCategoria = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   configurarMenuResponsivo();
   cargarCalculadorasDinamicas();
+  configurarTabs();
   configurarBusquedaYFiltros();
 });
 
@@ -204,22 +205,70 @@ function crearTarjetaCalculadora(item) {
   return enlace;
 }
 
-/* --- ACORDEON --- */
+/* --- TABS/PESTAÑAS --- */
 
-function configurarAcordeon() {
-  const titulosUnidad = document.querySelectorAll('.titulo-unidad');
+function configurarTabs() {
+  const botonesTab = document.querySelectorAll('.tab-btn');
+  const btnCategorias = document.getElementById('btnCategorias');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const itemsDropdown = document.querySelectorAll('.dropdown-item');
 
-  titulosUnidad.forEach(titulo => {
-    titulo.addEventListener('click', () => {
-      const bloque = titulo.parentElement;
+  // Cerrar dropdown cuando clickeas fuera
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown-categorias')) {
+      dropdownMenu.classList.remove('activo');
+    }
+  });
 
-      // Opcional: cerrar otros bloques al abrir uno
-      // const todosLosBloques = document.querySelectorAll('.bloque-unidad');
-      // todosLosBloques.forEach(b => {
-      //   if (b !== bloque) b.classList.remove('unidad-activa');
-      // });
+  // Toggle dropdown
+  btnCategorias.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('activo');
+  });
 
-      bloque.classList.toggle('unidad-activa');
+  // Tabs principales (Todas, Unidad I, Unidad II)
+  botonesTab.forEach(btn => {
+    if (btn.dataset.tab) {
+      btn.addEventListener('click', () => {
+        // Remover activo de todos
+        document.querySelectorAll('.tab-btn[data-tab]').forEach(b => {
+          b.classList.remove('tab-activo');
+        });
+
+        // Marcar clickeado como activo
+        btn.classList.add('tab-activo');
+        tabActual = btn.dataset.unidad || 'todas';
+        filtroCategoria = null;
+
+        // Cerrar dropdown
+        dropdownMenu.classList.remove('activo');
+
+        // Actualizar vista
+        actualizarVista();
+      });
+    }
+  });
+
+  // Items del dropdown de categorías
+  itemsDropdown.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remover activo de todos los tabs
+      document.querySelectorAll('.tab-btn[data-tab]').forEach(b => {
+        b.classList.remove('tab-activo');
+      });
+
+      // Remover activo de todos los items
+      itemsDropdown.forEach(i => i.classList.remove('activo'));
+
+      // Marcar como activo
+      item.classList.add('activo');
+      filtroCategoria = item.dataset.filtro;
+      tabActual = 'todas';
+
+      // Cerrar dropdown
+      dropdownMenu.classList.remove('activo');
+
+      // Actualizar vista
+      actualizarVista();
     });
   });
 }
@@ -228,71 +277,73 @@ function configurarAcordeon() {
 
 function configurarBusquedaYFiltros() {
   const inputBusqueda = document.getElementById('inputBusqueda');
-  const botonesFiltro = document.querySelectorAll('.filtro-btn');
 
-  // Guardar todas las calculadoras
-  Object.keys(window.datosCalculadoras || {}).forEach(unidad => {
-    if (window.datosCalculadoras[unidad].items) {
-      calculadorasActuales.push(...window.datosCalculadoras[unidad].items);
+  if (inputBusqueda) {
+    inputBusqueda.addEventListener('input', () => {
+      actualizarVista();
+    });
+  }
+}
+
+function actualizarVista() {
+  const inputBusqueda = document.getElementById('inputBusqueda');
+  const textoBusqueda = (inputBusqueda?.value || '').toLowerCase();
+  const bloques = document.querySelectorAll('.bloque-unidad');
+  const tarjetas = document.querySelectorAll('.tarjeta');
+
+  let visiblesTotal = 0;
+
+  // Mostrar/ocultar bloques según tab activo
+  bloques.forEach(bloque => {
+    const bloqueUnidad = Object.keys(window.datosCalculadoras || {}).find(key =>
+      window.datosCalculadoras[key].items.some(item =>
+        bloque.querySelector('.tarjeta')?.dataset?.categoria === item.categoria
+      )
+    );
+
+    if (tabActual === 'todas' || bloqueUnidad === tabActual) {
+      bloque.classList.add('unidad-activa');
+    } else {
+      bloque.classList.remove('unidad-activa');
     }
   });
 
-  // Búsqueda
-  if (inputBusqueda) {
-    inputBusqueda.addEventListener('input', (e) => {
-      filtrarCalculadoras();
-    });
-  }
-
-  // Filtros
-  botonesFiltro.forEach(btn => {
-    btn.addEventListener('click', () => {
-      botonesFiltro.forEach(b => b.classList.remove('filtro-activo'));
-      btn.classList.add('filtro-activo');
-      filtroActual = btn.dataset.filtro;
-      filtrarCalculadoras();
-    });
-  });
-}
-
-function filtrarCalculadoras() {
-  const inputBusqueda = document.getElementById('inputBusqueda');
-  const textoBusqueda = (inputBusqueda?.value || '').toLowerCase();
-  const tarjetas = document.querySelectorAll('.tarjeta');
-
-  let visibles = 0;
-
+  // Filtrar tarjetas
   tarjetas.forEach(tarjeta => {
     const nombre = tarjeta.querySelector('h3')?.textContent.toLowerCase() || '';
     const descripcion = tarjeta.querySelector('p')?.textContent.toLowerCase() || '';
     const categoria = tarjeta.dataset.categoria || '';
+    const bloqueUnidad = tarjeta.closest('.bloque-unidad');
 
-    // Coincidir búsqueda
+    // Validar búsqueda
     const coincideBusqueda = nombre.includes(textoBusqueda) || descripcion.includes(textoBusqueda);
 
-    // Coincidir filtro
-    const coincideFiltro = filtroActual === 'todas' || categoria === filtroActual;
+    // Validar tab
+    const coincideTab = tabActual === 'todas' || bloqueUnidad?.classList.contains('unidad-activa');
 
-    if (coincideBusqueda && coincideFiltro) {
+    // Validar categoría
+    const coincideCategoria = !filtroCategoria || categoria === filtroCategoria;
+
+    if (coincideBusqueda && coincideTab && coincideCategoria) {
       tarjeta.style.display = '';
       tarjeta.style.animation = 'tarjetaEntrada 0.3s ease-out';
-      visibles++;
+      visiblesTotal++;
     } else {
       tarjeta.style.display = 'none';
     }
   });
 
-  // Mostrar mensaje si no hay resultados
+  // Mostrar/ocultar mensaje vacío
   const contenedor = document.getElementById('contenedorCalculadoras');
   let mensajeVacio = contenedor.querySelector('.mensaje-vacio');
 
-  if (visibles === 0) {
+  if (visiblesTotal === 0) {
     if (!mensajeVacio) {
       mensajeVacio = document.createElement('div');
       mensajeVacio.className = 'mensaje-vacio';
       mensajeVacio.innerHTML = `
         <h3>No se encontraron resultados</h3>
-        <p>Intenta con otra búsqueda o filtro diferente</p>
+        <p>Intenta con otra búsqueda, tab o filtro diferente</p>
       `;
       contenedor.appendChild(mensajeVacio);
     }

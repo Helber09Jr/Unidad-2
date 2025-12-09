@@ -51,9 +51,10 @@
     </div>
   </section>
 
-  <!-- Sección de Búsqueda y Filtros -->
-  <section class="seccion-busqueda">
-    <div class="contenedor-busqueda">
+  <!-- Sección de Búsqueda y Tabs -->
+  <section class="seccion-busqueda-tabs">
+    <div class="contenedor-busqueda-tabs">
+      <!-- Barra de Búsqueda -->
       <div class="barra-busqueda-container">
         <svg class="icono-busqueda" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <circle cx="11" cy="11" r="8"></circle>
@@ -68,28 +69,32 @@
         >
       </div>
 
-      <div class="filtros-container">
-        <button class="filtro-btn filtro-activo" data-filtro="todas">
-          Todas <span class="badge-filtro">22</span>
+      <!-- Tabs/Pestañas -->
+      <div class="tabs-container">
+        <button class="tab-btn tab-activo" data-tab="todas" data-unidad="">
+          Todas <span class="tab-badge">22</span>
         </button>
-        <button class="filtro-btn" data-filtro="matricial">
-          Matriciales <span class="badge-filtro">4</span>
+        <button class="tab-btn" data-tab="unidad1" data-unidad="unidad1">
+          Unidad I <span class="tab-badge">13</span>
         </button>
-        <button class="filtro-btn" data-filtro="lineales">
-          Lineales <span class="badge-filtro">4</span>
+        <button class="tab-btn" data-tab="unidad2" data-unidad="unidad2">
+          Unidad II <span class="tab-badge">9</span>
         </button>
-        <button class="filtro-btn" data-filtro="no-lineales">
-          No Lineales <span class="badge-filtro">5</span>
-        </button>
-        <button class="filtro-btn" data-filtro="interpolacion">
-          Interpolación <span class="badge-filtro">3</span>
-        </button>
-        <button class="filtro-btn" data-filtro="integracion">
-          Integración <span class="badge-filtro">2</span>
-        </button>
-        <button class="filtro-btn" data-filtro="edo">
-          EDO <span class="badge-filtro">4</span>
-        </button>
+
+        <!-- Dropdown Categorías -->
+        <div class="dropdown-categorias">
+          <button class="tab-btn dropdown-toggle" id="btnCategorias">
+            Categorías ▼
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <button class="dropdown-item" data-filtro="matricial">Matriciales (4)</button>
+            <button class="dropdown-item" data-filtro="lineales">Lineales (4)</button>
+            <button class="dropdown-item" data-filtro="no-lineales">No Lineales (5)</button>
+            <button class="dropdown-item" data-filtro="interpolacion">Interpolación (3)</button>
+            <button class="dropdown-item" data-filtro="integracion">Integración (2)</button>
+            <button class="dropdown-item" data-filtro="edo">EDO (4)</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
