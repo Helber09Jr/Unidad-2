@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menú de Calculadoras Numéricas - ESIS</title>
+  <!-- Google Fonts Premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/estilos.css">
-  <link rel="stylesheet" href="css/estilos-menu.css">
+  <link rel="stylesheet" href="css/estilos-menu-premium.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 
@@ -38,6 +43,57 @@
 </header>
 
 <main class="contenedor-menu-principal">
+  <!-- Sección Premium de Presentación -->
+  <section class="seccion-presentacion">
+    <div class="contenedor-presentacion">
+      <h1 class="titulo-presentacion">Catálogo de Calculadoras</h1>
+      <p class="subtitulo-presentacion">Explora nuestras 22 calculadoras interactivas organizadas por unidades académicas</p>
+    </div>
+  </section>
+
+  <!-- Sección de Búsqueda y Filtros -->
+  <section class="seccion-busqueda">
+    <div class="contenedor-busqueda">
+      <div class="barra-busqueda-container">
+        <svg class="icono-busqueda" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input
+          type="search"
+          id="inputBusqueda"
+          class="barra-busqueda"
+          placeholder="Buscar calculadora..."
+          aria-label="Buscar calculadora"
+        >
+      </div>
+
+      <div class="filtros-container">
+        <button class="filtro-btn filtro-activo" data-filtro="todas">
+          Todas <span class="badge-filtro">22</span>
+        </button>
+        <button class="filtro-btn" data-filtro="matricial">
+          Matriciales <span class="badge-filtro">4</span>
+        </button>
+        <button class="filtro-btn" data-filtro="lineales">
+          Lineales <span class="badge-filtro">4</span>
+        </button>
+        <button class="filtro-btn" data-filtro="no-lineales">
+          No Lineales <span class="badge-filtro">5</span>
+        </button>
+        <button class="filtro-btn" data-filtro="interpolacion">
+          Interpolación <span class="badge-filtro">3</span>
+        </button>
+        <button class="filtro-btn" data-filtro="integracion">
+          Integración <span class="badge-filtro">2</span>
+        </button>
+        <button class="filtro-btn" data-filtro="edo">
+          EDO <span class="badge-filtro">4</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <div id="contenedorCalculadoras" class="menu-dinamico">
     <div class="cargando">
       <div class="spinner"></div>
