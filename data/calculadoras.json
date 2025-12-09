@@ -1,78 +1,10 @@
 {
   "unidad1": {
-    "titulo": "Unidad I: Interpolación y Aproximación",
+    "titulo": "📚 UNIDAD I: ÁLGEBRA LINEAL Y ECUACIONES NO LINEALES",
+    "descripcion": "Operaciones matriciales, métodos de resolución de sistemas lineales y ecuaciones no lineales",
     "items": [
       {
-        "nombre": "Interpolación de Lagrange",
-        "descripcion": "Construye un polinomio que pasa exactamente por todos los puntos dados y evalúa en un punto específico.",
-        "link": "calculadoras/lagrange/lagrange.html",
-        "imagen": "imagenes/calculadoras/lagrange.png"
-      },
-      {
-        "nombre": "Interpolación de Newton",
-        "descripcion": "Método incremental usando diferencias divididas. Permite agregar puntos sin recalcular todo el polinomio.",
-        "link": "calculadoras/newton/newton.html",
-        "imagen": "imagenes/calculadoras/newton.png"
-      },
-      {
-        "nombre": "Mínimos Cuadrados",
-        "descripcion": "Ajuste de modelos polinomiales que minimizan el error cuadrático medio entre datos observados y predichos.",
-        "link": "calculadoras/minimos-cuadrados/minimos-cuadrados.html",
-        "imagen": "imagenes/calculadoras/minimos-cuadrados.png"
-      }
-    ]
-  },
-  "unidad2": {
-    "titulo": "Unidad II: Integración Numérica y Ecuaciones Diferenciales",
-    "items": [
-      {
-        "nombre": "Método del Trapecio",
-        "descripcion": "Aproximación de integrales definidas mediante la suma de áreas de trapecios.",
-        "link": "calculadoras/trapecio/trapecio.html",
-        "imagen": "imagenes/calculadoras/trapecio.png",
-        "estado": "activo"
-      },
-      {
-        "nombre": "Método de Simpson",
-        "descripcion": "Integración numérica de mayor precisión usando aproximaciones parabólicas (Simpson 1/3 y 3/8).",
-        "link": "calculadoras/simpson/simpson.html",
-        "imagen": "imagenes/calculadoras/simpson.png",
-        "estado": "activo"
-      },
-      {
-        "nombre": "Método de Euler",
-        "descripcion": "Solución numérica de ecuaciones diferenciales ordinarias mediante aproximación lineal.",
-        "link": "calculadoras/euler/euler.html",
-        "imagen": "imagenes/calculadoras/euler.png",
-        "estado": "activo"
-      },
-      {
-        "nombre": "Método de Taylor",
-        "descripcion": "Resolución de EDO usando expansión en serie de Taylor para mayor precisión.",
-        "link": "calculadoras/taylor/taylor.html",
-        "imagen": "imagenes/calculadoras/taylor.png",
-        "estado": "activo"
-      },
-      {
-        "nombre": "Runge-Kutta Orden 2 (RK2)",
-        "descripcion": "Método de segundo orden para resolver EDO con mejor precisión que Euler.",
-        "link": "calculadoras/runge-kutta-2/rk2.html",
-        "imagen": "imagenes/calculadoras/rk2.png",
-        "estado": "activo"
-      },
-      {
-        "nombre": "Runge-Kutta Orden 4 (RK4)",
-        "descripcion": "Método de cuarto orden ampliamente usado por su excelente balance entre precisión y eficiencia.",
-        "link": "calculadoras/runge-kutta-4/rk4.html",
-        "imagen": "imagenes/calculadoras/rk4.png",
-        "estado": "activo"
-      }
-    ]
-  },
-  "unidad3": {
-    "titulo": "Unidad III: Operaciones con Matrices y Resolución de Sistemas",
-    "items": [
-      {
+        "numero": 1,
         "nombre": "Suma de Matrices",
         "descripcion": "Operación básica de suma entre dos matrices de dimensiones compatibles.",
         "link": "calculadoras/matrices-suma/suma.html",
@@ -80,6 +12,7 @@
         "estado": "activo"
       },
       {
+        "numero": 2,
         "nombre": "Multiplicación de Matrices",
         "descripcion": "Producto matricial con visualización paso a paso del proceso de cálculo.",
         "link": "calculadoras/matrices-multiplicacion/multiplicacion.html",
@@ -87,6 +20,15 @@
         "estado": "activo"
       },
       {
+        "numero": 3,
+        "nombre": "Determinantes",
+        "descripcion": "Cálculo de determinantes con método de cofactores y regla de Sarrus.",
+        "link": "calculadoras/matrices-determinantes/determinantes.html",
+        "imagen": "imagenes/calculadoras/matrices.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 4,
         "nombre": "Matriz Inversa",
         "descripcion": "Cálculo de la matriz inversa usando métodos de Gauss-Jordan.",
         "link": "calculadoras/matrices-inversa/inversa.html",
@@ -94,18 +36,7 @@
         "estado": "activo"
       },
       {
-        "nombre": "Determinantes",
-        "descripcion": "Cálculo de determinantes con método de cofactores y regla de Sarrus.",
-        "link": "calculadoras/matrices-determinantes/determinantes.html",
-        "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "activo"
-      }
-    ]
-  },
-  "unidad3b": {
-    "titulo": "Métodos de Solución de Sistemas Lineales",
-    "items": [
-      {
+        "numero": 5,
         "nombre": "Triangulación de Gauss",
         "descripcion": "Método de eliminación gaussiana para convertir matrices a forma triangular superior.",
         "link": "calculadoras/gauss/gauss.html",
@@ -113,6 +44,7 @@
         "estado": "activo"
       },
       {
+        "numero": 6,
         "nombre": "Gauss-Jordan",
         "descripcion": "Eliminación completa para obtener matriz identidad y resolver sistemas simultáneamente.",
         "link": "calculadoras/gauss-jordan/gauss-jordan.html",
@@ -120,6 +52,7 @@
         "estado": "activo"
       },
       {
+        "numero": 7,
         "nombre": "Método Iterativo Jacobi",
         "descripcion": "Método iterativo para resolver sistemas usando aproximaciones sucesivas.",
         "link": "calculadoras/jacobi/jacobi.html",
@@ -127,18 +60,15 @@
         "estado": "activo"
       },
       {
+        "numero": 8,
         "nombre": "Método Gauss-Seidel",
         "descripcion": "Variante mejorada de Jacobi que converge más rápido usando valores actualizados.",
         "link": "calculadoras/gauss-seidel/gauss-seidel.html",
         "imagen": "imagenes/calculadoras/metodos.png",
         "estado": "activo"
-      }
-    ]
-  },
-  "unidad3c": {
-    "titulo": "Métodos de Resolución de Ecuaciones No Lineales",
-    "items": [
+      },
       {
+        "numero": 9,
         "nombre": "Método de Bisección",
         "descripcion": "Búsqueda de raíces dividiendo intervalos sucesivamente.",
         "link": "calculadoras/biseccion/biseccion.html",
@@ -146,6 +76,7 @@
         "estado": "activo"
       },
       {
+        "numero": 10,
         "nombre": "Método de la Secante",
         "descripcion": "Aproximación de raíces usando líneas secantes sin necesidad de derivada.",
         "link": "calculadoras/secante/secante.html",
@@ -153,6 +84,7 @@
         "estado": "activo"
       },
       {
+        "numero": 11,
         "nombre": "Método de Punto Fijo",
         "descripcion": "Iteración directa reordenando la ecuación para encontrar puntos de convergencia.",
         "link": "calculadoras/punto-fijo/punto-fijo.html",
@@ -160,6 +92,7 @@
         "estado": "activo"
       },
       {
+        "numero": 12,
         "nombre": "Newton-Raphson Modificado",
         "descripcion": "Variante del método de Newton con jacobiano congelado para mayor estabilidad.",
         "link": "calculadoras/newton-raphson/newton-raphson.html",
@@ -167,10 +100,89 @@
         "estado": "activo"
       },
       {
+        "numero": 13,
         "nombre": "Función fsolve",
         "descripcion": "Solver numérico avanzado para sistemas de ecuaciones no lineales.",
         "link": "calculadoras/fsolve/fsolve.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
+        "estado": "activo"
+      }
+    ]
+  },
+  "unidad2": {
+    "titulo": "📚 UNIDAD II: INTERPOLACIÓN, INTEGRACIÓN Y ECUACIONES DIFERENCIALES",
+    "descripcion": "Métodos de interpolación numérica, integración numérica y resolución de ecuaciones diferenciales ordinarias",
+    "items": [
+      {
+        "numero": 14,
+        "nombre": "Interpolación de Lagrange",
+        "descripcion": "Construye un polinomio que pasa exactamente por todos los puntos dados y evalúa en un punto específico.",
+        "link": "calculadoras/lagrange/lagrange.html",
+        "imagen": "imagenes/calculadoras/lagrange.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 15,
+        "nombre": "Interpolación de Newton",
+        "descripcion": "Método incremental usando diferencias divididas. Permite agregar puntos sin recalcular todo el polinomio.",
+        "link": "calculadoras/newton/newton.html",
+        "imagen": "imagenes/calculadoras/newton.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 16,
+        "nombre": "Mínimos Cuadrados",
+        "descripcion": "Ajuste de modelos polinomiales que minimizan el error cuadrático medio entre datos observados y predichos.",
+        "link": "calculadoras/minimos-cuadrados/minimos-cuadrados.html",
+        "imagen": "imagenes/calculadoras/minimos-cuadrados.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 17,
+        "nombre": "Método del Trapecio",
+        "descripcion": "Aproximación de integrales definidas mediante la suma de áreas de trapecios.",
+        "link": "calculadoras/trapecio/trapecio.html",
+        "imagen": "imagenes/calculadoras/trapecio.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 18,
+        "nombre": "Método de Simpson",
+        "descripcion": "Integración numérica de mayor precisión usando aproximaciones parabólicas (Simpson 1/3 y 3/8).",
+        "link": "calculadoras/simpson/simpson.html",
+        "imagen": "imagenes/calculadoras/simpson.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 19,
+        "nombre": "Método de Euler",
+        "descripcion": "Solución numérica de ecuaciones diferenciales ordinarias mediante aproximación lineal.",
+        "link": "calculadoras/euler/euler.html",
+        "imagen": "imagenes/calculadoras/euler.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 20,
+        "nombre": "Método de Taylor",
+        "descripcion": "Resolución de EDO usando expansión en serie de Taylor para mayor precisión.",
+        "link": "calculadoras/taylor/taylor.html",
+        "imagen": "imagenes/calculadoras/taylor.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 21,
+        "nombre": "Runge-Kutta Orden 2 (RK2)",
+        "descripcion": "Método de segundo orden para resolver EDO con mejor precisión que Euler.",
+        "link": "calculadoras/runge-kutta-2/rk2.html",
+        "imagen": "imagenes/calculadoras/rk2.png",
+        "estado": "activo"
+      },
+      {
+        "numero": 22,
+        "nombre": "Runge-Kutta Orden 4 (RK4)",
+        "descripcion": "Método de cuarto orden ampliamente usado por su excelente balance entre precisión y eficiencia.",
+        "link": "calculadoras/runge-kutta-4/rk4.html",
+        "imagen": "imagenes/calculadoras/rk4.png",
         "estado": "activo"
       }
     ]
