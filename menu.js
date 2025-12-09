@@ -46,13 +46,9 @@ function cargarCalculadorasDinamicas() {
     .then(datos => {
       contenedor.innerHTML = '';
       renderizarCalculadoras(datos, contenedor);
-      configurarAcordeon();
-      
-      // Abrir automáticamente la primera unidad
-      const primerBloque = contenedor.querySelector('.bloque-unidad');
-      if (primerBloque) {
-        primerBloque.classList.add('unidad-activa');
-      }
+
+      // Actualizar vista con el tab por defecto (Todas)
+      actualizarVista();
     })
     .catch(error => {
       console.error('Error:', error);
