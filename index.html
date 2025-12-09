@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadoras Numéricas - ESIS</title>
+  <!-- Google Fonts Premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/estilos-home.css">
+  <link rel="stylesheet" href="css/estilos-home-premium.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 
@@ -38,7 +44,7 @@
 </header>
 
 <section class="portada-principal" id="inicio">
-  <img src="imagenes/campus.jpg" alt="Campus universitario ESIS" class="imagen-portada">
+  <div class="portada-background" style="background-image: url('imagenes/campus.jpg');"></div>
   <div class="filtro-portada"></div>
   <div class="contenido-portada">
     <h1 class="titulo-portada">Calculadoras de Métodos Numéricos</h1>
@@ -47,7 +53,32 @@
     </p>
     <div class="botones-portada">
       <a href="menu.html" class="boton-portada boton-portada-primario">Explorar Calculadoras</a>
-      <a href="#sobre" class="boton-portada boton-portada-secundario">Conocer Más</a>
+      <a href="#estadisticas" class="boton-portada boton-portada-secundario">Conocer Más</a>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Estadísticas Animadas -->
+<section class="seccion-estadisticas" id="estadisticas">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Números que Hablan</h2>
+    <div class="grid-estadisticas">
+      <div class="tarjeta-estadistica">
+        <div class="numero-animado" data-valor="22">22</div>
+        <p class="texto-estadistica">Calculadoras Interactivas</p>
+      </div>
+      <div class="tarjeta-estadistica">
+        <div class="numero-animado" data-valor="6">6</div>
+        <p class="texto-estadistica">Categorías de Métodos</p>
+      </div>
+      <div class="tarjeta-estadistica">
+        <div class="numero-animado" data-valor="2">2</div>
+        <p class="texto-estadistica">Unidades Académicas</p>
+      </div>
+      <div class="tarjeta-estadistica">
+        <div class="numero-animado" data-valor="5">5</div>
+        <p class="texto-estadistica">Desarrolladores Dedicados</p>
+      </div>
     </div>
   </div>
 </section>
@@ -75,6 +106,231 @@
         <div class="icono-info">📊</div>
         <h3>Visualización Interactiva</h3>
         <p>Gráficos dinámicos con Plotly para explorar soluciones, convergencia y comportamiento de métodos. Desarrollo paso a paso con resultados detallados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Características Destacadas -->
+<section class="seccion-caracteristicas">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Características Destacadas</h2>
+    <div class="grid-caracteristicas">
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica">📊</div>
+        <h3>Visualización Avanzada</h3>
+        <p>Gráficos dinámicos interactivos con Plotly para explorar convergencia, comportamiento y precisión de métodos.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica">🔬</div>
+        <h3>Paso a Paso Detallado</h3>
+        <p>Visualización completa del proceso iterativo con valores intermedios y convergencia en tiempo real.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica">⚡</div>
+        <h3>Cálculos Precisos</h3>
+        <p>Precisión numérica optimizada con métodos de alta exactitud para resultados confiables.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica">📱</div>
+        <h3>Diseño Responsive</h3>
+        <p>Interface moderna y adaptable a cualquier dispositivo - desktop, tablet o móvil.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica">🎓</div>
+        <h3>Contenido Educativo</h3>
+        <p>Documentación completa y ejemplos prácticos para fortalecer aprendizaje teórico.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica">⚙️</div>
+        <h3>Parámetros Personalizables</h3>
+        <p>Ajusta precisión, iteraciones y tolerancia para experimentar con diferentes condiciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Cómo Funciona -->
+<section class="seccion-como-funciona">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">¿Cómo Funciona?</h2>
+    <div class="grid-pasos">
+      <div class="paso-proceso">
+        <div class="numero-paso">1</div>
+        <h3>Selecciona tu Calculadora</h3>
+        <p>Elige el método numérico que necesitas de nuestro catálogo de 22 calculadoras especializadas.</p>
+      </div>
+      <div class="paso-proceso">
+        <div class="numero-paso">2</div>
+        <h3>Ingresa tus Datos</h3>
+        <p>Proporciona los parámetros necesarios: función, ecuación, matriz o condiciones iniciales.</p>
+      </div>
+      <div class="paso-proceso">
+        <div class="numero-paso">3</div>
+        <h3>Configura Parámetros</h3>
+        <p>Ajusta la precisión, número máximo de iteraciones y tolerancia según tu necesidad.</p>
+      </div>
+      <div class="paso-proceso">
+        <div class="numero-paso">4</div>
+        <h3>Visualiza Resultados</h3>
+        <p>Observa gráficos dinámicos, convergencia iterativa y soluciones con precisión numérica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Equipo/Autores con Carrusel -->
+<section class="seccion-equipo" id="equipo">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Nuestro Equipo</h2>
+    <p class="subtitulo-seccion">5 desarrolladores apasionados por los métodos numéricos</p>
+
+    <div class="contenedor-carrusel">
+      <button class="boton-carrusel boton-prev" id="btnPrev" aria-label="Anterior">❮</button>
+
+      <div class="carrusel-autores">
+        <div class="tarjeta-autor">
+          <div class="foto-autor">
+            <img src="imagenes/autores/helber.jpg" alt="Helber Junior Lope">
+          </div>
+          <h3>Helber Junior Lope</h3>
+          <p class="rol-autor">Full Stack Developer</p>
+          <div class="sociales-autor">
+            <a href="#" title="GitHub" aria-label="Perfil GitHub de Helber">🔗</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-autor">
+          <div class="foto-autor">
+            <img src="imagenes/autores/elvis.jpg" alt="Elvis Ronald Arocutipa">
+          </div>
+          <h3>Elvis Ronald Arocutipa</h3>
+          <p class="rol-autor">Backend Developer</p>
+          <div class="sociales-autor">
+            <a href="#" title="GitHub" aria-label="Perfil GitHub de Elvis">🔗</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-autor">
+          <div class="foto-autor">
+            <img src="imagenes/autores/oscar.jpg" alt="Oscar Fabián Choque">
+          </div>
+          <h3>Oscar Fabián Choque</h3>
+          <p class="rol-autor">Frontend Developer</p>
+          <div class="sociales-autor">
+            <a href="#" title="GitHub" aria-label="Perfil GitHub de Oscar">🔗</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-autor">
+          <div class="foto-autor">
+            <img src="imagenes/autores/diego.jpg" alt="Diego Jeancarlos Ramos">
+          </div>
+          <h3>Diego Jeancarlos Ramos</h3>
+          <p class="rol-autor">UI/UX Designer</p>
+          <div class="sociales-autor">
+            <a href="#" title="GitHub" aria-label="Perfil GitHub de Diego">🔗</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-autor">
+          <div class="foto-autor">
+            <img src="imagenes/autores/gabriel.jpg" alt="Gabriel Stefano Peñaloza">
+          </div>
+          <h3>Gabriel Stefano Peñaloza</h3>
+          <p class="rol-autor">QA & Tester</p>
+          <div class="sociales-autor">
+            <a href="#" title="GitHub" aria-label="Perfil GitHub de Gabriel">🔗</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="boton-carrusel boton-next" id="btnNext" aria-label="Siguiente">❯</button>
+    </div>
+
+    <div class="indicadores-carrusel" id="indicadoresCarrusel"></div>
+  </div>
+</section>
+
+<!-- Sección Tecnologías -->
+<section class="seccion-tecnologias">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Tecnologías Utilizadas</h2>
+
+    <div class="grid-tecnologias">
+      <div class="tarjeta-tecnologia">
+        <h3>Frontend</h3>
+        <div class="stack-lista">
+          <span class="tech-badge">HTML5</span>
+          <span class="tech-badge">CSS3</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">Plotly.js</span>
+        </div>
+      </div>
+
+      <div class="tarjeta-tecnologia">
+        <h3>Matemáticas & Cálculo</h3>
+        <div class="stack-lista">
+          <span class="tech-badge">Métodos Numéricos</span>
+          <span class="tech-badge">Álgebra Lineal</span>
+          <span class="tech-badge">Cálculo Diferencial</span>
+          <span class="tech-badge">EDO</span>
+        </div>
+      </div>
+
+      <div class="tarjeta-tecnologia">
+        <h3>Herramientas & Recursos</h3>
+        <div class="stack-lista">
+          <span class="tech-badge">Git/GitHub</span>
+          <span class="tech-badge">Google Fonts</span>
+          <span class="tech-badge">VS Code</span>
+          <span class="tech-badge">JSON Data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Casos de Uso -->
+<section class="seccion-casos-uso">
+  <div class="contenedor-seccion">
+    <h2 class="titulo-seccion-grande">Casos de Uso</h2>
+
+    <div class="grid-casos">
+      <div class="tarjeta-caso">
+        <div class="icono-caso">🏗️</div>
+        <h3>Ingeniería Civil</h3>
+        <p>Análisis estructural, cálculo de fuerzas en estructuras y solución de sistemas de ecuaciones complejos.</p>
+      </div>
+
+      <div class="tarjeta-caso">
+        <div class="icono-caso">⚡</div>
+        <h3>Ingeniería Eléctrica</h3>
+        <p>Análisis de circuitos, flujo de potencia y resolución de sistemas no lineales en sistemas eléctricos.</p>
+      </div>
+
+      <div class="tarjeta-caso">
+        <div class="icono-caso">💧</div>
+        <h3>Ingeniería Hidráulica</h3>
+        <p>Modelado de flujo en tuberías, sistemas de control y ecuaciones diferenciales en hidráulica.</p>
+      </div>
+
+      <div class="tarjeta-caso">
+        <div class="icono-caso">🔬</div>
+        <h3>Física Computacional</h3>
+        <p>Simulación de sistemas dinámicos, propagación de ondas y fenómenos transitorios con precisión numérica.</p>
+      </div>
+
+      <div class="tarjeta-caso">
+        <div class="icono-caso">📈</div>
+        <h3>Análisis de Datos</h3>
+        <p>Interpolación, ajuste de curvas, pronósticos y análisis de comportamiento de series temporales.</p>
+      </div>
+
+      <div class="tarjeta-caso">
+        <div class="icono-caso">🤖</div>
+        <h3>Inteligencia Artificial</h3>
+        <p>Optimización de funciones, resolución de sistemas de ecuaciones y métodos de aprendizaje numérico.</p>
       </div>
     </div>
   </div>
@@ -137,7 +393,7 @@
       <p class="item-footer"><strong>Docente:</strong> MSc. Ing. Jorge R. Chambilla Araca</p>
     </div>
     <div class="info-derecha">
-      <p class="item-footer"><strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque</p>
+      <p class="item-footer"><strong>Desarrollado por:</strong> Helber Junior Lope | Elvis Ronald Arocutipa | Oscar Fabián Choque | Diego Jeancarlos Ramos | Gabriel Stefano Peñaloza</p>
     </div>
   </div>
   <div class="creditos">
@@ -146,6 +402,7 @@
 </footer>
 
 <script src="index.js"></script>
+<script src="js/home-animations.js"></script>
 
 </body>
 </html>
