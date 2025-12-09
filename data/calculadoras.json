@@ -9,7 +9,8 @@
         "descripcion": "Operación básica de suma entre dos matrices de dimensiones compatibles.",
         "link": "calculadoras/matrices-suma/suma.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "matricial"
       },
       {
         "numero": 2,
@@ -17,7 +18,8 @@
         "descripcion": "Producto matricial con visualización paso a paso del proceso de cálculo.",
         "link": "calculadoras/matrices-multiplicacion/multiplicacion.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "matricial"
       },
       {
         "numero": 3,
@@ -25,7 +27,8 @@
         "descripcion": "Cálculo de determinantes con método de cofactores y regla de Sarrus.",
         "link": "calculadoras/matrices-determinantes/determinantes.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "matricial"
       },
       {
         "numero": 4,
@@ -33,7 +36,8 @@
         "descripcion": "Cálculo de la matriz inversa usando métodos de Gauss-Jordan.",
         "link": "calculadoras/matrices-inversa/inversa.html",
         "imagen": "imagenes/calculadoras/matrices.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "matricial"
       },
       {
         "numero": 5,
@@ -41,7 +45,8 @@
         "descripcion": "Método de eliminación gaussiana para convertir matrices a forma triangular superior.",
         "link": "calculadoras/gauss/gauss.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "lineales"
       },
       {
         "numero": 6,
@@ -49,7 +54,8 @@
         "descripcion": "Eliminación completa para obtener matriz identidad y resolver sistemas simultáneamente.",
         "link": "calculadoras/gauss-jordan/gauss-jordan.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "lineales"
       },
       {
         "numero": 7,
@@ -57,7 +63,8 @@
         "descripcion": "Método iterativo para resolver sistemas usando aproximaciones sucesivas.",
         "link": "calculadoras/jacobi/jacobi.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "lineales"
       },
       {
         "numero": 8,
@@ -65,7 +72,8 @@
         "descripcion": "Variante mejorada de Jacobi que converge más rápido usando valores actualizados.",
         "link": "calculadoras/gauss-seidel/gauss-seidel.html",
         "imagen": "imagenes/calculadoras/metodos.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "lineales"
       },
       {
         "numero": 9,
@@ -73,7 +81,8 @@
         "descripcion": "Búsqueda de raíces dividiendo intervalos sucesivamente.",
         "link": "calculadoras/biseccion/biseccion.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "no-lineales"
       },
       {
         "numero": 10,
@@ -81,7 +90,8 @@
         "descripcion": "Aproximación de raíces usando líneas secantes sin necesidad de derivada.",
         "link": "calculadoras/secante/secante.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "no-lineales"
       },
       {
         "numero": 11,
@@ -89,7 +99,8 @@
         "descripcion": "Iteración directa reordenando la ecuación para encontrar puntos de convergencia.",
         "link": "calculadoras/punto-fijo/punto-fijo.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "no-lineales"
       },
       {
         "numero": 12,
@@ -97,7 +108,8 @@
         "descripcion": "Variante del método de Newton con jacobiano congelado para mayor estabilidad.",
         "link": "calculadoras/newton-raphson/newton-raphson.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "no-lineales"
       },
       {
         "numero": 13,
@@ -105,7 +117,8 @@
         "descripcion": "Solver numérico avanzado para sistemas de ecuaciones no lineales.",
         "link": "calculadoras/fsolve/fsolve.html",
         "imagen": "imagenes/calculadoras/ecuaciones.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "no-lineales"
       }
     ]
   },
@@ -119,7 +132,8 @@
         "descripcion": "Construye un polinomio que pasa exactamente por todos los puntos dados y evalúa en un punto específico.",
         "link": "calculadoras/lagrange/lagrange.html",
         "imagen": "imagenes/calculadoras/lagrange.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "interpolacion"
       },
       {
         "numero": 15,
@@ -127,7 +141,8 @@
         "descripcion": "Método incremental usando diferencias divididas. Permite agregar puntos sin recalcular todo el polinomio.",
         "link": "calculadoras/newton/newton.html",
         "imagen": "imagenes/calculadoras/newton.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "interpolacion"
       },
       {
         "numero": 16,
@@ -135,7 +150,8 @@
         "descripcion": "Ajuste de modelos polinomiales que minimizan el error cuadrático medio entre datos observados y predichos.",
         "link": "calculadoras/minimos-cuadrados/minimos-cuadrados.html",
         "imagen": "imagenes/calculadoras/minimos-cuadrados.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "interpolacion"
       },
       {
         "numero": 17,
@@ -143,7 +159,8 @@
         "descripcion": "Aproximación de integrales definidas mediante la suma de áreas de trapecios.",
         "link": "calculadoras/trapecio/trapecio.html",
         "imagen": "imagenes/calculadoras/trapecio.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "integracion"
       },
       {
         "numero": 18,
@@ -151,7 +168,8 @@
         "descripcion": "Integración numérica de mayor precisión usando aproximaciones parabólicas (Simpson 1/3 y 3/8).",
         "link": "calculadoras/simpson/simpson.html",
         "imagen": "imagenes/calculadoras/simpson.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "integracion"
       },
       {
         "numero": 19,
@@ -159,7 +177,8 @@
         "descripcion": "Solución numérica de ecuaciones diferenciales ordinarias mediante aproximación lineal.",
         "link": "calculadoras/euler/euler.html",
         "imagen": "imagenes/calculadoras/euler.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "edo"
       },
       {
         "numero": 20,
@@ -167,7 +186,8 @@
         "descripcion": "Resolución de EDO usando expansión en serie de Taylor para mayor precisión.",
         "link": "calculadoras/taylor/taylor.html",
         "imagen": "imagenes/calculadoras/taylor.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "edo"
       },
       {
         "numero": 21,
@@ -175,7 +195,8 @@
         "descripcion": "Método de segundo orden para resolver EDO con mejor precisión que Euler.",
         "link": "calculadoras/runge-kutta-2/rk2.html",
         "imagen": "imagenes/calculadoras/rk2.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "edo"
       },
       {
         "numero": 22,
@@ -183,7 +204,8 @@
         "descripcion": "Método de cuarto orden ampliamente usado por su excelente balance entre precisión y eficiencia.",
         "link": "calculadoras/runge-kutta-4/rk4.html",
         "imagen": "imagenes/calculadoras/rk4.png",
-        "estado": "activo"
+        "estado": "activo",
+        "categoria": "edo"
       }
     ]
   }
