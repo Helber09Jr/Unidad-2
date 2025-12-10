@@ -188,8 +188,8 @@
 /* === SECCIÓN CARACTERÍSTICAS === */
 
 .seccion-caracteristicas {
-  padding: 100px 40px;
-  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #fff5f0 0%, #f0f8ff 100%);
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -239,8 +239,8 @@
 /* === SECCIÓN CÓMO FUNCIONA === */
 
 .seccion-como-funciona {
-  padding: 100px 40px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #f5f0ff 0%, #fff5f0 100%);
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -298,8 +298,8 @@
 /* === SECCIÓN EQUIPO CON CARRUSEL === */
 
 .seccion-equipo {
-  padding: 70px 30px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #f0fff9 0%, #fff0f5 100%);
 }
 
 .subtitulo-seccion {
@@ -412,8 +412,8 @@
 /* === SECCIÓN TECNOLOGÍAS === */
 
 .seccion-tecnologias {
-  padding: 100px 40px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #f5f0ff 0%, #f0f9ff 100%);
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -478,8 +478,8 @@
 /* === SECCIÓN CASOS DE USO === */
 
 .seccion-casos-uso {
-  padding: 100px 40px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #fff0f5 0%, #f0f9ff 100%);
   border-bottom: 1px solid #e8e8e8;
 }
 
