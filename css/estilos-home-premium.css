@@ -180,7 +180,8 @@
 
 .seccion-caracteristicas {
   padding: 100px 40px;
-  background: white;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .grid-caracteristicas {
@@ -289,7 +290,7 @@
 
 .seccion-equipo {
   padding: 80px 40px;
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
 }
 
 .subtitulo-seccion {
@@ -317,6 +318,7 @@
   flex: 1;
   max-width: 1200px;
   scroll-behavior: smooth;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tarjeta-autor {
@@ -520,7 +522,8 @@
 
 .seccion-casos-uso {
   padding: 100px 40px;
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .grid-casos {
