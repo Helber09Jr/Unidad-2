@@ -25,41 +25,35 @@
   z-index: -1;
 }
 
-.galeria-zoom {
+.portada-background::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
-  z-index: 0;
+  background-image: url('imagenes/fondo/fondo-principal-01.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: zoomFondo1 8s ease-in-out infinite;
+  z-index: 1;
 }
 
-.imagen-zoom {
+.portada-background::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('imagenes/fondo/fondo-principal-02.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: zoomFondo2 8s ease-in-out infinite;
+  z-index: 2;
 }
 
-.imagen-zoom img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: zoomInAlternado 16s ease-in-out infinite;
-}
-
-.imagen-zoom:nth-child(1) img {
-  animation: zoomPrimera 16s ease-in-out infinite;
-}
-
-.imagen-zoom:nth-child(2) img {
-  animation: zoomSegunda 16s ease-in-out infinite;
-}
-
-@keyframes zoomPrimera {
+@keyframes zoomFondo1 {
   0% {
     transform: scale(1);
     opacity: 1;
@@ -77,7 +71,7 @@
   }
 }
 
-@keyframes zoomSegunda {
+@keyframes zoomFondo2 {
   0% {
     transform: scale(1.15);
     opacity: 0;
