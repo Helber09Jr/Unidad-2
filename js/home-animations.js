@@ -1,115 +1,19 @@
 /* === ANIMACIONES Y FUNCIONALIDAD HOME === */
 
-// Variables globales para el carrusel
-let posicionCarrusel = 0;
-const tarjetasAutor = document.querySelectorAll('.tarjeta-autor');
-const carruselAutores = document.querySelector('.carrusel-autores');
-let intervaloCarrusel;
-
-// Ancho de cada tarjeta
-const ANCHO_TARJETA = 220 + 25; // 220px de tarjeta + 25px de gap
-
 /**
- * Inicializar funcionalidad del carrusel
+ * Duplicar tarjetas del carrusel para crear efecto infinito
  */
-function inicializarCarrusel() {
-  const btnPrev = document.getElementById('btnPrev');
-  const btnNext = document.getElementById('btnNext');
-  const indicadoresContainer = document.getElementById('indicadoresCarrusel');
+function duplicarTarjetasCarrusel() {
+  const carruselAutores = document.querySelector('.carrusel-autores');
+  if (!carruselAutores) return;
 
-  // Crear indicadores
-  tarjetasAutor.forEach((_, index) => {
-    const indicador = document.createElement('div');
-    indicador.className = 'indicador';
-    if (index === 0) indicador.classList.add('activo');
-    indicador.addEventListener('click', () => irAAutor(index));
-    indicadoresContainer.appendChild(indicador);
+  const tarjetasOriginales = Array.from(carruselAutores.querySelectorAll('.tarjeta-autor'));
+
+  // Duplicar las tarjetas al final para crear el efecto infinito
+  tarjetasOriginales.forEach(tarjeta => {
+    const clon = tarjeta.cloneNode(true);
+    carruselAutores.appendChild(clon);
   });
-
-  // Event listeners para botones
-  btnPrev.addEventListener('click', () => {
-    rotarCarrusel(-1);
-    resetearIntervaloCarrusel();
-  });
-
-  btnNext.addEventListener('click', () => {
-    rotarCarrusel(1);
-    resetearIntervaloCarrusel();
-  });
-
-  // Iniciar auto-rotación
-  iniciarAutoCarrusel();
-
-  // Pausa en hover
-  carruselAutores.addEventListener('mouseenter', () => {
-    clearInterval(intervaloCarrusel);
-  });
-
-  carruselAutores.addEventListener('mouseleave', () => {
-    iniciarAutoCarrusel();
-  });
-}
-
-/**
- * Rotar carrusel hacia adelante o atrás
- * @param {number} direccion - 1 para adelante, -1 para atrás
- */
-function rotarCarrusel(direccion) {
-  posicionCarrusel += direccion;
-
-  // Circular: si llega al final, vuelve al inicio
-  if (posicionCarrusel >= tarjetasAutor.length) {
-    posicionCarrusel = 0;
-  } else if (posicionCarrusel < 0) {
-    posicionCarrusel = tarjetasAutor.length - 1;
-  }
-
-  actualizarPosicionCarrusel();
-}
-
-/**
- * Ir a un autor específico
- * @param {number} index - Índice del autor
- */
-function irAAutor(index) {
-  posicionCarrusel = index;
-  actualizarPosicionCarrusel();
-  resetearIntervaloCarrusel();
-}
-
-/**
- * Actualizar posición visual del carrusel
- */
-function actualizarPosicionCarrusel() {
-  const offset = -posicionCarrusel * ANCHO_TARJETA;
-  carruselAutores.style.transform = `translateX(${offset}px)`;
-
-  // Actualizar indicadores
-  const indicadores = document.querySelectorAll('.indicador');
-  indicadores.forEach((ind, index) => {
-    if (index === posicionCarrusel) {
-      ind.classList.add('activo');
-    } else {
-      ind.classList.remove('activo');
-    }
-  });
-}
-
-/**
- * Iniciar auto-rotación del carrusel (cada 6 segundos)
- */
-function iniciarAutoCarrusel() {
-  intervaloCarrusel = setInterval(() => {
-    rotarCarrusel(1);
-  }, 6000);
-}
-
-/**
- * Resetear el intervalo del carrusel automático
- */
-function resetearIntervaloCarrusel() {
-  clearInterval(intervaloCarrusel);
-  iniciarAutoCarrusel();
 }
 
 /**
@@ -236,7 +140,7 @@ function inicializarParallax() {
  * Animar elementos al pasar el mouse
  */
 function inicializarHoverAnimations() {
-  const tarjetas = document.querySelectorAll('.tarjeta-estadistica, .tarjeta-caracteristica, .paso-proceso, .tarjeta-caso');
+  const tarjetas = document.querySelectorAll('.tarjeta-caracteristica, .paso-proceso, .tarjeta-caso');
 
   tarjetas.forEach((tarjeta) => {
     tarjeta.addEventListener('mouseenter', function () {
@@ -251,7 +155,7 @@ function inicializarHoverAnimations() {
 document.addEventListener('DOMContentLoaded', () => {
   // Esperar un pequeño delay para asegurar que el DOM esté completamente renderizado
   setTimeout(() => {
-    inicializarCarrusel();
+    duplicarTarjetasCarrusel();
     inicializarContadoresNumeros();
     inicializarScrollAnimations();
     inicializarSmoothScroll();
@@ -266,6 +170,5 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('orientationchange', () => {
   setTimeout(() => {
     inicializarParallax();
-    actualizarPosicionCarrusel();
   }, 300);
 });
