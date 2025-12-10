@@ -7,7 +7,7 @@ const carruselAutores = document.querySelector('.carrusel-autores');
 let intervaloCarrusel;
 
 // Ancho de cada tarjeta
-const ANCHO_TARJETA = 240 + 30; // 240px de tarjeta + 30px de gap
+const ANCHO_TARJETA = 220 + 25; // 220px de tarjeta + 25px de gap
 
 /**
  * Inicializar funcionalidad del carrusel
