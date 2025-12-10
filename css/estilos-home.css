@@ -131,7 +131,8 @@
 }
 
 .seccion-sobre {
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .grid-sobre {
@@ -177,7 +178,8 @@
 }
 
 .seccion-metodos {
-  background: var(--gris-claro);
+  background: linear-gradient(180deg, #f8f9fa 0%, #f0f4f8 100%);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .grid-metodos {
@@ -246,7 +248,8 @@
 }
 
 .seccion-contacto {
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .info-curso {

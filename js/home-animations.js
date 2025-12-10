@@ -96,12 +96,12 @@ function actualizarPosicionCarrusel() {
 }
 
 /**
- * Iniciar auto-rotación del carrusel (cada 5 segundos)
+ * Iniciar auto-rotación del carrusel (cada 6 segundos)
  */
 function iniciarAutoCarrusel() {
   intervaloCarrusel = setInterval(() => {
     rotarCarrusel(1);
-  }, 5000);
+  }, 6000);
 }
 
 /**
