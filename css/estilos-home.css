@@ -67,38 +67,48 @@
 .boton-portada {
   text-decoration: none;
   font-weight: 700;
-  padding: 1.1rem 2.5rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.boton-portada::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.boton-portada:hover::before {
+  left: 100%;
 }
 
 .boton-portada-primario {
-  background-color: var(--dorado);
+  background: linear-gradient(135deg, var(--dorado) 0%, #ffc700 100%);
   color: var(--azul-oscuro);
-  border: 3px solid var(--dorado);
-  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.4);
+  border: none;
+  box-shadow: 0 8px 25px rgba(255, 183, 3, 0.5);
+  font-weight: 800;
 }
 
 .boton-portada-primario:hover {
-  background-color: #e5a503;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(255, 183, 3, 0.6);
+  background: linear-gradient(135deg, #ffc700 0%, var(--dorado) 100%);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 50px rgba(255, 183, 3, 0.7);
 }
 
-.boton-portada-secundario {
-  background-color: transparent;
-  color: white;
-  border: 3px solid white;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
-
-.boton-portada-secundario:hover {
-  background-color: white;
-  color: var(--azul-oscuro);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+.boton-portada-primario:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
 .contenedor-seccion {
@@ -138,12 +148,12 @@
 .grid-sobre {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
-  margin-top: 50px;
+  gap: 20px;
+  margin-top: 15px;
 }
 
 .tarjeta-info {
-  background: linear-gradient(135deg, white 0%, var(--gris-claro) 100%);
+  background: linear-gradient(135deg, #fff5f0 0%, #f5f0ff 100%);
   padding: 40px 30px;
   border-radius: 16px;
   text-align: center;
@@ -185,12 +195,12 @@
 .grid-metodos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 45px;
-  margin-top: 50px;
+  gap: 20px;
+  margin-top: 15px;
 }
 
 .grupo-metodos {
-  background: white;
+  background: linear-gradient(135deg, #f5f0ff 0%, #fff5f0 100%);
   padding: 40px;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -255,12 +265,12 @@
 .info-curso {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
-  margin-top: 50px;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .item-curso {
-  background: linear-gradient(135deg, white 0%, var(--gris-claro) 100%);
+  background: linear-gradient(135deg, #fff5f0 0%, #f0f5ff 100%);
   padding: 25px 30px;
   border-radius: 12px;
   border-left: 5px solid var(--dorado);
