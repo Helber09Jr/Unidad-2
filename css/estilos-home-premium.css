@@ -41,33 +41,33 @@
 @keyframes alternanciaZoomFondo {
   /* Primera imagen - primeros 4 segundos */
   0% {
-    background-image: url('imagenes/fondo/fondo-principal-01.jpg');
+    background-image: url('../imagenes/fondo/fondo-principal-01.jpeg');
     transform: scale(1);
     opacity: 1;
   }
   25% {
-    background-image: url('imagenes/fondo/fondo-principal-01.jpg');
+    background-image: url('../imagenes/fondo/fondo-principal-01.jpeg');
     transform: scale(1.15);
     opacity: 1;
   }
   49% {
-    background-image: url('imagenes/fondo/fondo-principal-01.jpg');
+    background-image: url('../imagenes/fondo/fondo-principal-01.jpeg');
     transform: scale(1.15);
     opacity: 1;
   }
   50% {
-    background-image: url('imagenes/fondo/fondo-principal-02.jpg');
+    background-image: url('../imagenes/fondo/fondo-principal-02.jpg');
     transform: scale(1);
     opacity: 1;
   }
   /* Segunda imagen - últimos 4 segundos */
   75% {
-    background-image: url('imagenes/fondo/fondo-principal-02.jpg');
+    background-image: url('../imagenes/fondo/fondo-principal-02.jpg');
     transform: scale(1.15);
     opacity: 1;
   }
   100% {
-    background-image: url('imagenes/fondo/fondo-principal-02.jpg');
+    background-image: url('../imagenes/fondo/fondo-principal-02.jpg');
     transform: scale(1.15);
     opacity: 1;
   }
